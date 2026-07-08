@@ -1,0 +1,6 @@
+{
+  "stories": [
+    { "file": "inquilino.json", "title": "L'Inquilino", "tagline": "un terminale, una casa, una porta che non apri mai" },
+    { "file": "il-faro.json", "title": "Il Faro", "tagline": "una radio, una nebbia, un custode che non se n'e' mai andato" }
+  ]
+}

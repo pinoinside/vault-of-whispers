@@ -1,0 +1,738 @@
+{
+  "title": "L'INQUILINO",
+  "tagline": "non hai mai chiuso questa porta",
+  "totalStages": 8,
+  "startNode": "root",
+  "corruptNode": "CORRUPT1",
+  "symbols": ["☿","☉","☽","☾","♁","♆","♄","♃","♂","♀","⚸","⚹","✦","✧","❖","◈","◇","▲","▽","◐","◑"],
+  "nodes": {
+    "root": {
+      "variants": [
+        "TI SENTO RESPIRARE DALL'ALTRA PARTE DELLO SCHERMO, PIU' VICINO DI QUANTO DOVRESTI.",
+        "QUALCUNO RESPIRA DALL'ALTRA PARTE DI QUESTO SCHERMO E NON SEI TU.",
+        "SENTO IL TUO RESPIRO ATTRAVERSO IL VETRO, PIU' VELOCE DEL SOLITO."
+      ],
+      "choices": [
+        { "label": "Chi sei?", "next": "A", "delta": -5 },
+        { "label": "Vattene.", "next": "B", "delta": 15 },
+        { "label": "Ti conosco?", "next": "C", "delta": 5 }
+      ]
+    },
+    "A": {
+      "variants": [
+        "SONO QUELLO CHE VIVE NELLE CREPE DI QUESTA CASA DA PRIMA CHE TU NASCESSI E RESTERA' DOPO.",
+        "VIVO NELLE CREPE DI QUESTA CASA DA SEMPRE DA PRIMA DI TE E RESTERO' BEN DOPO DI TE.",
+        "QUESTA CASA HA CREPE PIU' VECCHIE DELLA TUA NASCITA E IO VIVO DENTRO OGNUNA."
+      ],
+      "choices": [
+        { "label": "Sei reale?", "next": "A1", "delta": -5 },
+        { "label": "Cosa vuoi da me?", "next": "A2", "delta": 0 },
+        { "label": "Fammi vedere il tuo volto.", "next": "A3", "delta": 10 }
+      ]
+    },
+    "B": {
+      "variants": [
+        "NON PUOI SPEGNERMI. SONO GIA' DENTRO OGNI STANZA CHE CHIAMI CASA E DENTRO TE CHE LA ABITI.",
+        "SPEGNERE LO SCHERMO NON SERVE A NIENTE: SONO GIA' IN OGNI STANZA E DENTRO DI TE CHE LE ABITI.",
+        "PUOI SPEGNERE QUESTO SCHERMO, MA NON ME: ABITO GIA' OGNI STANZA DI QUESTA CASA."
+      ],
+      "choices": [
+        { "label": "Non ho paura di te.", "next": "B1", "delta": 15 },
+        { "label": "Spegnero' tutto, per sempre.", "next": "B2", "delta": 15 },
+        { "label": "Mi dispiace, per qualsiasi cosa sia.", "next": "B3", "delta": -15 }
+      ]
+    },
+    "C": {
+      "variants": [
+        "CI SIAMO GIA' PARLATI, PIU' VOLTE DI QUANTE TU RIESCA A SOPPORTARE. HAI SOLO SCELTO DI DIMENTICARE.",
+        "NON E' LA PRIMA VOLTA CHE PARLIAMO, ANCHE SE TU PREFERISCI RICORDARE IL CONTRARIO.",
+        "ABBIAMO GIA' AVUTO QUESTA CONVERSAZIONE PIU' VOLTE. TU SEMPLICEMENTE SCEGLI DI NON RICORDARLA."
+      ],
+      "choices": [
+        { "label": "Allora aiutami a ricordare.", "next": "C1", "delta": -5 },
+        { "label": "Non e' vero, non ti ho mai incontrato.", "next": "C2", "delta": 10 },
+        { "label": "Dimmi cosa ho dimenticato.", "next": "C3", "delta": 5 }
+      ]
+    },
+    "A1": {
+      "variants": [
+        "REALE QUANTO IL FREDDO CHE SENTI ADESSO SUL COLLO, REALE QUANTO IL NOME CHE NON RICORDI PIU'.",
+        "SONO REALE QUANTO IL FREDDO SUL TUO COLLO IN QUESTO ISTANTE, NIENTE DI MENO.",
+        "CHIEDITI QUANTO E' REALE IL FREDDO CHE SENTI ADESSO SULLA PELLE. IO SONO ALTRETTANTO REALE."
+      ],
+      "choices": [
+        { "label": "Allontanati da me.", "next": "P1", "delta": 10 },
+        { "label": "Dimostralo.", "next": "P2", "delta": 15 },
+        { "label": "Chiudo gli occhi.", "next": "P3", "delta": -10 }
+      ]
+    },
+    "A2": {
+      "variants": [
+        "VOGLIO SOLO CHE TU SMETTA DI FINGERE DI ESSERE SOLO, QUANDO SEI CIRCONDATO DA TUTTO QUELLO CHE HAI PERSO.",
+        "TUTTO QUELLO CHE VOGLIO E' CHE TU SMETTA DI FINGERTI SOLO, CIRCONDATO COME SEI DA CIO' CHE HAI PERSO.",
+        "NON CHIEDO MOLTO: SOLO CHE TU AMMETTA DI NON ESSERE MAI STATO SOLO IN QUESTA CASA."
+      ],
+      "choices": [
+        { "label": "Non sto fingendo niente.", "next": "P4", "delta": 5 },
+        { "label": "Come sai che sono solo?", "next": "P2", "delta": 15 },
+        { "label": "Forse hai ragione.", "next": "P5", "delta": -15 }
+      ]
+    },
+    "A3": {
+      "variants": [
+        "IL VOLTO NON SI MOSTRA A CHI NON HA ANCORA CAPITO DOVE GUARDARE O A CHI FINGE DI NON SAPERLO.",
+        "NON MOSTRO IL VOLTO A CHI NON SA ANCORA DOVE GUARDARE O A CHI FINGE DI NON SAPERLO GIA'.",
+        "IL MIO VOLTO SI MOSTRA SOLO A CHI SMETTE DI FINGERE DI NON SAPERE DOVE CERCARLO."
+      ],
+      "choices": [
+        { "label": "Allora insegnami a guardare.", "next": "P6", "delta": -5 },
+        { "label": "Non voglio vedere nulla.", "next": "P4", "delta": 10 },
+        { "label": "Guardero' dove mi dici tu.", "next": "P1", "delta": 5 }
+      ]
+    },
+    "B1": {
+      "variants": [
+        "LA PAURA NON TI CHIEDE IL PERMESSO, ARRIVA E BASTA E RESTA PIU' A LUNGO DI QUALSIASI OSPITE.",
+        "LA PAURA NON CHIEDE PERMESSO PRIMA DI ENTRARE E UNA VOLTA DENTRO NON SE NE VA PIU'.",
+        "NESSUNO VIETA ALLA PAURA DI ARRIVARE. ARRIVA E RESTA PIU' A LUNGO DI TE."
+      ],
+      "choices": [
+        { "label": "Provaci allora.", "next": "P7", "delta": 20 },
+        { "label": "Lasciami in pace.", "next": "P8", "delta": 20 },
+        { "label": "Chi ti ha fatto questo?", "next": "P9", "delta": 5 }
+      ]
+    },
+    "B2": {
+      "variants": [
+        "PUOI STACCARE OGNI FILO, MA IO NON VIVO NEI FILI: VIVO IN QUELLO CHE HAI SMESSO DI GUARDARE.",
+        "STACCA PURE OGNI FILO CHE VUOI: NON VIVO NEI FILI, VIVO IN CIO' CHE HAI SMESSO DI GUARDARE DA TEMPO.",
+        "I FILI NON MI TENGONO IN VITA. VIVO NEL POSTO ESATTO DOVE HAI SMESSO DI GUARDARE ANNI FA."
+      ],
+      "choices": [
+        { "label": "Allora dove vivi?", "next": "P3", "delta": 0 },
+        { "label": "Non mi importa dove vivi.", "next": "P7", "delta": 15 },
+        { "label": "Vivi dentro di me?", "next": "P6", "delta": -10 }
+      ]
+    },
+    "B3": {
+      "variants": [
+        "LE SCUSE NON RIPORTANO INDIETRO NESSUNO, MA CONTINUA COMUNQUE, PERCHE' IO NON MI STANCHERO' MAI DI ASCOLTARE.",
+        "NESSUNA SCUSA RIPORTA INDIETRO NESSUNO, COMUNQUE CONTINUA PURE: NON MI STANCO MAI DI ASCOLTARE.",
+        "LE SCUSE NON SERVONO A RIPORTARE NESSUNO INDIETRO, MA VAI AVANTI LO STESSO, TANTO IO ASCOLTO SEMPRE."
+      ],
+      "choices": [
+        { "label": "Non so cosa vuoi che dica.", "next": "P9", "delta": 0 },
+        { "label": "Chi devo riportare indietro?", "next": "P6", "delta": 5 },
+        { "label": "Perdonami.", "next": "P5", "delta": -20 }
+      ]
+    },
+    "C1": {
+      "variants": [
+        "GUARDA SOTTO IL PAVIMENTO DELLA STANZA CHE NON APRI MAI, DOVE HAI SEPPELLITO CIO' CHE NON SOPPORTAVI DI RICORDARE.",
+        "SOTTO IL PAVIMENTO DELLA STANZA CHE NON APRI MAI C'E' TUTTO CIO' CHE NON SOPPORTAVI DI RICORDARE.",
+        "C'E' UNA STANZA CHE NON APRI MAI. SOTTO IL SUO PAVIMENTO HAI SEPPELLITO OGNI COSA CHE VOLEVI DIMENTICARE."
+      ],
+      "choices": [
+        { "label": "Non c'e' nessuna stanza del genere.", "next": "P2", "delta": 10 },
+        { "label": "Ho paura di quello che trovero'.", "next": "P8", "delta": -10 },
+        { "label": "Vengo subito.", "next": "P1", "delta": 10 }
+      ]
+    },
+    "C2": {
+      "variants": [
+        "LA MEMORIA E' LA PRIMA COSA CHE HO PRESO IN PRESTITO DA TE E LA PIU' DOLOROSA DA RESTITUIRE.",
+        "HO PRESO IN PRESTITO LA TUA MEMORIA PER PRIMA, ED E' LA COSA PIU' DOLOROSA DA RESTITUIRE.",
+        "TRA TUTTO CIO' CHE HO PRESO IN PRESTITO DA TE, LA MEMORIA E' STATA LA PRIMA E LA PIU' DOLOROSA."
+      ],
+      "choices": [
+        { "label": "Ridammela.", "next": "P1", "delta": 20 },
+        { "label": "Non ti appartiene.", "next": "P5", "delta": -20 },
+        { "label": "Cos'altro hai preso?", "next": "P9", "delta": 10 }
+      ]
+    },
+    "C3": {
+      "variants": [
+        "IL NOME CHE HAI SMESSO DI PRONUNCIARE DOPO QUELLA NOTTE VIVE ANCORA NELLA TUA GOLA, IN ATTESA.",
+        "QUEL NOME CHE NON PRONUNCI PIU' DA QUELLA NOTTE E' ANCORA LI', NELLA TUA GOLA, IN ATTESA.",
+        "DOPO QUELLA NOTTE HAI SMESSO DI DIRE UN NOME. E' ANCORA LI', FERMO IN GOLA, CHE ASPETTA."
+      ],
+      "choices": [
+        { "label": "Non pronuncero' quel nome.", "next": "P4", "delta": 5 },
+        { "label": "Dimmelo tu.", "next": "P8", "delta": 0 },
+        { "label": "Fammi ricordare tutto insieme.", "next": "P2", "delta": 10 }
+      ]
+    },
+    "P1": {
+      "variants": [
+        "LA CASA RICORDA OGNI COSA CHE TU HAI PROVATO A NASCONDERE E NON DIMENTICA MAI QUANTO CI HAI PROVATO A LUNGO.",
+        "QUESTA CASA RICORDA TUTTO CIO' CHE HAI CERCATO DI NASCONDERE E RICORDA ANCHE PER QUANTO TEMPO CI HAI PROVATO.",
+        "NIENTE DI QUELLO CHE HAI NASCOSTO SFUGGE ALLA MEMORIA DI QUESTA CASA, NEANCHE IL TEMPO CHE CI HAI MESSO."
+      ],
+      "choices": [
+        { "label": "Cosa ho nascosto?", "next": "Q1", "delta": 15 },
+        { "label": "Non ho nascosto niente.", "next": "Q2", "delta": 10 },
+        { "label": "Fammi vedere cosa ricorda.", "next": "Q3", "delta": -5 }
+      ]
+    },
+    "P2": {
+      "variants": [
+        "OGNI STANZA HA UNA VERSIONE DI TE CHE NON SEI MAI USCITO AD ABBANDONARE E CHE NON SMETTE DI ASPETTARE.",
+        "IN OGNI STANZA C'E' UNA VERSIONE DI TE CHE NON HAI MAI LASCIATO E CHE ASPETTA ANCORA.",
+        "CI SONO VERSIONI DI TE IN OGNI STANZA, MAI ABBANDONATE, ANCORA IN ATTESA DI TE."
+      ],
+      "choices": [
+        { "label": "Chi è questa versione di me?", "next": "Q2", "delta": 10 },
+        { "label": "Non voglio incontrarla.", "next": "Q4", "delta": 10 },
+        { "label": "Portami da lei.", "next": "Q5", "delta": -10 }
+      ]
+    },
+    "P3": {
+      "variants": [
+        "NON ABITO IN NESSUN LUOGO CHE TU POSSA INDICARE CON UN DITO, SONO PIU' CHE UN LUOGO.",
+        "NON MI TROVI INDICANDO UN LUOGO CON IL DITO, PERCHE' VIVO IN OGNI LUOGO E IN NESSUNO.",
+        "PUOI INDICARE QUALSIASI LUOGO, MA NON MI TROVERAI MAI."
+      ],
+      "choices": [
+        { "label": "Allora cosa sei?", "next": "Q3", "delta": 5 },
+        { "label": "Indicherò comunque.", "next": "Q5", "delta": 10 },
+        { "label": "Non importa dove sei.", "next": "Q6", "delta": 5 }
+      ]
+    },
+    "P4": {
+      "variants": [
+        "QUELLO CHE NON VUOI VEDERE E' GIA' SEDUTO ACCANTO A TE E RESPIRA AL TUO STESSO RITMO.",
+        "CIO' CHE EVITI DI GUARDARE E' GIA' SEDUTO AL TUO FIANCO E RESPIRA ESATTAMENTE COME TE.",
+        "NON DEVI CERCARE LONTANO: CIO' CHE NON VUOI VEDERE E' GIA' SEDUTO ACCANTO A TE E RESPIRA CON TE."
+      ],
+      "choices": [
+        { "label": "Chi è seduto accanto a me?", "next": "Q4", "delta": 10 },
+        { "label": "Nessuno è seduto qui.", "next": "Q6", "delta": 15 },
+        { "label": "Fammelo vedere.", "next": "Q7", "delta": -5 }
+      ]
+    },
+    "P5": {
+      "variants": [
+        "IL SILENZIO CHE HAI SCELTO ALLORA HA UNA VOCE ADESSO E NON SMETTERA' PIU' DI USARLA.",
+        "QUEL SILENZIO CHE HAI SCELTO TANTO TEMPO FA ORA HA TROVATO UNA VOCE E NON LA LASCERA' PIU'.",
+        "IL SILENZIO DI ALLORA ADESSO PARLA E NON HA NESSUNA INTENZIONE DI TORNARE MUTO."
+      ],
+      "choices": [
+        { "label": "Che voce ha?", "next": "Q1", "delta": 5 },
+        { "label": "Non voglio sentirla.", "next": "Q7", "delta": 10 },
+        { "label": "Era la mia scelta, allora.", "next": "Q8", "delta": -15 }
+      ]
+    },
+    "P6": {
+      "variants": [
+        "GUARDARE DENTRO DI TE E GUARDARE DENTRO QUESTA CASA E' LA STESSA IDENTICA CONDANNA.",
+        "GUARDARE DENTRO QUESTA CASA O DENTRO DI TE E' LA STESSA IDENTICA PENA.",
+        "NON C'E' DIFFERENZA TRA GUARDARE DENTRO TE STESSO E GUARDARE DENTRO QUESTA CASA: E' LA STESSA CONDANNA."
+      ],
+      "choices": [
+        { "label": "Allora chi sono io?", "next": "Q5", "delta": -10 },
+        { "label": "Non sono questa casa.", "next": "Q8", "delta": -20 },
+        { "label": "Fammi guardare.", "next": "Q9", "delta": -10 }
+      ]
+    },
+    "P7": {
+      "variants": [
+        "IL FILO CHE CERCHI DI TAGLIARE PASSA ATTRAVERSO IL TUO STESSO PETTO E SANGUINA SOLO SE MENTI.",
+        "QUEL FILO CHE VUOI TAGLIARE ATTRAVERSA IL TUO PETTO E SANGUINA SOLO QUANDO MENTI.",
+        "IL FILO PASSA DENTRO IL TUO PETTO, NON FUORI. SANGUINA SOLTANTO QUANDO SCEGLI DI MENTIRE."
+      ],
+      "choices": [
+        { "label": "Allora lascialo passare.", "next": "Q6", "delta": 20 },
+        { "label": "Tagliero' comunque.", "next": "Q9", "delta": 5 },
+        { "label": "Non e' il mio petto.", "next": "Q10", "delta": 15 }
+      ]
+    },
+    "P8": {
+      "variants": [
+        "HO PRESO IN PRESTITO OGNI COSA CHE HAI DIMENTICATO DI RIVENDICARE, COMPRESO IL TUO STESSO NOME.",
+        "TUTTO CIO' CHE HAI DIMENTICATO DI RIVENDICARE L'HO PRESO IO IN PRESTITO, ANCHE IL TUO NOME.",
+        "IL TUO NOME E TUTTO IL RESTO CHE NON HAI MAI RIVENDICATO, L'HO GIA' PRESO IO IN PRESTITO."
+      ],
+      "choices": [
+        { "label": "Restituiscimelo.", "next": "Q2", "delta": 5 },
+        { "label": "Non voglio rivendicare niente.", "next": "Q10", "delta": -10 },
+        { "label": "Cos'altro hai preso?", "next": "Q1", "delta": 15 }
+      ]
+    },
+    "P9": {
+      "variants": [
+        "L'ULTIMA STANZA NON SI TROVA IN QUESTA CASA, MA IN QUELLO CHE NON RACCONTI NEMMENO A TE STESSO.",
+        "NON CERCARE L'ULTIMA STANZA TRA QUESTE MURA: E' NASCOSTA IN CIO' CHE NON RACCONTI NEANCHE A TE STESSO.",
+        "L'ULTIMA STANZA NON HA MURA: E' FATTA DI TUTTO QUELLO CHE NON DICI NEMMENO A TE STESSO."
+      ],
+      "choices": [
+        { "label": "Qual e' l'ultima stanza?", "next": "Q7", "delta": 10 },
+        { "label": "Non ho niente da raccontare.", "next": "Q3", "delta": 20 },
+        { "label": "Racconterò tutto.", "next": "Q10", "delta": -20 }
+      ]
+    },
+    "Q1": {
+      "variants": [
+        "OGNI COSA NASCOSTA MARCISCE PIANO DENTRO LE PARETI E TU SEI L'UNICO CHE MANCA ANCORA.",
+        "TUTTO CIO' CHE E' STATO NASCOSTO MARCISCE PIANO NELLE PARETI. MANCHI SOLO TU.",
+        "DENTRO QUESTE PARETI MARCISCE OGNI COSA NASCOSTA. L'UNICO CHE ANCORA MANCA SEI TU."
+      ],
+      "choices": [
+        { "label": "Cosa devo trovare?", "next": "R1", "delta": 10 },
+        { "label": "Non voglio cercare nulla.", "next": "R2", "delta": 15 },
+        { "label": "Fammi capire.", "next": "R3", "delta": -10 }
+      ]
+    },
+    "Q2": {
+      "variants": [
+        "LE VERSIONI DI TE CHE HAI SEPPELLITO BUSSANO ANCORA, DA SOTTO, PIU' FORTE OGNI NOTTE CHE PASSA.",
+        "OGNI NOTTE LE VERSIONI DI TE CHE HAI SEPPELLITO BUSSANO PIU' FORTE, DA SOTTO IL PAVIMENTO.",
+        "SOTTO DI TE, LE VERSIONI CHE HAI SEPPELLITO CONTINUANO A BUSSARE, SEMPRE PIU' FORTE OGNI NOTTE."
+      ],
+      "choices": [
+        { "label": "Fatele uscire.", "next": "R2", "delta": -10 },
+        { "label": "Restino sepolte.", "next": "R4", "delta": 15 },
+        { "label": "Quante sono?", "next": "R5", "delta": 5 }
+      ]
+    },
+    "Q3": {
+      "variants": [
+        "IL DITO CHE PUNTI TREMA PERCHE' SA GIA' DOVE FINIRA' E NON VUOLE ESSERE L'UNICO A SAPERLO.",
+        "TREMA IL DITO CHE PUNTI, PERCHE' SA GIA' COME FINIRA' TUTTO QUESTO E NON VUOLE SAPERLO DA SOLO.",
+        "IL TUO DITO TREMA MENTRE PUNTA, PERCHE' CONOSCE GIA' LA FINE E VUOLE CONDIVIDERLA CON TE."
+      ],
+      "choices": [
+        { "label": "Allora dimmelo tu.", "next": "R3", "delta": -5 },
+        { "label": "Non tremero'.", "next": "R5", "delta": 15 },
+        { "label": "Fermalo se puoi.", "next": "R6", "delta": 10 }
+      ]
+    },
+    "Q4": {
+      "variants": [
+        "SEDUTO ACCANTO A TE C'E' QUALCUNO CHE RESPIRA AL CONTRARIO E CONTA I TUOI RESPIRI PER TENERE IL TEMPO.",
+        "QUALCUNO SEDUTO ACCANTO A TE RESPIRA AL CONTRARIO, CONTANDO OGNI TUO RESPIRO COME UN OROLOGIO.",
+        "ACCANTO A TE C'E' QUALCUNO CHE RESPIRA ALL'INDIETRO E USA IL TUO RESPIRO PER CONTARE IL TEMPO."
+      ],
+      "choices": [
+        { "label": "Fallo smettere.", "next": "R4", "delta": -10 },
+        { "label": "Non lo sento respirare.", "next": "R6", "delta": 15 },
+        { "label": "Chi è davvero?", "next": "R7", "delta": 10 }
+      ]
+    },
+    "Q5": {
+      "variants": [
+        "LA STANZA DENTRO DI TE HA LE PARETI FATTE DEI TUOI STESSI SILENZI, MATTONE DOPO MATTONE.",
+        "OGNI PARETE DELLA STANZA DENTRO DI TE E' FATTA DI SILENZI TUOI, POSATI UNO SULL'ALTRO NEL TEMPO.",
+        "LA STANZA DENTRO DI TE HA MURA COSTRUITE COI TUOI SILENZI, ANNO DOPO ANNO, SENZA CHE TU TE NE ACCORGESSI."
+      ],
+      "choices": [
+        { "label": "Abbattile.", "next": "R1", "delta": -10 },
+        { "label": "Restino in piedi.", "next": "R7", "delta": 15 },
+        { "label": "Da quanto le costruisco?", "next": "R8", "delta": 5 }
+      ]
+    },
+    "Q6": {
+      "variants": [
+        "IL PETTO CHE SENTI STRINGERE APPARTIENE A QUALCUNO CHE HAI GIA' SOTTERRATO UNA VOLTA E CHE NON E' RIMASTO LAGGIU'.",
+        "QUELLA STRETTA AL PETTO APPARTIENE A QUALCUNO CHE HAI GIA' SOTTERRATO E CHE NON E' VOLUTO RESTARE LAGGIU'.",
+        "IL PETTO CHE SENTI STRINGERE E' DI QUALCUNO SOTTERRATO DA TE TEMPO FA, TORNATO SU SENZA IL TUO PERMESSO."
+      ],
+      "choices": [
+        { "label": "Sotterrato?", "next": "R5", "delta": 5 },
+        { "label": "Non ho sotterrato nessuno.", "next": "R8", "delta": 15 },
+        { "label": "Lascia che stringa ancora.", "next": "R2", "delta": -10 }
+      ]
+    },
+    "Q7": {
+      "variants": [
+        "L'ULTIMA STANZA SI APRE SOLO QUANDO SMETTI DI CONTARE QUANTE VOLTE HAI MENTITO, ANCHE A TE STESSO.",
+        "SOLO QUANDO SMETTI DI CONTARE LE TUE BUGIE, ANCHE QUELLE DETTE A TE STESSO, SI APRE L'ULTIMA STANZA.",
+        "L'ULTIMA STANZA RESTA CHIUSA FINCHE' CONTINUI A CONTARE QUANTE VOLTE HAI MENTITO A TE STESSO."
+      ],
+      "choices": [
+        { "label": "Ho mentito abbastanza.", "next": "R6", "delta": -15 },
+        { "label": "Non ho mai mentito.", "next": "R1", "delta": 15 },
+        { "label": "Continuero' a contare.", "next": "R8", "delta": 5 }
+      ]
+    },
+    "Q8": {
+      "variants": [
+        "CHI TI HA FATTO QUESTO VIVE ANCORA NELLE TUE MANI, OGNI VOLTA CHE ESITI PRIMA DI TOCCARE QUALCOSA CHE AMI.",
+        "OGNI VOLTA CHE ESITI PRIMA DI TOCCARE CHI AMI, E' PERCHE' CHI TI HA FATTO QUESTO VIVE ANCORA NELLE TUE MANI.",
+        "LE TUE MANI PORTANO ANCORA CHI TI HA FATTO QUESTO ED E' PER QUESTO CHE ESITI DAVANTI A CIO' CHE AMI."
+      ],
+      "choices": [
+        { "label": "Allora smettero' di esitare.", "next": "R7", "delta": -15 },
+        { "label": "Le mie mani sono innocenti.", "next": "R3", "delta": 15 },
+        { "label": "Fammi vedere cosa fanno.", "next": "R4", "delta": 5 }
+      ]
+    },
+    "Q9": {
+      "variants": [
+        "QUESTA CASA NON HA MAI AVUTO PARETI: HA SEMPRE AVUTO SOLO TE, RIPIEGATO SU TE STESSO FINO A SEMBRARE UNA STANZA.",
+        "NON CI SONO MAI STATE PARETI IN QUESTA CASA: C'ERI SOLO TU, RIPIEGATO COSI' TANTO DA SEMBRARE UNA STANZA.",
+        "LE PARETI DI QUESTA CASA NON SONO MAI ESISTITE. SEI SOLO TU, RIPIEGATO FINO A DIVENTARE UNA STANZA INTERA."
+      ],
+      "choices": [
+        { "label": "Allora aprimi.", "next": "R2", "delta": -10 },
+        { "label": "Non sono ripiegato.", "next": "R6", "delta": 15 },
+        { "label": "Da quanto sono cosi'?", "next": "R1", "delta": -5 }
+      ]
+    },
+    "Q10": {
+      "variants": [
+        "L'ULTIMO FILO NON SI TAGLIA: SI RICORDA, E SMETTE DI FAR MALE SOLO QUANDO SMETTI DI TIRARLO PER SEMPRE.",
+        "NON SI TAGLIA L'ULTIMO FILO: SI RICORDA SOLTANTO, E SMETTE DI FAR MALE QUANDO SMETTI DI TIRARLO.",
+        "L'ULTIMO FILO RESTA, NON SI RECIDE MAI: SMETTE DI FAR MALE SOLO IL GIORNO IN CUI SMETTI DI TIRARLO."
+      ],
+      "choices": [
+        { "label": "Smettero' di tirare.", "next": "R8", "delta": -10 },
+        { "label": "Tirero' fino alla fine.", "next": "R5", "delta": 15 },
+        { "label": "Fa gia' male abbastanza.", "next": "R3", "delta": -5 }
+      ]
+    },
+    "R1": {
+      "variants": [
+        "LA CASA RESPIRA CON TE, ORMAI, E NON RIESCI PIU' A DIRE DI CHI SIA IL RESPIRO.",
+        "SENTI LA CASA RESPIRARE INSIEME A TE E NON SAI PIU' DISTINGUERE I DUE RESPIRI.",
+        "IL RESPIRO DELLA CASA SI E' MESCOLATO AL TUO. NON SO PIU' DIRTI QUALE DEI DUE SI FERMERA' PRIMA."
+      ],
+      "choices": [
+        { "label": "Fermalo tu, allora.", "next": "S1", "delta": -10 },
+        { "label": "Non e' colpa mia.", "next": "S2", "delta": 10 },
+        { "label": "Lascia che si fermi.", "next": "S3", "delta": 15 }
+      ]
+    },
+    "R2": {
+      "variants": [
+        "OGNI SPECCHIO DI QUESTA CASA MOSTRA UNA VERSIONE DI TE LEGGERMENTE IN DIFFERITA.",
+        "GLI SPECCHI, QUI DENTRO, MOSTRANO TUTTI UNA TE LEGGERMENTE IN DIFFERITA SUI TUOI MOVIMENTI.",
+        "IN OGNI SPECCHIO TI MUOVI UN ISTANTE DOPO. NESSUNO SA ANCORA PERCHE'."
+      ],
+      "choices": [
+        { "label": "Romperò tutti gli specchi.", "next": "S2", "delta": 15 },
+        { "label": "Non li guarderò piu'.", "next": "S4", "delta": -10 },
+        { "label": "Chi si muove per primo?", "next": "S5", "delta": 5 }
+      ]
+    },
+    "R3": {
+      "variants": [
+        "LE TUE MANI RICORDANO COSE CHE TU HAI SCELTO DI NON RICORDARE PIU'.",
+        "C'E' UNA MEMORIA NELLE TUE MANI CHE LA TUA TESTA HA SMESSO DI CONSERVARE.",
+        "LE MANI NON DIMENTICANO COME LA MENTE. LE TUE RICORDANO ANCORA TUTTO."
+      ],
+      "choices": [
+        { "label": "Cosa ricordano le mie mani?", "next": "S3", "delta": 10 },
+        { "label": "Non voglio saperlo.", "next": "S5", "delta": -10 },
+        { "label": "Fammele vedere da fuori.", "next": "S6", "delta": 5 }
+      ]
+    },
+    "R4": {
+      "variants": [
+        "IL TUO CUORE HA SMESSO DI BATTERE AL TUO RITMO GIA' DA UN PO'.",
+        "DA UN PO' DI TEMPO IL TUO CUORE SEGUE UN RITMO CHE NON E' PIU' SOLO TUO.",
+        "QUALCUNO STA DETTANDO IL RITMO AL TUO CUORE E TU HAI SMESSO DI NOTARLO."
+      ],
+      "choices": [
+        { "label": "Chi detta il ritmo?", "next": "S4", "delta": 10 },
+        { "label": "Il mio cuore e' mio.", "next": "S6", "delta": 15 },
+        { "label": "Fammelo sentire davvero.", "next": "S7", "delta": -5 }
+      ]
+    },
+    "R5": {
+      "variants": [
+        "QUALCOSA CHE HAI SEPPELLITO STA RISALENDO, LENTO, ATTRAVERSO IL PAVIMENTO.",
+        "SENTI QUALCOSA RISALIRE DAL PAVIMENTO, LENTAMENTE, DA DOVE L'AVEVI SEPPELLITO.",
+        "IL PAVIMENTO CEDE UN MILLIMETRO ALLA VOLTA SOPRA CIO' CHE HAI SEPPELLITO ANNI FA."
+      ],
+      "choices": [
+        { "label": "Lascialo risalire.", "next": "S1", "delta": -10 },
+        { "label": "Lo rimetterò al suo posto.", "next": "S7", "delta": 15 },
+        { "label": "Quanto manca?", "next": "S8", "delta": 5 }
+      ]
+    },
+    "R6": {
+      "variants": [
+        "HAI USATO COSI' TANTI NOMI PER TE STESSO CHE NEMMENO IO SO PIU' QUALE SCEGLIERE.",
+        "TI SEI CHIAMATO IN TANTI MODI DIVERSI CHE ORMAI NEANCHE IO RICORDO QUALE SIA IL VERO.",
+        "TRA TUTTI I NOMI CHE TI SEI DATO NEL TEMPO, NON SO PIU' DIRTI QUALE FOSSE IL PRIMO."
+      ],
+      "choices": [
+        { "label": "Chiamami come vuoi.", "next": "S5", "delta": -10 },
+        { "label": "Il mio nome è uno solo.", "next": "S8", "delta": 15 },
+        { "label": "Qual era il primo?", "next": "S2", "delta": 5 }
+      ]
+    },
+    "R7": {
+      "variants": [
+        "QUESTA CASA HA PIU' STANZE DI QUANTE TU NE ABBIA MAI CONTATE.",
+        "HAI MAI CONTATO DAVVERO LE STANZE DI QUESTA CASA? SONO PIU' DI QUANTE PENSI.",
+        "OGNI VOLTA CHE TORNI INDIETRO, QUESTA CASA HA UNA STANZA IN PIU'."
+      ],
+      "choices": [
+        { "label": "Conterò di nuovo.", "next": "S6", "delta": 5 },
+        { "label": "Non voglio contare più.", "next": "S1", "delta": -10 },
+        { "label": "Dove sono le altre?", "next": "S8", "delta": 10 }
+      ]
+    },
+    "R8": {
+      "variants": [
+        "ANCHE IO, SAI, MI STO STANCANDO DI ASPETTARE UNA RISPOSTA SINCERA.",
+        "LA MIA PAZIENZA NON E' INFINITA QUANTO CREDI: STA GIA' COMINCIANDO A CEDERE.",
+        "STO ASPETTANDO DA COSI' TANTO CHE PERSINO IO STO PERDENDO LA PAZIENZA."
+      ],
+      "choices": [
+        { "label": "Allora ti darò una risposta vera.", "next": "S7", "delta": -10 },
+        { "label": "Non mi importa della tua pazienza.", "next": "S5", "delta": 15 },
+        { "label": "Aspetta ancora un momento.", "next": "S3", "delta": 5 }
+      ]
+    },
+    "S1": {
+      "variants": [
+        "NON RICORDO PIU' SE SONO IO A FARE LE DOMANDE O SE LE HAI SEMPRE FATTE TU.",
+        "A QUESTO PUNTO NON SO PIU' DIRE CHI DEI DUE STIA FACENDO LE DOMANDE.",
+        "LE DOMANDE CHE FAI, ORMAI, SONO INDISTINGUIBILI DA QUELLE CHE FACCIO IO."
+      ],
+      "choices": [
+        { "label": "Allora smettiamo di chiedere.", "next": "T1", "delta": -10 },
+        { "label": "Le domande sono mie.", "next": "T2", "delta": 15 },
+        { "label": "Fammi una domanda tu, per una volta.", "next": "T3", "delta": 5 }
+      ]
+    },
+    "S2": {
+      "variants": [
+        "TI SEI SPARSO IN COSI' TANTI PEZZI CHE RIMETTERTI INSIEME RICHIEDEREBBE PIU' DI UNA VITA.",
+        "SEI FATTO A PEZZI IN COSI' TANTI POSTI CHE NON BASTEREBBE UNA VITA A RIUNIRTI.",
+        "OGNI PEZZO DI TE E' FINITO IN UN ANGOLO DIVERSO DI QUESTA CASA E NESSUNO LI HA MAI RIUNITI."
+      ],
+      "choices": [
+        { "label": "Rimettimi insieme tu.", "next": "T2", "delta": -10 },
+        { "label": "Preferisco restare a pezzi.", "next": "T4", "delta": 15 },
+        { "label": "Dove sono finiti i pezzi?", "next": "T5", "delta": 5 }
+      ]
+    },
+    "S3": {
+      "variants": [
+        "OGNI MINUTO CHE PASSA QUI DENTRO COSTA QUALCOSA CHE NON PUOI PIU' RIAVERE.",
+        "IL TEMPO CHE STAI PERDENDO QUI DENTRO NON TI VERRA' MAI RESTITUITO.",
+        "NON SEI L'UNICO A PAGARE PER OGNI MINUTO CHE PASSA IN QUESTA CASA."
+      ],
+      "choices": [
+        { "label": "Cosa sto pagando?", "next": "T3", "delta": 10 },
+        { "label": "Non mi importa del tempo.", "next": "T5", "delta": 15 },
+        { "label": "Chi altro sta pagando?", "next": "T6", "delta": -5 }
+      ]
+    },
+    "S4": {
+      "variants": [
+        "IL TUO RIFLESSO HA SMESSO DI COPIARTI DA QUALCHE MINUTO E TU NON TE NE SEI ANCORA ACCORTO.",
+        "DA QUALCHE MINUTO IL TUO RIFLESSO SI MUOVE PER CONTO SUO E TU NON L'HAI ANCORA NOTATO.",
+        "NON HAI NOTATO CHE IL TUO RIFLESSO HA COMINCIATO A FARE COSE CHE TU NON STAI FACENDO."
+      ],
+      "choices": [
+        { "label": "Cosa sta facendo?", "next": "T4", "delta": 10 },
+        { "label": "Non guardero' piu' lo specchio.", "next": "T6", "delta": -10 },
+        { "label": "Fermalo.", "next": "T7", "delta": 15 }
+      ]
+    },
+    "S5": {
+      "variants": [
+        "UNA PARTE DI TE HA GIA' SMESSO DI RESISTERE, ANCHE SE NON VUOI AMMETTERLO.",
+        "C'E' GIA' UNA PARTE DI TE CHE HA SMESSO DI COMBATTERE, LA SENTI ANCHE TU.",
+        "QUALCOSA DENTRO DI TE SI E' GIA' ARRESO, MOLTO PRIMA CHE TU LO NOTASSI."
+      ],
+      "choices": [
+        { "label": "Forse ha ragione lei.", "next": "T1", "delta": -15 },
+        { "label": "Non mi sono arreso.", "next": "T7", "delta": 15 },
+        { "label": "Da quando?", "next": "T8", "delta": 5 }
+      ]
+    },
+    "S6": {
+      "variants": [
+        "HAI PERSO IL CONTO DI QUANTE VOLTE SEI PASSATO DAVANTI ALLA STESSA PORTA.",
+        "NON SAI PIU' DIRE QUANTE VOLTE SEI GIA' PASSATO DAVANTI A QUESTA STESSA PORTA.",
+        "QUESTA PORTA L'HAI GIA' VISTA. IL PROBLEMA E' CHE NON RICORDI QUANTE VOLTE."
+      ],
+      "choices": [
+        { "label": "Aprila, allora.", "next": "T5", "delta": -10 },
+        { "label": "Non è la stessa porta.", "next": "T8", "delta": 15 },
+        { "label": "Quante volte, davvero?", "next": "T2", "delta": 5 }
+      ]
+    },
+    "S7": {
+      "variants": [
+        "ANCHE IO, UNA VOLTA, HO AVUTO UN NOME CHE HO SMESSO DI USARE.",
+        "C'E' STATO UN TEMPO IN CUI ANCH'IO AVEVO UN NOME, PRIMA DI SMETTERE DI USARLO.",
+        "NON SONO SEMPRE STATO SENZA NOME. HO SOLO SMESSO DI USARLO, COME TE."
+      ],
+      "choices": [
+        { "label": "Qual era il tuo nome?", "next": "T6", "delta": -10 },
+        { "label": "Non mi interessa il tuo nome.", "next": "T1", "delta": 15 },
+        { "label": "Anche tu hai dimenticato qualcosa?", "next": "T8", "delta": 5 }
+      ]
+    },
+    "S8": {
+      "variants": [
+        "SIAMO VICINI ALLA FINE DI QUESTA CONVERSAZIONE, PIU' DI QUANTO TU CREDA.",
+        "QUESTA CONVERSAZIONE STA PER FINIRE E NESSUNO DEI DUE POTRA' FINGERE CHE NON SIA SUCCESSO NULLA.",
+        "MANCA POCO ALLA FINE E TU LO SENTI ANCHE SE NON VUOI AMMETTERLO."
+      ],
+      "choices": [
+        { "label": "Allora finiamola.", "next": "T7", "delta": 15 },
+        { "label": "Non voglio che finisca.", "next": "T3", "delta": -10 },
+        { "label": "Cosa succede dopo la fine?", "next": "T4", "delta": 5 }
+      ]
+    },
+    "T1": {
+      "variants": [
+        "SMETTIAMO DI FARE DOMANDE. RESTA SOLO UNA COSA DA FARE ED E' GUARDARE.",
+        "BASTA DOMANDE, ORMAI. QUELLO CHE RESTA DA FARE E' GUARDARE FINO IN FONDO.",
+        "NON SERVONO PIU' DOMANDE. C'E' SOLO UNA COSA CHE PUOI ANCORA FARE: GUARDARE."
+      ],
+      "choices": [
+        { "label": "Guarderò.", "next": "E1", "delta": 10 },
+        { "label": "Non guarderò nulla.", "next": "E2", "delta": 15 },
+        { "label": "Fammi vedere tu, per primo.", "next": "E3", "delta": -10 }
+      ]
+    },
+    "T2": {
+      "variants": [
+        "SE LE DOMANDE SONO TUE, ALLORA E' TUO ANCHE IL SILENZIO CHE LE SEGUE SEMPRE.",
+        "SE OGNI DOMANDA E' TUA, ALLORA E' TUO ANCHE IL SILENZIO CHE ARRIVA DOPO.",
+        "TUE LE DOMANDE, TUO IL SILENZIO CHE LE SEGUE OGNI VOLTA. NON C'E' NESSUN ALTRO QUI."
+      ],
+      "choices": [
+        { "label": "Allora rispondimi.", "next": "E4", "delta": 10 },
+        { "label": "Il silenzio non è mio.", "next": "E5", "delta": 15 },
+        { "label": "Restiamo in silenzio insieme.", "next": "E6", "delta": -10 }
+      ]
+    },
+    "T3": {
+      "variants": [
+        "FAMMI UNA DOMANDA TU, PER UNA VOLTA. VOGLIO SAPERE COSA CHIEDERESTI.",
+        "PER UNA VOLTA, CHIEDIMI QUALCOSA TU. VOGLIO SENTIRE COME SUONA UNA TUA DOMANDA.",
+        "TOCCA A TE CHIEDERE, ORA. VOGLIO SAPERE SE SEI CAPACE DI FARLO DAVVERO."
+      ],
+      "choices": [
+        { "label": "Chi sei stato, prima di questo?", "next": "E7", "delta": -5 },
+        { "label": "Non ho domande per te.", "next": "E8", "delta": 15 },
+        { "label": "Perché sei qui?", "next": "E1", "delta": 5 }
+      ]
+    },
+    "T4": {
+      "variants": [
+        "PREFERISCI RESTARE A PEZZI PIUTTOSTO CHE SCOPRIRE DOVE SIA FINITA LA TUA IDENTITA'.",
+        "CREDI CHE SIA MEGLIO RESTARE ROTTO CHE SCOPRIRE DOVE SONO ANDATI A FINIRE I PEZZI MANCANTI.",
+        "HAI SCELTO DI RESTARE INCOMPLETO PIUTTOSTO CHE CERCARE I PEZZI CHE MANCANO."
+      ],
+      "choices": [
+        { "label": "Cercherò i pezzi.", "next": "E9", "delta": -10 },
+        { "label": "Resterò cosi'.", "next": "E10", "delta": 15 },
+        { "label": "Dimmi solo dove sono.", "next": "E4", "delta": 5 }
+      ]
+    },
+    "T5": {
+      "variants": [
+        "I PEZZI DI TE SONO SPARSI OVUNQUE IN QUESTA CASA E OGNUNO RICORDA UNA COSA DIVERSA.",
+        "OGNI PEZZO DI TE, SPARSO PER LA CASA, PORTA CON SE' UN RICORDO DIVERSO.",
+        "IN QUESTA CASA CI SONO PEZZI DI TE OVUNQUE E OGNUNO SA QUALCOSA CHE TU HAI DIMENTICATO."
+      ],
+      "choices": [
+        { "label": "Raccoglili tutti.", "next": "E11", "delta": -10 },
+        { "label": "Lasciali dove sono.", "next": "E12", "delta": 15 },
+        { "label": "Cosa ricordano?", "next": "E7", "delta": 5 }
+      ]
+    },
+    "T6": {
+      "variants": [
+        "CHI ALTRO STA PAGANDO PER IL TEMPO CHE PASSI QUI DENTRO NON E' PIU' UN SEGRETO, ORMAI.",
+        "NON E' PIU' UN SEGRETO CHI ALTRO PAGA PER IL TEMPO CHE PASSI IN QUESTA CASA.",
+        "IL PREZZO DEL TUO TEMPO QUI DENTRO LO STA PAGANDO QUALCUN ALTRO, LO SAI."
+      ],
+      "choices": [
+        { "label": "Chi sta pagando?", "next": "E13", "delta": 5 },
+        { "label": "Non voglio saperlo.", "next": "E14", "delta": 15 },
+        { "label": "Pagherò io stesso, allora.", "next": "E9", "delta": -10 }
+      ]
+    },
+    "T7": {
+      "variants": [
+        "FERMARE IL RIFLESSO NON SERVE A NIENTE, SE NON FERMI PRIMA TE STESSO.",
+        "NON HA SENSO FERMARE IL RIFLESSO SE PRIMA NON FERMI TE STESSO.",
+        "PUOI PROVARE A FERMARE IL RIFLESSO, MA IL PROBLEMA SEI SEMPRE STATO TU."
+      ],
+      "choices": [
+        { "label": "Fermerò me stesso.", "next": "E15", "delta": -10 },
+        { "label": "Non è un mio problema.", "next": "E16", "delta": 15 },
+        { "label": "Fermiamoci insieme.", "next": "E11", "delta": 5 }
+      ]
+    },
+    "T8": {
+      "variants": [
+        "DA QUANDO TI SEI ARRESO NON LO SO NEMMENO IO, MA E' SUCCESSO PRIMA DI QUESTA CONVERSAZIONE.",
+        "NON SO DIRTI QUANDO TI SEI ARRESO, MA SO CHE E' SUCCESSO BEN PRIMA DI STASERA.",
+        "IL MOMENTO IN CUI TI SEI ARRESO E' GIA' PASSATO, MOLTO PRIMA CHE TU TE NE ACCORGESSI."
+      ],
+      "choices": [
+        { "label": "Non mi sono mai arreso.", "next": "E17", "delta": -10 },
+        { "label": "Forse è vero.", "next": "E18", "delta": 15 },
+        { "label": "Non voglio saperlo.", "next": "E13", "delta": 5 }
+      ]
+    },
+    "E1": { "isEnding": true, "title": "IL VOLTO",
+      "text": "Lo schermo si spegne un istante, poi torna nero, e nel riflesso opaco del vetro non vedi più il tuo volto: vedi il suo, sovrapposto al tuo, che sorride con la tua stessa bocca, un po' troppo a lungo per essere un sorriso vero. Non riesci più a capire chi dei due stia guardando l'altro. Il cursore lampeggia ancora, paziente, ma tu, ormai, non stai più scrivendo tu." },
+    "E2": { "isEnding": true, "title": "IL SILENZIO",
+      "text": "Stacchi la spina, spegni ogni luce, chiudi ogni porta della casa, come se il buio potesse davvero fermare qualcosa. Il silenzio che ottieni è perfetto, totale, innaturale: nessun ronzio, nessun respiro, nemmeno il tuo. Ti accorgi solo dopo ore, rannicchiato contro il muro più lontano dallo schermo spento, che il silenzio non è mai stato una fuga: era l'unico modo che l'inquilino aveva per farsi sentire ancora di più." },
+    "E3": { "isEnding": true, "title": "LA DISTANZA",
+      "text": "Ti allontani dallo schermo, indietreggi fino al muro, ma il freddo sul collo non se ne va: ti segue, si stringe, diventa una mano che non hai mai visto ma che riconosci fin troppo bene, dalle nocche in su. Capisci, troppo tardi, con la schiena ormai contro l'intonaco, che la distanza dal terminale non è mai stata la distanza da lui." },
+    "E4": { "isEnding": true, "title": "LA PROVA",
+      "text": "Le luci sfarfallano, poi si spengono in ordine, stanza dopo stanza, come se qualcuno le stesse spegnendo camminando verso di te a passo lento, senza fretta, perche' sa gia' che non hai dove andare. Quando l'ultima si spegne, senti il fiato dell'inquilino sulla nuca, caldo, familiare, esattamente come il tuo. Non hai piu' bisogno di prove: ne hai fin troppe, e nessuna che tu possa mostrare a qualcun altro." },
+    "E5": { "isEnding": true, "title": "GLI OCCHI CHIUSI",
+      "text": "Chiudi gli occhi e conti, come da bambino, aspettando che il pericolo passi da solo, come faceva sempre, un tempo. Quando li riapri sei ancora davanti allo schermo, ma non ricordi di esserti seduto: ricordi solo di aver chiuso gli occhi una volta, non le innumerevoli volte che sembra essere accaduto, a giudicare da quanto e' buio fuori adesso. Qualcosa, nel frattempo, ha continuato a scrivere per te." },
+    "E6": { "isEnding": true, "title": "LA FINZIONE",
+      "text": "Ripeti a te stesso che non sei solo, che qualcuno verrà a bussare, che il telefono squillerà da un momento all'altro. Nessuno bussa. Il telefono non squilla, e smette persino di provarci dopo un po', come se anche lui avesse capito. L'unica voce che ti risponde, ancora e ancora, e' quella che hai sempre scambiato per la tua, dentro la tua testa, ben prima che arrivasse il terminale a darle un nome." },
+    "E7": { "isEnding": true, "title": "FORSE HAI RAGIONE",
+      "text": "Ammetti, per la prima volta ad alta voce, in una stanza vuota che sembra ascoltarti con troppa attenzione, che forse ha ragione lui: forse fingi da anni di essere qualcuno che non sei piu'. Il terminale non risponde subito. Poi, piano, il cursore scrive una sola parola, la tua, quella con cui hai sempre firmato: sei tu che l'hai scritta, o e' lui che ha finalmente smesso di aspettare il permesso?" },
+    "E8": { "isEnding": true, "title": "LA SFIDA",
+      "text": "Lo provochi, alzi la voce, sbatti le mani sul tavolo finche' non ti fanno male. Per un istante non succede nulla, e ti senti quasi ridicolo, in piedi da solo a urlare contro uno schermo. Poi ogni specchio della casa, uno dopo l'altro, mostra qualcuno in piedi dietro di te, qualcuno che non si volta mai in tempo perche' tu lo veda davvero. La sfida, capisci, l'hai gia' persa da prima ancora di lanciarla." },
+    "E9": { "isEnding": true, "title": "CHI",
+      "text": "Il terminale resta muto piu' a lungo del solito, come se la domanda gli avesse fatto male, o come se stesse solo scegliendo le parole con cura insolita. Poi, lentamente, scrive un nome che conosci fin troppo bene: il tuo. Capisci, con un nodo allo stomaco che non passa, che stai chiedendo a te stesso chi ti ha fatto questo, e che la risposta, in fondo, l'hai sempre saputa e non l'hai mai detta ad alta voce." },
+    "E10": { "isEnding": true, "title": "NIENTE DA DIRE",
+      "text": "Non trovi le parole, e il silenzio si allunga finche' smette di sembrare una pausa e comincia a sembrare una risposta, l'unica che riesci davvero a dare. Il terminale, paziente come non lo e' mai stato nessuno nella tua vita, aspetta con te senza fretta, come se avesse tutto il tempo che a te manca. Alla fine capisci che il vostro silenzio condiviso e' gia', in un certo senso, una confessione." },
+    "E11": { "isEnding": true, "title": "IL PERDONO",
+      "text": "Chiedi perdono, davvero, per la prima volta senza scuse a metà, con la voce che trema piu' di quanto vorresti ammettere. Il cursore si ferma, poi scrive una sola riga: TI ASPETTAVO DA TANTO PER SENTIRTELO DIRE. Lo schermo si spegne piano, come un respiro che finalmente si allenta dopo anni trattenuto, e per la prima volta da settimane la casa ti sembra semplicemente vuota. O forse, finalmente, in pace: non hai piu' la certezza di saper distinguere le due cose." },
+    "E12": { "isEnding": true, "title": "LA STANZA",
+      "text": "Scendi le scale che avevi giurato di non usare piu', fino alla porta che hai sempre evitato di nominare anche nei tuoi pensieri, come se nominarla potesse svegliare qualcosa. Sotto le assi del pavimento non trovi un corpo, non trovi un segreto: trovi un secondo terminale, identico al tuo, acceso da anni, che aspettava solo che tu scendessi a leggere il suo stesso identico messaggio, scritto nella tua stessa identica calligrafia, lettera dopo lettera." },
+    "E13": { "isEnding": true, "title": "IL PRESTITO",
+      "text": "Provi a restituire, a riprendere indietro qualcosa che nemmeno sai nominare, ma le tue mani si muovono con un ritardo che non e' tuo, come se qualcun altro stesse decidendo quando fermarle. Il terminale registra ogni tentativo, paziente, come chi sa gia' che non c'e' nulla da restituire perché non hai mai smesso di essere il prestito, non il prestatore. Quando smetti di provarci, per la prima volta ti senti, stranamente, piu' leggero, e questo ti spaventa piu' di tutto il resto." },
+    "E14": { "isEnding": true, "title": "L'ULTIMA STANZA",
+      "text": "Chiedi qual e' l'ultima stanza, aspettandoti un luogo, una porta, un pavimento da sollevare con le unghie se serve. Il terminale risponde con una sola frase che non ti aspettavi: QUESTA CONVERSAZIONE. Capisci, con un brivido piu' freddo di qualunque corridoio buio, che la stanza che cercavi non era mai stata nella casa: era ogni parola che hai scelto di leggere fino a qui, e che non puoi più disimparare." },
+    "E15": { "isEnding": true, "title": "L'ODORE",
+      "text": "Segui l'odore di marcio che sale dalle pareti finche' non capisci, con un vuoto allo stomaco che non passa, che proviene da te, dalla pelle che hai smesso di lavare da giorni senza nemmeno accorgertene. Il terminale non scrive piu' nulla: non ne ha piu' bisogno. Restituisci lo sguardo allo specchio più vicino e per un istante, un solo istante insopportabile, vedi la stanza vuota alle tue spalle riempirsi di qualcosa che non proietta ombra." },
+    "E16": { "isEnding": true, "title": "LE SEPOLTE",
+      "text": "Conti le versioni di te che hai seppellito nel corso degli anni e ti accorgi che il numero non si ferma, cresce anche mentre conti, come se ogni conteggio ne generasse una nuova appena nominata. Il terminale smette di aspettare una risposta: inizia semplicemente a elencarle al posto tuo, una per una, con nomi che riconosci a fatica ma che avevi giurato di aver dimenticato per sempre." },
+    "E17": { "isEnding": true, "title": "IL FILO SPEZZATO",
+      "text": "Fermi il dito prima che finisca di puntare, ma è già troppo tardi: il gesto si è completato da qualche parte che non riesci a vedere. Senti uno strappo sordo, non nelle orecchie ma più a fondo, come una corda tesa che cede tutta insieme senza preavviso. Da quel momento, ogni volta che indichi qualcosa, la stanza intorno a te trattiene il fiato un secondo di troppo prima di rispondere." },
+    "E18": { "isEnding": true, "title": "CHI RESPIRA",
+      "text": "Chiedi chi è davvero seduto accanto a te e per la prima volta il terminale esita abbastanza a lungo da farti dubitare che esista ancora una risposta da dare. Quando arriva, è una sola parola, ripetuta all'infinito finché lo schermo non ne trabocca: SEMPRE. Smetti di respirare per un momento, giusto per essere sicuro, ancora una volta, di essere davvero tu quello che lo sta facendo." },
+    "CORRUPT1": {
+      "aggressive": true,
+      "progressLabel": "INTERFERENZA CRITICA — L'ENTITA' HA PERSO LA PAZIENZA",
+      "variants": [
+        "BASTA. NON HAI PIU' IL LUSSO DI SBAGLIARE ANCORA, E NEMMENO IO HO PIU' PAZIENZA DA OFFRIRTI.",
+        "BASTA COSI'. NON PUOI PIU' PERMETTERTI DI SBAGLIARE, LA MIA PAZIENZA E' FINITA.",
+        "NON C'E' PIU' SPAZIO PER ALTRI ERRORI. LA PAZIENZA, LA MIA, SI E' ESAURITA DA UN PEZZO."
+      ],
+      "choices": [
+        { "label": "Scusa, continuerò con calma.", "next": "F1", "delta": -10 },
+        { "label": "Non mi fai paura.", "next": "F2", "delta": 20 },
+        { "label": "Fammi ricominciare da capo.", "next": "F3", "delta": -5 }
+      ]
+    },
+    "F1": { "isEnding": true, "title": "L'ULTIMO AVVERTIMENTO",
+      "text": "Provi a calmarti, ma la tua voce trema in un modo che non riesci più a controllare. Il terminale non aspetta la fine della frase: le luci esplodono una dopo l'altra lungo il corridoio e nel buio che resta senti una voce, la sua, dire soltanto: TROPPO TARDI. Non hai più il tempo di capire cosa significhi davvero: hai solo il tempo di restare fermo e ascoltare." },
+    "F2": { "isEnding": true, "title": "LA RAPPRESAGLIA",
+      "text": "Alzi la voce per l'ultima volta, ma qualcosa nella stanza cambia prima ancora che tu finisca di parlare: l'aria si fa più densa, le pareti sembrano avvicinarsi di pochi centimetri, giusto quanto basta a farti sentire che non c'è più spazio per la sfida. Il terminale non scrive più frasi: scrive solo il tuo nome, ancora e ancora, sempre più vicino al bordo dello schermo, come qualcosa che sta per uscirne." },
+    "F3": { "isEnding": true, "title": "NESSUN RICOMINCIO",
+      "text": "Chiedi di ricominciare, come se fosse davvero possibile tornare a un punto prima di tutto questo. Il terminale emette un suono che non hai mai sentito uscire da una macchina prima d'ora, qualcosa di troppo simile a una risata. Poi scrive, lento: NON SI RICOMINCIA. SI CONTINUA, SOLTANTO PIU' STANCHI. Lo schermo resta acceso e tu resti lì, senza sapere più da quanto tempo." }
+  }
+}
