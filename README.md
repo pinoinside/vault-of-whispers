@@ -1,6 +1,6 @@
 # Archivio dei Sussurri
 
-Un motore per storie interattive horror/psicologiche raccontate tramite un terminale che comunica per simboli cifrati. Ogni partita pesca a caso una storia dal manifest e ne rimescola i cifrari a ogni messaggio.
+Un motore per storie interattive horror/psicologiche raccontate tramite un terminale che comunica per simboli cifrati.
 
 ## Struttura del progetto
 
@@ -22,7 +22,7 @@ archivio-dei-sussurri/
 
 I browser bloccano il caricamento di file JSON locali quando una pagina HTML viene aperta con un doppio clic (protocollo `file://`). Per questo motivo, prima di aprire `index.html`, avvia un piccolo server locale nella cartella del progetto:
 
-**Con Python (di solito già installato):**
+**Con Python:**
 ```
 cd archivio-dei-sussurri
 python3 -m http.server 8000
