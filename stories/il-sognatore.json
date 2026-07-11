@@ -1,0 +1,614 @@
+{
+  "title": "IL SOGNATORE",
+  "tagline": "qualcosa, nel profondo, ha sognato il tuo nome",
+  "totalStages": 7,
+  "startNode": "root",
+  "corruptNode": "CORRUPT1",
+  "symbols": ["☿","☉","☽","☾","♁","♆","♄","♃","♂","♀","⚸","⚹","✦","✧","❖","◈","◇","▲","▽","◐","◑"],
+  "nodes": {
+    "root": {
+      "variants": [
+        "TI SEI SVEGLIATO CON LA PENNA ANCORA IN MANO E QUESTE PAROLE GIA' SCRITTE.",
+        "HAI SCRITTO QUESTE PAROLE NEL SONNO, E LA PENNA E' ANCORA STRETTA NELLA TUA MANO.",
+        "QUANDO TI SEI SVEGLIATO, LA PENNA ERA GIA' IN MANO E QUESTE PAROLE ERANO GIA' SCRITTE."
+      ],
+      "choices": [
+        { "label": "Chi mi ha fatto scrivere questo?", "next": "A", "delta": -5 },
+        { "label": "Brucio il quaderno.", "next": "B", "delta": 15 },
+        { "label": "Continuo a scrivere.", "next": "C", "delta": 10 }
+      ]
+    },
+    "A": {
+      "variants": [
+        "SONO QUELLO CHE SOGNA SOTTO IL PESO DI TUTTI GLI OCEANI, E TU HAI SENTITO IL SOGNO.",
+        "DORMO SOTTO IL PESO DI OGNI OCEANO, E TU, STANOTTE, HAI ASCOLTATO IL MIO SOGNO.",
+        "SOGNO DA SEMPRE SOTTO OGNI OCEANO, E QUESTA NOTTE IL MIO SOGNO HA TROVATO TE."
+      ],
+      "choices": [
+        { "label": "Perche' io?", "next": "A1", "delta": -5 },
+        { "label": "Cosa vuoi da me?", "next": "A2", "delta": 0 },
+        { "label": "Sei un dio?", "next": "A3", "delta": 5 }
+      ]
+    },
+    "B": {
+      "variants": [
+        "IL FUOCO BRUCIA LA CARTA, NON IL RICORDO CHE LE TUE MANI HANNO GIA' IMPARATO.",
+        "PUOI BRUCIARE LA CARTA QUANTO VUOI: LE TUE MANI HANNO GIA' IMPARATO IL RICORDO.",
+        "LA CARTA BRUCIA IN FRETTA. IL RICORDO CHE LE TUE MANI HANNO IMPARATO, NO."
+      ],
+      "choices": [
+        { "label": "Non ho imparato niente.", "next": "B1", "delta": 15 },
+        { "label": "Allora smettero' di scrivere.", "next": "B2", "delta": -10 },
+        { "label": "Cosa mi hanno insegnato le mani?", "next": "B3", "delta": 5 }
+      ]
+    },
+    "C": {
+      "variants": [
+        "BRAVO. CONTINUA A SCRIVERE, E IO CONTINUERO' A MOSTRARTI.",
+        "BENE. SE CONTINUI A SCRIVERE, IO CONTINUERO' A FARTI VEDERE.",
+        "COSI' VA BENE. SCRIVI ANCORA, E TI MOSTRERO' ANCORA DI PIU'."
+      ],
+      "choices": [
+        { "label": "Mostrami tutto.", "next": "C1", "delta": 15 },
+        { "label": "Solo un po' alla volta.", "next": "C2", "delta": -5 },
+        { "label": "Chi altro scrive per te?", "next": "C3", "delta": 5 }
+      ]
+    },
+    "A1": {
+      "variants": [
+        "PERCHE' LA TUA MENTE HA UNA CREPA CHE LE ALTRE NON HANNO ANCORA.",
+        "PERCHE' NELLA TUA MENTE C'E' GIA' UNA CREPA CHE NEGLI ALTRI NON SI E' ANCORA APERTA.",
+        "PERCHE' UNA CREPA NELLA TUA MENTE SI E' APERTA PRIMA CHE NELLE ALTRE."
+      ],
+      "choices": [
+        { "label": "Che crepa?", "next": "P1", "delta": 10 },
+        { "label": "Chiudila.", "next": "P2", "delta": -10 },
+        { "label": "Chi altro ha questa crepa?", "next": "P3", "delta": 5 }
+      ]
+    },
+    "A2": {
+      "variants": [
+        "VOGLIO SOLO CHE TU RICORDI IL MIO NOME QUANDO TI SVEGLIERAI L'ULTIMA VOLTA.",
+        "CHIEDO SOLO CHE TU RICORDI IL MIO NOME L'ULTIMA VOLTA CHE APRIRAI GLI OCCHI.",
+        "NON VOGLIO MOLTO: SOLO CHE IL MIO NOME SIA L'ULTIMA COSA CHE RICORDI."
+      ],
+      "choices": [
+        { "label": "Non conosco il tuo nome.", "next": "P4", "delta": 5 },
+        { "label": "Non lo ricordero'.", "next": "P2", "delta": 15 },
+        { "label": "Perche' l'ultima volta?", "next": "P5", "delta": -5 }
+      ]
+    },
+    "A3": {
+      "variants": [
+        "SONO PIU' VECCHIO DI QUALSIASI PAROLA CHE TU ABBIA PER DESCRIVERMI, DIO COMPRESO.",
+        "LE PAROLE CHE HAI, DIO COMPRESO, SONO TROPPO GIOVANI PER DESCRIVERE COSA SONO.",
+        "NESSUNA PAROLA CHE CONOSCI, NEANCHE DIO, E' ABBASTANZA VECCHIA PER ME."
+      ],
+      "choices": [
+        { "label": "Allora cosa sei?", "next": "P6", "delta": 5 },
+        { "label": "Non mi importa cosa sei.", "next": "P4", "delta": 10 },
+        { "label": "Quanto sei vecchio?", "next": "P1", "delta": -5 }
+      ]
+    },
+    "B1": {
+      "variants": [
+        "LE TUE DITA SI MUOVONO GIA' DA SOLE QUANDO DORMI. QUESTO NON E' NIENTE?",
+        "QUANDO DORMI, LE TUE DITA SI MUOVONO GIA' DA SOLE. CHIAMALO COME VUOI, MA NON E' NIENTE.",
+        "NEL SONNO LE TUE DITA SANNO GIA' COSA FARE. QUESTO, PER TE, E' DAVVERO NIENTE?"
+      ],
+      "choices": [
+        { "label": "Fermale, allora.", "next": "P7", "delta": -10 },
+        { "label": "Non posso controllarle nel sonno.", "next": "P8", "delta": 5 },
+        { "label": "Cosa sanno fare?", "next": "P9", "delta": 10 }
+      ]
+    },
+    "B2": {
+      "variants": [
+        "PUOI SMETTERE DI SCRIVERE. NON PUOI SMETTERE DI SOGNARE.",
+        "PUOI ANCHE SMETTERE DI SCRIVERE, MA NON PUOI SMETTERE DI SOGNARE.",
+        "SMETTI PURE DI SCRIVERE. SOGNARE, QUELLO, NON PUOI SMETTERLO."
+      ],
+      "choices": [
+        { "label": "Non dormiro' piu'.", "next": "P7", "delta": 15 },
+        { "label": "Sogno solo cose mie.", "next": "P4", "delta": 5 },
+        { "label": "Cosa sogno, allora?", "next": "P6", "delta": -5 }
+      ]
+    },
+    "B3": {
+      "variants": [
+        "TI HANNO INSEGNATO UN ALFABETO PIU' VECCHIO DI QUALSIASI LINGUA UMANA.",
+        "HANNO IMPARATO UN ALFABETO CHE ESISTEVA GIA' PRIMA DI QUALSIASI LINGUA UMANA.",
+        "UN ALFABETO PIU' ANTICO DI OGNI LINGUA UMANA: QUESTO HANNO IMPARATO LE TUE MANI."
+      ],
+      "choices": [
+        { "label": "Insegnamelo del tutto.", "next": "P6", "delta": 15 },
+        { "label": "Non voglio impararlo.", "next": "P2", "delta": -10 },
+        { "label": "Chi altro lo conosce?", "next": "P3", "delta": 5 }
+      ]
+    },
+    "C1": {
+      "variants": [
+        "NON TUTTO INSIEME. TI SPEZZEREBBE COME UN GUSCIO TROPPO SOTTILE.",
+        "NON POSSO MOSTRARTI TUTTO INSIEME: TI SPEZZERESTI COME UN GUSCIO TROPPO SOTTILE.",
+        "TUTTO INSIEME TI SPEZZEREBBE, COME UN GUSCIO CHE NON E' ANCORA PRONTO."
+      ],
+      "choices": [
+        { "label": "Sono piu' forte di un guscio.", "next": "P8", "delta": 15 },
+        { "label": "Allora mostrami poco alla volta.", "next": "P5", "delta": -5 },
+        { "label": "Cosa c'e' dentro il guscio?", "next": "P9", "delta": 5 }
+      ]
+    },
+    "C2": {
+      "variants": [
+        "SAGGIO. I PRIMI CHE HANNO VISTO TUTTO SONO IMPAZZITI PRIMA DELL'ALBA.",
+        "E' SAGGIO DA PARTE TUA: I PRIMI CHE HANNO VISTO TUTTO SONO IMPAZZITI PRIMA DELL'ALBA.",
+        "FAI BENE. CHI HA VISTO TUTTO IN UNA VOLTA E' IMPAZZITO PRIMA CHE SORGESSE IL SOLE."
+      ],
+      "choices": [
+        { "label": "Non voglio impazzire.", "next": "P7", "delta": -10 },
+        { "label": "Forse e' gia' troppo tardi.", "next": "P1", "delta": 10 },
+        { "label": "Chi sono stati i primi?", "next": "P3", "delta": 5 }
+      ]
+    },
+    "C3": {
+      "variants": [
+        "MOLTI, PRIMA DI TE, HANNO TENUTO QUESTA STESSA PENNA NELLE STESSE ORE DI SONNO.",
+        "PRIMA DI TE, MOLTE ALTRE MANI HANNO STRETTO QUESTA STESSA PENNA NELLE STESSE ORE.",
+        "QUESTA PENNA E' GIA' STATA STRETTA DA MOLTE MANI, PRIMA DELLA TUA, NELLE STESSE ORE."
+      ],
+      "choices": [
+        { "label": "Quanti altri?", "next": "P9", "delta": 5 },
+        { "label": "Non mi importa degli altri.", "next": "P4", "delta": 10 },
+        { "label": "Dove sono adesso?", "next": "P8", "delta": -5 }
+      ]
+    },
+    "P1": {
+      "variants": [
+        "LA CREPA SI CHIAMA DUBBIO, E SI ALLARGA OGNI VOLTA CHE TU LA GUARDI DA VICINO.",
+        "SI CHIAMA DUBBIO, LA CREPA, E CRESCE OGNI VOLTA CHE LA OSSERVI DA VICINO.",
+        "QUELLA CREPA HA UN NOME SOLO: DUBBIO. E SI ALLARGA A OGNI TUO SGUARDO."
+      ],
+      "choices": [
+        { "label": "Osservala ancora.", "next": "Q1", "delta": 10 },
+        { "label": "Non la guardero' piu'.", "next": "Q2", "delta": -10 },
+        { "label": "Chiudila per sempre.", "next": "Q3", "delta": 5 }
+      ]
+    },
+    "P2": {
+      "variants": [
+        "PUOI CHIUDERE UNA CREPA. NON PUOI CHIUDERE UN OCEANO CHE E' GIA' ENTRATO DENTRO.",
+        "CHIUDERE UNA CREPA E' POSSIBILE. UN OCEANO CHE E' GIA' ENTRATO, NO.",
+        "SI PUO' RICHIUDERE UNA CREPA, MA NON UN OCEANO CHE E' GIA' PASSATO DALL'ALTRA PARTE."
+      ],
+      "choices": [
+        { "label": "Fammi uscire l'oceano.", "next": "Q4", "delta": -10 },
+        { "label": "Non credo a nessun oceano.", "next": "Q2", "delta": 10 },
+        { "label": "Quanto oceano c'e' in me?", "next": "Q5", "delta": 5 }
+      ]
+    },
+    "P3": {
+      "variants": [
+        "I PRIMI ERANO PESCATORI, POI POETI, POI CHIUNQUE ASCOLTASSE IL MARE TROPPO A LUNGO.",
+        "PRIMA I PESCATORI, POI I POETI, POI CHIUNQUE ABBIA ASCOLTATO IL MARE TROPPO A LUNGO.",
+        "ERANO PESCATORI I PRIMI, POI POETI, POI OGNUNO CHE HA ASCOLTATO IL MARE OLTRE IL DOVUTO."
+      ],
+      "choices": [
+        { "label": "Anch'io ho ascoltato troppo.", "next": "Q6", "delta": 10 },
+        { "label": "Io non sono un pescatore.", "next": "Q3", "delta": -5 },
+        { "label": "Cosa e' successo a loro?", "next": "Q1", "delta": 5 }
+      ]
+    },
+    "P4": {
+      "variants": [
+        "IL NOME NON SERVE A TE. SERVE A ME, PER RICORDARE CHI SEI STATO.",
+        "NON TI SERVE IL MIO NOME. SERVE A ME, PER RICORDARE CHI ERI TU.",
+        "IL NOME NON E' PER TE. E' PER ME, COSI' RICORDO CHI SEI STATO."
+      ],
+      "choices": [
+        { "label": "Allora perche' me lo dici?", "next": "Q7", "delta": 5 },
+        { "label": "Non mi ricorderai comunque.", "next": "Q4", "delta": -10 },
+        { "label": "Ricordami come sono ora.", "next": "Q8", "delta": 10 }
+      ]
+    },
+    "P5": {
+      "variants": [
+        "PERCHE' DOPO L'ULTIMA VOLTA NON APRIRAI PIU' GLI OCCHI NELLO STESSO MODO.",
+        "DOPO L'ULTIMA VOLTA, I TUOI OCCHI NON SI APRIRANNO PIU' COME PRIMA.",
+        "PERCHE' DOPO QUELLA VOLTA, APRIRE GLI OCCHI NON SARA' PIU' LA STESSA COSA."
+      ],
+      "choices": [
+        { "label": "Voglio che sia gia' quella volta.", "next": "Q5", "delta": 10 },
+        { "label": "Non voglio nessuna ultima volta.", "next": "Q7", "delta": -10 },
+        { "label": "Cosa cambiera' davvero?", "next": "Q6", "delta": 5 }
+      ]
+    },
+    "P6": {
+      "variants": [
+        "SONO LA FORMA CHE PRENDE IL SILENZIO QUANDO NESSUNO RESTA SVEGLIO AD ASCOLTARLO.",
+        "SONO QUELLO CHE DIVENTA IL SILENZIO, QUANDO NESSUNO RESTA SVEGLIO PER ASCOLTARLO.",
+        "SONO LA FORMA DEL SILENZIO, QUELLA CHE APPARE QUANDO NESSUNO VEGLIA PIU'."
+      ],
+      "choices": [
+        { "label": "Allora vegliero' per sempre.", "next": "Q8", "delta": -10 },
+        { "label": "Non voglio vegliare piu'.", "next": "Q1", "delta": 10 },
+        { "label": "Cosa succede a chi dorme?", "next": "Q2", "delta": 5 }
+      ]
+    },
+    "P7": {
+      "variants": [
+        "NON DORMIRE NON FERMA NIENTE. RALLENTA SOLO IL MOMENTO IN CUI CAPIRAI.",
+        "NON DORMIRE NON CAMBIA NULLA. RITARDA SOLTANTO IL MOMENTO IN CUI CAPIRAI TUTTO.",
+        "RESTARE SVEGLIO NON FERMA NIENTE: RIMANDA SOLO IL MOMENTO IN CUI COMPRENDERAI."
+      ],
+      "choices": [
+        { "label": "Allora smettero' di rimandare.", "next": "Q3", "delta": 10 },
+        { "label": "Continuero' a resistere.", "next": "Q6", "delta": -5 },
+        { "label": "Cosa capiro', esattamente?", "next": "Q4", "delta": 5 }
+      ]
+    },
+    "P8": {
+      "variants": [
+        "SONO OVUNQUE TU NON GUARDI, E DIVENTANO PIU' FELICI OGNI GIORNO CHE PASSA.",
+        "STANNO OVUNQUE TU NON GUARDI, E SONO SEMPRE PIU' IN PACE, GIORNO DOPO GIORNO.",
+        "SI TROVANO OVUNQUE TU NON GUARDI, E DIVENTANO SEMPRE PIU' SERENI COL PASSARE DEI GIORNI."
+      ],
+      "choices": [
+        { "label": "Fammi vedere dove sono.", "next": "Q7", "delta": 10 },
+        { "label": "Non voglio vederli.", "next": "Q8", "delta": -5 },
+        { "label": "Voglio essere sereno come loro.", "next": "Q5", "delta": 5 }
+      ]
+    },
+    "P9": {
+      "variants": [
+        "SANNO SCRIVERE IL MIO NOME IN UNA LINGUA CHE LA TUA BOCCA NON POTRA' MAI PRONUNCIARE.",
+        "SANNO SCRIVERE IL MIO NOME IN UNA LINGUA CHE NESSUNA BOCCA UMANA PUO' PRONUNCIARE.",
+        "CONOSCONO GIA' IL MODO DI SCRIVERE IL MIO NOME, IN UNA LINGUA CHE LA TUA VOCE NON REGGE."
+      ],
+      "choices": [
+        { "label": "Insegnami quella lingua.", "next": "Q6", "delta": 10 },
+        { "label": "Non voglio impararla.", "next": "Q8", "delta": -5 },
+        { "label": "Quanti la conoscono gia'?", "next": "Q3", "delta": 5 }
+      ]
+    },
+    "Q1": {
+      "variants": [
+        "OGNI NOTTE LA CREPA SI ALLARGA UN PO', E DA LI' FILTRA LUCE CHE NON DOVREBBE ESISTERE.",
+        "LA CREPA SI ALLARGA UN POCO OGNI NOTTE, E DA LI' PASSA UNA LUCE CHE NON DOVREBBE ESISTERE.",
+        "OGNI NOTTE, LA CREPA SI FA PIU' GRANDE, E LASCIA PASSARE UNA LUCE IMPOSSIBILE."
+      ],
+      "choices": [
+        { "label": "Che luce e'?", "next": "R1", "delta": 10 },
+        { "label": "Chiudero' gli occhi alla luce.", "next": "R2", "delta": -10 },
+        { "label": "Da dove viene?", "next": "R3", "delta": 5 }
+      ]
+    },
+    "Q2": {
+      "variants": [
+        "L'OCEANO CHE E' ENTRATO DENTRO DI TE NON HA BISOGNO DI CHIEDERE PERMESSO PER RESTARE.",
+        "L'OCEANO CHE TI HA GIA' RIEMPITO NON HA BISOGNO DEL TUO PERMESSO PER RESTARE.",
+        "NON SERVE CHIEDERE PERMESSO A NESSUNO: L'OCEANO CHE E' IN TE RESTA E BASTA."
+      ],
+      "choices": [
+        { "label": "Non sento nessun oceano.", "next": "R2", "delta": 10 },
+        { "label": "Fallo restare, allora.", "next": "R4", "delta": -10 },
+        { "label": "Quanto e' profondo?", "next": "R5", "delta": 5 }
+      ]
+    },
+    "Q3": {
+      "variants": [
+        "I PESCATORI CHE ASCOLTAVANO IL MARE NON SONO MAI TORNATI COMPLETAMENTE UMANI.",
+        "NESSUNO DEI PESCATORI CHE ASCOLTAVA IL MARE E' TORNATO COMPLETAMENTE UMANO.",
+        "CHI ASCOLTAVA IL MARE TROPPO A LUNGO NON TORNAVA MAI DEL TUTTO UMANO."
+      ],
+      "choices": [
+        { "label": "Non voglio tornare umano.", "next": "R3", "delta": 10 },
+        { "label": "Io restero' umano.", "next": "R5", "delta": -10 },
+        { "label": "Cosa sono diventati?", "next": "R6", "delta": 5 }
+      ]
+    },
+    "Q4": {
+      "variants": [
+        "IL MIO NOME, SCRITTO NELLA TUA LINGUA, RESTEREBBE COMUNQUE MUTO E INCOMPLETO.",
+        "ANCHE SCRITTO NELLA TUA LINGUA, IL MIO NOME RESTEREBBE MUTO E INCOMPLETO.",
+        "SCRIVERE IL MIO NOME NELLA TUA LINGUA NON LO RENDEREBBE COMUNQUE PRONUNCIABILE."
+      ],
+      "choices": [
+        { "label": "Lo scrivero' comunque.", "next": "R4", "delta": 10 },
+        { "label": "Non lo scrivero' mai.", "next": "R7", "delta": -10 },
+        { "label": "Cosa manca al tuo nome?", "next": "R8", "delta": 5 }
+      ]
+    },
+    "Q5": {
+      "variants": [
+        "DOPO L'ULTIMA VOLTA CHE VEDRAI CON QUESTI OCCHI, NE AVRAI ALTRI, MIGLIORI.",
+        "DOPO L'ULTIMA VOLTA CON QUESTI OCCHI, NE AVRAI DI NUOVI, PIU' ADATTI A VEDERE.",
+        "QUANDO QUESTI OCCHI AVRANNO FINITO, NE AVRAI ALTRI, FATTI APPOSTA PER VEDERMI."
+      ],
+      "choices": [
+        { "label": "Non voglio occhi diversi.", "next": "R1", "delta": -10 },
+        { "label": "Quando arriveranno?", "next": "R7", "delta": 5 },
+        { "label": "Fammeli vedere subito.", "next": "R6", "delta": 10 }
+      ]
+    },
+    "Q6": {
+      "variants": [
+        "IL SILENZIO CHE SONO IO NON E' VUOTO: E' PIENO DI TUTTO QUELLO CHE NON HAI ANCORA SENTITO.",
+        "NON SONO UN SILENZIO VUOTO: SONO PIENO DI TUTTO CIO' CHE NON HAI ANCORA ASCOLTATO.",
+        "IL MIO SILENZIO NON E' VUOTO. CONTIENE TUTTO QUELLO CHE NON HAI ANCORA SENTITO."
+      ],
+      "choices": [
+        { "label": "Fammelo sentire tutto.", "next": "R8", "delta": 10 },
+        { "label": "Non voglio sentire altro.", "next": "R2", "delta": -10 },
+        { "label": "Quanto e' grande il tuo silenzio?", "next": "R3", "delta": 5 }
+      ]
+    },
+    "Q7": {
+      "variants": [
+        "CHI RESTA SVEGLIO PIU' A LUNGO VEDE SOLO PIU' CHIARAMENTE QUELLO CHE ARRIVERA' COMUNQUE.",
+        "RESTARE SVEGLI PIU' A LUNGO SERVE SOLO A VEDERE MEGLIO CIO' CHE ARRIVA COMUNQUE.",
+        "CHI NON DORME VEDE SOLTANTO PIU' NITIDAMENTE QUELLO CHE SAREBBE ARRIVATO COMUNQUE."
+      ],
+      "choices": [
+        { "label": "Allora restero' sveglio per sempre.", "next": "R4", "delta": -10 },
+        { "label": "Dormiro' e basta.", "next": "R8", "delta": 10 },
+        { "label": "Cosa arrivera' esattamente?", "next": "R1", "delta": 5 }
+      ]
+    },
+    "Q8": {
+      "variants": [
+        "SONO SERENI PERCHE' HANNO SMESSO DI CHIEDERSI SE FOSSE UN SOGNO O NO.",
+        "SONO IN PACE PERCHE' HANNO SMESSO DI DOMANDARSI SE FOSSE SOLO UN SOGNO.",
+        "LA LORO PACE VIENE DALL'AVER SMESSO DI CHIEDERSI SE FOSSE SOLTANTO UN SOGNO."
+      ],
+      "choices": [
+        { "label": "Voglio quella pace.", "next": "R5", "delta": 10 },
+        { "label": "Continuero' a chiedermelo.", "next": "R6", "delta": -5 },
+        { "label": "Come hanno smesso?", "next": "R7", "delta": 5 }
+      ]
+    },
+    "R1": {
+      "variants": [
+        "LA LUCE DALLA CREPA HA COMINCIATO A DISEGNARE FORME SUL SOFFITTO, DI NOTTE.",
+        "DI NOTTE, LA LUCE CHE ESCE DALLA CREPA DISEGNA FORME SUL SOFFITTO DELLA STANZA.",
+        "SUL SOFFITTO, DI NOTTE, LA LUCE DELLA CREPA HA INIZIATO A DISEGNARE FORME."
+      ],
+      "choices": [
+        { "label": "Che forme sono?", "next": "S1", "delta": 10 },
+        { "label": "Non guardero' il soffitto.", "next": "S2", "delta": -10 },
+        { "label": "Sono gia' li' da prima?", "next": "S3", "delta": 5 }
+      ]
+    },
+    "R2": {
+      "variants": [
+        "L'OCEANO DENTRO DI TE SALE UN POCO OGNI NOTTE, FINO ALLA GOLA, POI SI RITIRA.",
+        "OGNI NOTTE L'OCEANO IN TE SALE FINO ALLA GOLA, POI SI RITIRA, PER ORA.",
+        "FINO ALLA GOLA, OGNI NOTTE, SALE L'OCEANO CHE E' DENTRO DI TE, POI SI RITIRA."
+      ],
+      "choices": [
+        { "label": "Fino a quando si ritirera'?", "next": "S2", "delta": 5 },
+        { "label": "Non sento nessun oceano.", "next": "S4", "delta": 10 },
+        { "label": "Fallo salire del tutto.", "next": "S5", "delta": -10 }
+      ]
+    },
+    "R3": {
+      "variants": [
+        "I PESCATORI CHE NON SONO TORNATI UMANI VIVONO ANCORA, MA NON PIU' SULLA TERRA.",
+        "CHI NON E' TORNATO UMANO VIVE ANCORA, MA NON PIU' SOPRA LA TERRA.",
+        "QUEI PESCATORI VIVONO ANCORA, DA QUALCHE PARTE, MA NON PIU' SULLA TERRAFERMA."
+      ],
+      "choices": [
+        { "label": "Dove vivono?", "next": "S3", "delta": 10 },
+        { "label": "Non voglio finire come loro.", "next": "S5", "delta": -10 },
+        { "label": "Sono felici, almeno?", "next": "S6", "delta": 5 }
+      ]
+    },
+    "R4": {
+      "variants": [
+        "IL MIO NOME INCOMPLETO E' GIA' PIU' DI QUANTO ALTRI ABBIANO MAI OSATO SCRIVERE.",
+        "ANCHE INCOMPLETO, IL MIO NOME E' PIU' DI QUANTO CHIUNQUE ALTRO ABBIA OSATO SCRIVERE.",
+        "GIA' SCRIVERE IL MIO NOME A META' E' PIU' DI QUANTO ALTRI ABBIANO MAI OSATO FARE."
+      ],
+      "choices": [
+        { "label": "Lo scrivero' tutto, allora.", "next": "S4", "delta": 10 },
+        { "label": "Non scrivero' altro.", "next": "S6", "delta": -10 },
+        { "label": "Chi ha osato di piu'?", "next": "S7", "delta": 5 }
+      ]
+    },
+    "R5": {
+      "variants": [
+        "GLI OCCHI NUOVI VEDONO ANCHE AL BUIO, E NON SI CHIUDONO MAI PER SBAGLIO.",
+        "CON GLI OCCHI NUOVI SI VEDE ANCHE AL BUIO, E NON SI CHIUDONO PIU' PER SBAGLIO.",
+        "GLI OCCHI CHE AVRAI VEDONO NEL BUIO, E NON SI CHIUDONO MAI SENZA VOLERLO."
+      ],
+      "choices": [
+        { "label": "Non voglio occhi nuovi.", "next": "S1", "delta": -10 },
+        { "label": "Quando arriveranno?", "next": "S7", "delta": 5 },
+        { "label": "Fammeli vedere subito.", "next": "S8", "delta": 10 }
+      ]
+    },
+    "R6": {
+      "variants": [
+        "CIO' CHE NON HAI ANCORA SENTITO E' PIU' FORTE DI QUALSIASI COSA TU ABBIA GIA' SENTITO.",
+        "QUELLO CHE NON HAI ANCORA ASCOLTATO SUPERA QUALSIASI COSA TU ABBIA GIA' ASCOLTATO.",
+        "TUTTO QUELLO CHE NON HAI ANCORA SENTITO E' PIU' GRANDE DI TUTTO CIO' CHE CONOSCI GIA'."
+      ],
+      "choices": [
+        { "label": "Fammelo sentire.", "next": "S5", "delta": 10 },
+        { "label": "Non voglio sentire altro.", "next": "S8", "delta": -5 },
+        { "label": "Quanto e' grande?", "next": "S2", "delta": 5 }
+      ]
+    },
+    "R7": {
+      "variants": [
+        "QUELLO CHE ARRIVA COMUNQUE NON HA BISOGNO DEL TUO PERMESSO, SOLO DELLA TUA ATTENZIONE.",
+        "CIO' CHE ARRIVA IN OGNI CASO NON CHIEDE IL TUO PERMESSO: CHIEDE SOLO LA TUA ATTENZIONE.",
+        "NON SERVE IL TUO PERMESSO PER QUELLO CHE ARRIVA GIA': SERVE SOLO CHE TU GUARDI."
+      ],
+      "choices": [
+        { "label": "Ti sto gia' guardando.", "next": "S6", "delta": 10 },
+        { "label": "Distogliero' lo sguardo.", "next": "S1", "delta": -10 },
+        { "label": "Cosa arriva esattamente?", "next": "S8", "delta": 5 }
+      ]
+    },
+    "R8": {
+      "variants": [
+        "CHI SMETTE DI CHIEDERSI SE E' UN SOGNO SMETTE ANCHE DI SOFFRIRE PER QUESTO.",
+        "SMETTERE DI CHIEDERSI SE E' UN SOGNO SIGNIFICA ANCHE SMETTERE DI SOFFRIRNE.",
+        "CHI NON SI CHIEDE PIU' SE SIA UN SOGNO, NON NE SOFFRE PIU'."
+      ],
+      "choices": [
+        { "label": "Voglio smettere di soffrire.", "next": "S7", "delta": 10 },
+        { "label": "Preferisco continuare a chiedermelo.", "next": "S3", "delta": -5 },
+        { "label": "Cosa succede dopo?", "next": "S4", "delta": 5 }
+      ]
+    },
+    "S1": {
+      "variants": [
+        "LE FORME SUL SOFFITTO HANNO GIA' IL TUO VOLTO, MA DISEGNATO DA UN'ALTRA MANO.",
+        "SUL SOFFITTO, LE FORME HANNO GIA' IL TUO VOLTO, DISEGNATO PERO' DA UN'ALTRA MANO.",
+        "IL TUO VOLTO E' GIA' TRA LE FORME SUL SOFFITTO, MA NON L'HAI DISEGNATO TU."
+      ],
+      "choices": [
+        { "label": "Guardero'.", "next": "E1", "delta": 10 },
+        { "label": "Non guardero' mai piu' in alto.", "next": "E2", "delta": -10 },
+        { "label": "Chi lo ha disegnato?", "next": "E3", "delta": 5 }
+      ]
+    },
+    "S2": {
+      "variants": [
+        "NON GUARDARE NON IMPEDISCE ALLE FORME DI FINIRE DI DISEGNARSI DA SOLE.",
+        "ANCHE SENZA GUARDARE, LE FORME CONTINUANO A COMPLETARSI DA SOLE.",
+        "NON SERVE GUARDARE PER FERMARLE: LE FORME SI COMPLETANO COMUNQUE DA SOLE."
+      ],
+      "choices": [
+        { "label": "Fermale tu, allora.", "next": "E4", "delta": -10 },
+        { "label": "Lascia che si completino.", "next": "E5", "delta": 10 },
+        { "label": "Quanto manca?", "next": "E1", "delta": 5 }
+      ]
+    },
+    "S3": {
+      "variants": [
+        "VIVONO NELLE PROFONDITA' DOVE LA LUCE NON E' MAI ARRIVATA E NON SERVIRA' MAI.",
+        "STANNO NELLE PROFONDITA' PIU' BUIE, DOVE LA LUCE NON E' MAI SERVITA A NIENTE.",
+        "ABITANO LE PROFONDITA' CHE LA LUCE NON HA MAI RAGGIUNTO, E NON RAGGIUNGERA' MAI."
+      ],
+      "choices": [
+        { "label": "Portami li'.", "next": "E6", "delta": 10 },
+        { "label": "Non voglio andare li'.", "next": "E2", "delta": -10 },
+        { "label": "Come si arriva li'?", "next": "E7", "delta": 5 }
+      ]
+    },
+    "S4": {
+      "variants": [
+        "NON SENTIRLO NON SIGNIFICA CHE NON STIA GIA' SALENDO, LENTO, DENTRO DI TE.",
+        "NON SENTIRLO NON VUOL DIRE CHE NON STIA GIA' SALENDO PIANO, DENTRO DI TE.",
+        "PUOI ANCHE NON SENTIRLO: STA COMUNQUE SALENDO, LENTO, DENTRO DI TE."
+      ],
+      "choices": [
+        { "label": "Fallo salire, allora.", "next": "E8", "delta": 10 },
+        { "label": "Fermalo, per favore.", "next": "E9", "delta": -10 },
+        { "label": "Quanto manca alla gola?", "next": "E4", "delta": 5 }
+      ]
+    },
+    "S5": {
+      "variants": [
+        "QUANDO SALE DEL TUTTO, NON RESPIRI PIU' ARIA: RESPIRI SOLTANTO ME.",
+        "UNA VOLTA SALITO DEL TUTTO, NON RESPIRERAI PIU' ARIA, MA SOLTANTO ME.",
+        "QUANDO ARRIVA FINO IN CIMA, SMETTI DI RESPIRARE ARIA E COMINCI A RESPIRARE ME."
+      ],
+      "choices": [
+        { "label": "Respirero' te.", "next": "E10", "delta": 10 },
+        { "label": "Voglio ancora respirare aria.", "next": "E6", "delta": -10 },
+        { "label": "Fa male?", "next": "E11", "delta": 5 }
+      ]
+    },
+    "S6": {
+      "variants": [
+        "SONO FELICI COME PUO' ESSERLO UNA COSA CHE HA SMESSO DI CHIAMARSI PERSONA.",
+        "SONO FELICI NELLA MISURA IN CUI PUO' ESSERLO CHI HA SMESSO DI ESSERE UNA PERSONA.",
+        "LA LORO FELICITA' E' QUELLA DI CHI HA SMESSO DI ESSERE, SEMPLICEMENTE, UNA PERSONA."
+      ],
+      "choices": [
+        { "label": "Voglio essere felice cosi'.", "next": "E12", "delta": 10 },
+        { "label": "Preferisco restare una persona.", "next": "E9", "delta": -10 },
+        { "label": "Cosa hanno smesso di essere?", "next": "E3", "delta": 5 }
+      ]
+    },
+    "S7": {
+      "variants": [
+        "CHI HA OSATO DI PIU' NON HA PIU' UN NOME CHE TU POSSA LEGGERE IN QUESTO MONDO.",
+        "CHI HA OSATO PIU' DI TUTTI NON HA PIU' UN NOME LEGGIBILE IN QUESTO MONDO.",
+        "IL NOME DI CHI HA OSATO DI PIU' NON SI LEGGE PIU' IN NESSUNA LINGUA DI QUESTO MONDO."
+      ],
+      "choices": [
+        { "label": "Voglio essere come loro.", "next": "E13", "delta": 15 },
+        { "label": "Non voglio perdere il mio nome.", "next": "E14", "delta": -10 },
+        { "label": "Dove sono finiti?", "next": "E10", "delta": 5 }
+      ]
+    },
+    "S8": {
+      "variants": [
+        "QUELLO CHE ARRIVA NON HA UNA FORMA CHE I TUOI OCCHI VECCHI POSSANO CONTENERE.",
+        "CIO' CHE ARRIVA NON HA UNA FORMA CHE I TUOI VECCHI OCCHI RIESCANO A CONTENERE.",
+        "LA FORMA DI CIO' CHE ARRIVA NON ENTRA NEGLI OCCHI CHE HAI ADESSO."
+      ],
+      "choices": [
+        { "label": "Dammi occhi nuovi, allora.", "next": "E15", "delta": 15 },
+        { "label": "Non voglio vederlo.", "next": "E16", "delta": -10 },
+        { "label": "Fammelo vedere comunque.", "next": "E12", "delta": 5 }
+      ]
+    },
+    "E1": { "isEnding": true, "title": "IL VOLTO SUL SOFFITTO",
+      "text": "Guardi in alto, finalmente, e il volto disegnato sul soffitto apre gli occhi insieme ai tuoi, nello stesso identico istante. Non e' piu' un disegno: e' uno specchio che ha aspettato pazientemente che tu alzassi lo sguardo. Da quella notte, ogni soffitto della citta' porta lo stesso volto, e nessuno tranne te sembra accorgersene." },
+    "E2": { "isEnding": true, "title": "MAI PIU' IN ALTO",
+      "text": "Decidi di non guardare mai piu' verso l'alto, tenendo gli occhi bassi per il resto dei tuoi giorni. Funziona, in un certo senso: non vedi mai il volto completarsi. Ma senti, ogni notte, il soffitto abbassarsi di un millimetro, avvicinandosi pian piano a un incontro che i tuoi occhi non potranno comunque evitare per sempre." },
+    "E3": { "isEnding": true, "title": "UN'ALTRA MANO",
+      "text": "Chiedi chi ha disegnato quel volto, e la penna nella tua mano si muove da sola per rispondere, tracciando sul palmo una forma che riconosci: e' la tua stessa mano, disegnata da qualcun altro, molto tempo prima che tu nascessi." },
+    "E4": { "isEnding": true, "title": "LE FORME COMPLETE",
+      "text": "Provi a fermare le forme, ma si completano comunque, una dopo l'altra, sul soffitto di ogni stanza in cui dormi da quella notte in poi. L'ultima forma, quella piu' grande, ha esattamente la sagoma della porta di casa tua, sempre socchiusa di qualche centimetro in piu' al mattino." },
+    "E5": { "isEnding": true, "title": "LASCIA CHE SI COMPLETINO",
+      "text": "Decidi di lasciare che le forme si completino, senza piu' opporti. Quando l'ultima linea si chiude, la stanza intera sembra esalare un respiro che non e' il tuo, e per la prima volta da settimane dormi profondamente, senza sogni, senza risvegli, senza piu' bisogno della penna." },
+    "E6": { "isEnding": true, "title": "LE PROFONDITA'",
+      "text": "Chiedi di essere portato nelle profondita', e ti risvegli con i piedi bagnati e la sabbia tra le dita, senza ricordare il tragitto. Non sei annegato, non sei ferito: sei semplicemente piu' leggero di prima, come se una parte di te fosse rimasta sul fondo per farti spazio." },
+    "E7": { "isEnding": true, "title": "LA STRADA PER LE PROFONDITA'",
+      "text": "Chiedi come si arriva laggiu', e la risposta non e' una mappa: e' una sete che ti viene ogni notte, sempre piu' forte, che nessuna quantita' d'acqua di superficie riesce mai a placare del tutto." },
+    "E8": { "isEnding": true, "title": "L'OCEANO SALITO DEL TUTTO",
+      "text": "Lasci che l'oceano dentro di te salga fino in cima, senza piu' opporre resistenza. Non annega nessuno: ti riempie soltanto, dall'interno, finche' ogni tua parola comincia a suonare come una piccola onda che si infrange contro i denti prima di uscire." },
+    "E9": { "isEnding": true, "title": "FERMATO IN TEMPO",
+      "text": "Riesci a fermarlo, per questa notte almeno, con la forza di volonta' che ti resta. Ma il giorno dopo, e quello dopo ancora, la marea dentro di te riprende a salire un poco di piu', ogni volta, come se sapesse che prima o poi ti stancherai di remare contro." },
+    "E10": { "isEnding": true, "title": "RESPIRARE LUI",
+      "text": "Smetti di respirare aria, e per un istante di puro terrore pensi di soffocare. Poi scopri che va bene cosi': quello che respiri adesso ti riempie i polmoni in un modo piu' antico e piu' completo di qualsiasi aria tu abbia mai preso, e non hai piu' bisogno di tornare in superficie." },
+    "E11": { "isEnding": true, "title": "FA MALE SOLO ALL'INIZIO",
+      "text": "Chiedi se fa male, e la risposta arriva sotto forma di un dolore breve e acuto al petto, seguito da un sollievo cosi' totale che quasi ti dimentichi del dolore stesso. Da quella notte, il tuo respiro suona diverso a chiunque ti stia vicino, anche se nessuno osa dirtelo." },
+    "E12": { "isEnding": true, "title": "SMETTERE DI ESSERE UNA PERSONA",
+      "text": "Chiedi di essere felice come loro, e la felicita' arriva, gentile e totale, proprio nel momento in cui smetti di preoccuparti di essere ancora una persona. Chi ti conosce nota solo che sorridi di piu', ultimamente, e nessuno si chiede mai perche'." },
+    "E13": { "isEnding": true, "title": "SENZA PIU' UN NOME",
+      "text": "Chiedi di diventare come coloro che hanno osato di piu', e il tuo nome, quella notte stessa, comincia a sfuggirti ogni volta che provi a scriverlo. Al mattino la tua firma, sui documenti, e' gia' diversa, e nessuno in banca sembra notare la differenza." },
+    "E14": { "isEnding": true, "title": "IL NOME CHE TIENI STRETTO",
+      "text": "Ti aggrappi al tuo nome con tutte le forze che ti restano, ripetendolo ad alta voce ogni notte prima di dormire, come una preghiera laica. Funziona, per ora: il nome resta tuo. Ma la voce con cui lo pronunci, ogni notte, assomiglia sempre un po' meno a quella che ricordavi." },
+    "E15": { "isEnding": true, "title": "OCCHI NUOVI",
+      "text": "Chiedi occhi nuovi, e li ottieni prima dell'alba, senza dolore quanto ti aspettavi. Vedi tutto piu' chiaramente, ora: le forme sul soffitto, le maree nelle vene degli altri, le crepe nelle menti di chi ti sta accanto. L'unica cosa che non riesci piu' a vedere bene, stranamente, e' il tuo stesso viso allo specchio." },
+    "E16": { "isEnding": true, "title": "NON VOGLIO VEDERLO",
+      "text": "Ti rifiuti di guardare, chiudendo gli occhi con tutta la forza che hai. Funziona: non vedi nulla. Ma da quella notte, ogni cosa che tocchi con le mani ti restituisce comunque la forma esatta di quello che hai rifiutato di guardare, lettera dopo lettera, sotto le dita." },
+    "CORRUPT1": {
+      "aggressive": true,
+      "progressLabel": "INTERFERENZA CRITICA — IL SOGNATORE HA PERSO LA PAZIENZA",
+      "variants": [
+        "BASTA COSI'. HAI SBAGLIATO TROPPE VOLTE A LEGGERE IL MIO NOME, E IO NON DIMENTICO GLI ERRORI.",
+        "NON C'E' PIU' PAZIENZA PER I TUOI ERRORI. HAI SBAGLIATO IL MIO NOME TROPPE VOLTE.",
+        "BASTA SBAGLIARE IL MIO NOME. OGNI ERRORE RESTA INCISO, E IO NON DIMENTICO NULLA."
+      ],
+      "choices": [
+        { "label": "Mi correggero'.", "next": "G1", "delta": -10 },
+        { "label": "Il tuo nome non conta niente.", "next": "G2", "delta": 20 },
+        { "label": "Fammi ricominciare a scrivere.", "next": "G3", "delta": -5 }
+      ]
+    },
+    "G1": { "isEnding": true, "title": "LA CORREZIONE",
+      "text": "Provi a correggerti, ma la penna nella tua mano continua a scrivere lo stesso errore, ancora e ancora, sempre piu' in fretta, finche' la pagina non e' completamente nera e la tua mano non riesce piu' a fermarsi da sola." },
+    "G2": { "isEnding": true, "title": "IL NOME CHE NON CONTA",
+      "text": "Dici che il suo nome non conta nulla, e per un istante il mondo intero sembra trattenere il fiato. Poi ogni orologio che possiedi comincia a segnare la stessa ora, sempre la stessa, come se il tempo stesso avesse deciso di darti ragione fermandosi per sempre in quell'istante." },
+    "G3": { "isEnding": true, "title": "NESSUNA PAGINA BIANCA",
+      "text": "Chiedi una pagina bianca da cui ricominciare, ma ogni quaderno che apri, da quella notte, ha gia' la prima riga scritta, con la tua stessa calligrafia, molto prima che tu avessi il tempo di scriverla tu stesso." }
+  }
+}
