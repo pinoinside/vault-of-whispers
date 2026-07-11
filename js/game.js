@@ -135,6 +135,7 @@
         } else {
           span.textContent = letterToSymbol[ch];
           span.className = 'glyph';
+          span.dataset.symbol = letterToSymbol[ch];
         }
       } else {
         span.textContent = ch;
@@ -149,9 +150,16 @@
     }
   }
 
+  function highlightSymbolOccurrences(symbol){
+    messageEl.querySelectorAll('.glyph').forEach(span=>{
+      span.classList.toggle('symbol-highlight', symbol !== null && span.dataset.symbol === symbol);
+    });
+  }
+
   function renderDecodePanel(text){
     decodeArea.innerHTML = '';
     activeSymbol = null;
+    highlightSymbolOccurrences(null);
 
     if(isFullyDecoded(text)) return;
 
@@ -160,7 +168,7 @@
 
     const label = document.createElement('div');
     label.className = 'decode-label';
-    label.textContent = 'Simboli non decifrati — cifrario valido solo per questo messaggio';
+    label.textContent = 'Simboli non decifrati — cifrario valido solo per questo sussurro';
     panel.appendChild(label);
 
     const chipRow = document.createElement('div');
@@ -180,6 +188,7 @@
         activeSymbol = sym;
         chipRow.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
         chip.classList.add('active');
+        highlightSymbolOccurrences(sym);
         renderLetterRow(letterRowContainer, sym, text);
       });
       chipRow.appendChild(chip);
@@ -202,7 +211,7 @@
     decodeArea.innerHTML = '';
     const notice = document.createElement('div');
     notice.className = 'rewrite-notice';
-    notice.textContent = "IL MESSAGGIO SI DISSOLVE... QUALCOSA DI TERRIBILE STA SCRIVENDO...";
+    notice.textContent = "IL MESSAGGIO SI DISSOLVE... QUALCOSA DI OSTILE STA SCRIVENDO...";
     decodeArea.appendChild(notice);
     messageEl.classList.add('rewriting');
 
@@ -229,11 +238,10 @@
     const row = document.createElement('div');
     row.className = 'letter-row';
 
-    LETTERS.forEach(letter=>{
+    LETTERS.filter(letter => !revealed.has(letter)).forEach(letter=>{
       const btn = document.createElement('button');
       btn.className = 'letter-btn';
       btn.textContent = letter;
-      if(revealed.has(letter)) btn.disabled = true;
       btn.addEventListener('click', ()=>{
         if(symbolToLetter[symbol] === letter){
           revealed.add(letter);
@@ -303,7 +311,7 @@
     if(mistakes <= 5) return "Frammenti persi: " + mistakes + ". Piccole crepe, ma le crepe in questa storia crescono sempre.";
     if(mistakes <= 19) return "Frammenti persi: " + mistakes + ". Qualcosa, dentro di te, si è arreso molto prima della fine.";
     if(mistakes <= 39) return "Frammenti persi: " + mistakes + ". Non sei più del tutto sicuro di quale versione di te abbia risposto per ultima.";
-    return "Frammenti persi: " + mistakes + ". Sei arrivato alla fine per il rotto della cuffia e qualcosa dentro di te lo sa.";
+    return "Frammenti persi: " + mistakes + ". Sei arrivato alla fine per il rotto della cuffia, e qualcosa dentro di te lo sa.";
   }
 
   // --- Menu di scelta storia (usato sia nella schermata iniziale sia a fine partita) ---
@@ -320,7 +328,7 @@
     function selectFile(file, btnEl, labelWhileLoading){
       disableAll();
       btnEl.classList.add('selected');
-      btnEl.querySelector('.story-menu-title').textContent = labelWhileLoading;
+      //btnEl.querySelector('.story-menu-title').textContent = labelWhileLoading;
       loadStoryFile(file).then(story=>{
         STORY = story;
         onStoryReady(story);
@@ -337,7 +345,7 @@
       btn.innerHTML =
         '<span class="story-menu-title">' + entry.title + '</span>' +
         (entry.tagline ? '<span class="story-menu-tagline">' + entry.tagline + '</span>' : '');
-      btn.addEventListener('click', ()=> selectFile(entry.file, btn, 'Loading...'));
+      btn.addEventListener('click', ()=> selectFile(entry.file, btn, 'Caricamento...'));
       wrap.appendChild(btn);
     });
 
@@ -348,7 +356,7 @@
       '<span class="story-menu-tagline">lascia che sia l\'archivio a scegliere per te</span>';
     randomBtn.addEventListener('click', ()=>{
       const pick = MANIFEST.stories[Math.floor(Math.random()*MANIFEST.stories.length)];
-      selectFile(pick.file, randomBtn, 'Loading...');
+      selectFile(pick.file, randomBtn, 'Caricamento...');
     });
     wrap.appendChild(randomBtn);
 
@@ -370,7 +378,7 @@
       MANIFEST = manifest;
       buildStoryMenu(introMenu, (story)=>{
         introStoryName.textContent = 'Stanotte: ' + story.title;
-        document.title = 'The Vault of Whispers — ' + story.title;
+        document.title = 'Vault of Whispers — ' + story.title;
         introStart.disabled = false;
         introStart.textContent = 'Start';
         resetGame();
@@ -442,11 +450,11 @@
 
     const text = document.createElement('div');
     text.className = 'ending-text';
-    text.textContent = "Hai sbagliato troppe volte e ogni errore era un'altra crepa che qualcosa ha usato per inserirsi più a fondo. Il terminale smette di fare domande, perché non ne ha più bisogno: la voce che risponde adesso, correggendo ogni tuo errore uno per uno, non è più la tua. Lo schermo resta acceso, in attesa del prossimo che si siederà.";
+    text.textContent = "Hai sbagliato troppe volte e ogni errore era un'altra crepa che qualcosa ha usato per infilarsi più a fondo. Il terminale smette di fare domande, perché non ne ha più bisogno: la voce che risponde adesso, correggendo ogni tuo errore uno per uno, non è più la tua. Lo schermo resta acceso, in attesa del prossimo che si siederà qui per decifrarlo.";
 
     const stat = document.createElement('div');
     stat.className = 'ending-stat';
-    stat.textContent = "Frammenti persi: " + mistakes + " su 50. Il segnale non ti arriva più.";
+    stat.textContent = "Frammenti persi: " + mistakes + " su 50. Il segnale non ti appartiene più.";
 
     choiceArea.appendChild(title);
     choiceArea.appendChild(text);
