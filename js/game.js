@@ -1,6 +1,6 @@
 (function(){
 
-  const LETTERS = ['A','B','C','D','E','F','G','H','I','L','M','N','O','P','Q','R','S','T','U','V','Z'];
+  const LETTERS = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 
   let MANIFEST = null;
   let STORY = null;
@@ -311,7 +311,7 @@
     if(mistakes <= 5) return "Frammenti persi: " + mistakes + ". Piccole crepe, ma le crepe in questa storia crescono sempre.";
     if(mistakes <= 19) return "Frammenti persi: " + mistakes + ". Qualcosa, dentro di te, si è arreso molto prima della fine.";
     if(mistakes <= 39) return "Frammenti persi: " + mistakes + ". Non sei più del tutto sicuro di quale versione di te abbia risposto per ultima.";
-    return "Frammenti persi: " + mistakes + ". Sei arrivato alla fine per il rotto della cuffia, e qualcosa dentro di te lo sa.";
+    return "Frammenti persi: " + mistakes + ". Sei arrivato alla fine per il rotto della cuffia e qualcosa dentro di te lo sa.";
   }
 
   // --- Menu di scelta storia (usato sia nella schermata iniziale sia a fine partita) ---
@@ -380,7 +380,7 @@
         introStoryName.textContent = 'Stanotte: ' + story.title;
         document.title = 'Vault of Whispers — ' + story.title;
         introStart.disabled = false;
-        introStart.textContent = 'Start';
+        introStart.textContent = 'Comincia';
         resetGame();
       });
     }).catch(err=>{
@@ -450,7 +450,7 @@
 
     const text = document.createElement('div');
     text.className = 'ending-text';
-    text.textContent = "Hai sbagliato troppe volte e ogni errore era un'altra crepa che qualcosa ha usato per infilarsi più a fondo. Il terminale smette di fare domande, perché non ne ha più bisogno: la voce che risponde adesso, correggendo ogni tuo errore uno per uno, non è più la tua. Lo schermo resta acceso, in attesa del prossimo che si siederà qui per decifrarlo.";
+    text.textContent = "Hai sbagliato troppe volte e ogni errore era un'altra crepa che qualcosa ha usato per infilarsi più a fondo. Il terminale smette di fare domande, perché non ne ha più bisogno: la voce che risponde adesso, correggendo ogni tuo errore uno per uno, non è più la tua. Lo schermo resta acceso, in attesa del prossimo che si siederà qui a decifrarlo.";
 
     const stat = document.createElement('div');
     stat.className = 'ending-stat';
