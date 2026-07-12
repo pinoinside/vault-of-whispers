@@ -4,54 +4,102 @@
   "totalStages": 3,
   "startNode": "root",
   "corruptNode": "CORRUPT1",
-  "symbols": ["☿","☉","☽","☾","♁","♆","♄","♃","♂","♀","⚸","⚹","✦","✧","❖","◈","◇","▲","▽","◐","◑"],
+  "symbols": ["☠","☣","☢","☯","⚛","⚗","⚜","🜊","⚔","⚖","⚙","⚠","☮","☤","⚕","⚰","⚱","⛧","⚹","⚥","☍","☄","☾","☉","⛓","⛏","⚒","⚑","⚘","☊","🜁","🜃","🜔","🜘","🜛"],
   "nodes": {
     "root": {
       "variants": [
-        "LA RADIO DEL FARO HA RIPRESO A PARLARE DA SOLA ANCHE SE NON PUO' ESSERCI NESSUNO IN LINEA.",
-        "QUALCUNO STA PARLANDO DALLA VECCHIA RADIO DEL FARO E NON DOVREBBE ESSERCI NESSUNO IN LINEA.",
-        "LA RADIO SI E' ACCESA DA SOLA STANOTTE E QUALCUNO, DALL'ALTRA PARTE, RESPIRA."
+        "LA RADIO DEL FARO HA RIPRESO A PARLARE DA SOLA, E NON E' STATICA QUELLA CHE SENTO.",
+        "QUALCUNO STA PARLANDO DALLA VECCHIA RADIO DEL FARO, E NON DOVREBBE ESSERCI NESSUNO IN LINEA.",
+        "LA RADIO SI E' ACCESA DA SOLA STANOTTE, E QUALCUNO, DALL'ALTRA PARTE, RESPIRA."
       ],
       "choices": [
-        { "label": "Chi parla?", "next": "A", "delta": -5 },
-        { "label": "Spegni la radio.", "next": "B", "delta": 15 },
-        { "label": "Sei il custode?", "next": "C", "delta": 5 }
+        {
+          "label": "Chi parla?",
+          "next": "A",
+          "delta": -5
+        },
+        {
+          "label": "Spegni la radio.",
+          "next": "B",
+          "delta": 15
+        },
+        {
+          "label": "Sei il custode?",
+          "next": "C",
+          "delta": 5
+        }
       ]
     },
     "A": {
       "variants": [
         "SONO IL CUSTODE DI QUESTO FARO DA PIU' INVERNI DI QUANTI TU POSSA CONTARE.",
         "CUSTODISCO QUESTO FARO DA COSI' TANTI INVERNI CHE HO PERSO IL CONTO ANCH'IO.",
-        "QUESTO FARO HA AVUTO UN SOLO VERO CUSTODE E SONO IO, DA PIU' INVERNI DI QUANTI IMMAGINI."
+        "QUESTO FARO HA AVUTO UN SOLO VERO CUSTODE, E SONO IO, DA PIU' INVERNI DI QUANTI IMMAGINI."
       ],
       "choices": [
-        { "label": "Da quanto sei qui?", "next": "A1", "delta": -5 },
-        { "label": "Cosa vuoi?", "next": "A2", "delta": 0 },
-        { "label": "Mostrami la luce.", "next": "A3", "delta": 10 }
+        {
+          "label": "Da quanto sei qui?",
+          "next": "A1",
+          "delta": -5
+        },
+        {
+          "label": "Cosa vuoi?",
+          "next": "A2",
+          "delta": 0
+        },
+        {
+          "label": "Mostrami la luce.",
+          "next": "A3",
+          "delta": 10
+        }
       ]
     },
     "B": {
       "variants": [
         "PUOI SPEGNERE LA RADIO, MA LA NEBBIA FUORI CONTINUERA' A PARLARE LO STESSO.",
         "SPEGNI PURE LA RADIO: LA NEBBIA FUORI NON HA BISOGNO DI UN APPARECCHIO PER FARSI SENTIRE.",
-        "LA RADIO E' SOLO UNA VOCE TRA TANTE. SPEGNILA E LA NEBBIA TROVERA' UN'ALTRA VOCE."
+        "LA RADIO E' SOLO UNA VOCE TRA TANTE. SPEGNILA, E LA NEBBIA TROVERA' UN'ALTRA VOCE."
       ],
       "choices": [
-        { "label": "Non ho paura della nebbia.", "next": "B1", "delta": 15 },
-        { "label": "Uscirò a controllare.", "next": "B2", "delta": 15 },
-        { "label": "Mi dispiace per te.", "next": "B3", "delta": -15 }
+        {
+          "label": "Non ho paura della nebbia.",
+          "next": "B1",
+          "delta": 15
+        },
+        {
+          "label": "Uscirò a controllare.",
+          "next": "B2",
+          "delta": 15
+        },
+        {
+          "label": "Mi dispiace per te.",
+          "next": "B3",
+          "delta": -15
+        }
       ]
     },
     "C": {
       "variants": [
-        "IL CUSTODE PRIMA DI TE NON SE N'E' MAI ANDATO DAVVERO E TU LO SAI GIA'.",
+        "IL CUSTODE PRIMA DI TE NON SE N'E' MAI ANDATO DAVVERO, E TU LO SAI GIA'.",
         "NESSUN CUSTODE HA MAI LASCIATO DAVVERO QUESTO FARO, NEANCHE QUELLO PRIMA DI TE.",
         "CHIEDITI DOVE SIA FINITO IL CUSTODE PRIMA DI TE. LA RISPOSTA E' PIU' VICINA DI QUANTO PENSI."
       ],
       "choices": [
-        { "label": "Dov'è finito?", "next": "C1", "delta": -5 },
-        { "label": "Non ci credo.", "next": "C2", "delta": 10 },
-        { "label": "Sono io il prossimo?", "next": "C3", "delta": 5 }
+        {
+          "label": "Dov'e' finito?",
+          "next": "C1",
+          "delta": -5
+        },
+        {
+          "label": "Non ci credo.",
+          "next": "C2",
+          "delta": 10
+        },
+        {
+          "label": "Sono io il prossimo?",
+          "next": "C3",
+          "delta": 5
+        }
       ]
     },
     "A1": {
@@ -61,9 +109,21 @@
         "IL TEMPO QUI DENTRO NON SI CONTA IN STAGIONI, MA IN QUANTE NAVI HO VISTO PERDERSI NELLA NEBBIA."
       ],
       "choices": [
-        { "label": "Che nave era la prima?", "next": "E1", "delta": 10 },
-        { "label": "Non voglio saperlo.", "next": "E2", "delta": 15 },
-        { "label": "Quante navi ancora?", "next": "E3", "delta": -10 }
+        {
+          "label": "Che nave era la prima?",
+          "next": "E1",
+          "delta": 10
+        },
+        {
+          "label": "Non voglio saperlo.",
+          "next": "E2",
+          "delta": 15
+        },
+        {
+          "label": "Quante navi ancora?",
+          "next": "E3",
+          "delta": -10
+        }
       ]
     },
     "A2": {
@@ -73,9 +133,21 @@
         "NON VOGLIO MOLTO: SOLO QUALCUNO CHE NON LASCI SPEGNERE QUESTA LUCE, MAI."
       ],
       "choices": [
-        { "label": "Terrò accesa la luce.", "next": "E4", "delta": -10 },
-        { "label": "Non è compito mio.", "next": "E2", "delta": 15 },
-        { "label": "Perché tu non puoi più?", "next": "E5", "delta": 5 }
+        {
+          "label": "Terro' accesa la luce.",
+          "next": "E4",
+          "delta": -10
+        },
+        {
+          "label": "Non e' compito mio.",
+          "next": "E2",
+          "delta": 15
+        },
+        {
+          "label": "Perche' tu non puoi piu'?",
+          "next": "E5",
+          "delta": 5
+        }
       ]
     },
     "A3": {
@@ -85,45 +157,93 @@
         "LA LUCE SI MOSTRA SOLO A CHI SMETTE DI TEMERE COSA SI NASCONDE DENTRO LA NEBBIA."
       ],
       "choices": [
-        { "label": "Guarderò quanto serve.", "next": "E6", "delta": -10 },
-        { "label": "Non voglio guardare nella nebbia.", "next": "E1", "delta": 15 },
-        { "label": "Cosa si nasconde lì?", "next": "E4", "delta": 5 }
+        {
+          "label": "Guardero' quanto serve.",
+          "next": "E6",
+          "delta": -10
+        },
+        {
+          "label": "Non voglio guardare nella nebbia.",
+          "next": "E1",
+          "delta": 15
+        },
+        {
+          "label": "Cosa si nasconde li'?",
+          "next": "E4",
+          "delta": 5
+        }
       ]
     },
     "B1": {
       "variants": [
         "LA NEBBIA NON CHIEDE A NESSUNO SE HA PAURA PRIMA DI ENTRARE DALLE FINESTRE.",
-        "NESSUNO CHIEDE ALLA NEBBIA IL PERMESSO DI ENTRARE E LEI NON CHIEDE IL TUO PER RESTARE.",
+        "NESSUNO CHIEDE ALLA NEBBIA IL PERMESSO DI ENTRARE, E LEI NON CHIEDE IL TUO PER RESTARE.",
         "LA PAURA DELLA NEBBIA NON CONTA NULLA PER LEI: ENTRA COMUNQUE, DA SOTTO LE PORTE."
       ],
       "choices": [
-        { "label": "Chiuderò ogni fessura.", "next": "E7", "delta": 10 },
-        { "label": "Che entri pure.", "next": "E6", "delta": -10 },
-        { "label": "Da quando entra qui dentro?", "next": "E3", "delta": 5 }
+        {
+          "label": "Chiudero' ogni fessura.",
+          "next": "E7",
+          "delta": 10
+        },
+        {
+          "label": "Che entri pure.",
+          "next": "E6",
+          "delta": -10
+        },
+        {
+          "label": "Da quando entra qui dentro?",
+          "next": "E3",
+          "delta": 5
+        }
       ]
     },
     "B2": {
       "variants": [
-        "FUORI, LA NEBBIA HA GIA' LA FORMA DI QUALCUNO CHE CONOSCI E TI ASPETTA SUGLI SCOGLI.",
+        "FUORI, LA NEBBIA HA GIA' LA FORMA DI QUALCUNO CHE CONOSCI, E TI ASPETTA SUGLI SCOGLI.",
         "SE ESCI, LA NEBBIA HA GIA' PRESO LA FORMA DI QUALCUNO CHE RICONOSCERAI SUBITO.",
         "LA NEBBIA FUORI SI E' GIA' MODELLATA SU UN VOLTO CHE TU CONOSCI FIN TROPPO BENE."
       ],
       "choices": [
-        { "label": "Andrò a vedere chi è.", "next": "E5", "delta": 10 },
-        { "label": "Non uscirò più.", "next": "E7", "delta": -10 },
-        { "label": "Che volto ha?", "next": "E1", "delta": 5 }
+        {
+          "label": "Andro' a vedere chi e'.",
+          "next": "E5",
+          "delta": 10
+        },
+        {
+          "label": "Non uscirò piu'.",
+          "next": "E7",
+          "delta": -10
+        },
+        {
+          "label": "Che volto ha?",
+          "next": "E1",
+          "delta": 5
+        }
       ]
     },
     "B3": {
       "variants": [
-        "NON SERVE DISPIACERTI PER ME: FORSE SERVIREBBE DISPIACERTI PER CHI VERRA' DOPO DI TE.",
+        "NON SERVE DISPIACERTI PER ME: SERVIREBBE DISPIACERTI PER CHI VERRA' DOPO DI TE.",
         "IL TUO DISPIACERE NON SERVE A ME, MA FORSE SERVIRA' A CHI ARRIVERA' QUI DOPO DI TE.",
         "RISERVA IL TUO DISPIACERE PER IL PROSSIMO CUSTODE, NON PER ME: IO NON NE HO PIU' BISOGNO."
       ],
       "choices": [
-        { "label": "Non ci sarà un prossimo.", "next": "E9", "delta": 15 },
-        { "label": "Avvertirò chi verrà.", "next": "E4", "delta": -10 },
-        { "label": "Chi sarà il prossimo?", "next": "E8", "delta": 5 }
+        {
+          "label": "Non ci sara' un prossimo.",
+          "next": "E9",
+          "delta": 15
+        },
+        {
+          "label": "Avvertirò chi verra'.",
+          "next": "E4",
+          "delta": -10
+        },
+        {
+          "label": "Chi sara' il prossimo?",
+          "next": "E8",
+          "delta": 5
+        }
       ]
     },
     "C1": {
@@ -133,9 +253,21 @@
         "E' FINITO NELLO STESSO POSTO IN CUI FINISCONO TUTTI QUELLI CHE FANNO TROPPE DOMANDE QUI."
       ],
       "choices": [
-        { "label": "Non farò più domande, allora.", "next": "E2", "delta": -10 },
-        { "label": "Continuerò comunque.", "next": "E8", "delta": 15 },
-        { "label": "Qual è la domanda giusta?", "next": "E6", "delta": 5 }
+        {
+          "label": "Non fare piu' domande, allora.",
+          "next": "E2",
+          "delta": -10
+        },
+        {
+          "label": "Continuero' comunque.",
+          "next": "E8",
+          "delta": 15
+        },
+        {
+          "label": "Qual e' la domanda giusta?",
+          "next": "E6",
+          "delta": 5
+        }
       ]
     },
     "C2": {
@@ -145,9 +277,21 @@
         "LA TUA INCREDULITA' NON CAMBIA NULLA: LA NEBBIA CONOSCE GIA' TUTTA LA VERITA'."
       ],
       "choices": [
-        { "label": "Fammi vedere la verità.", "next": "E1", "delta": 10 },
-        { "label": "Non voglio vederla.", "next": "E9", "delta": 15 },
-        { "label": "La nebbia mente quanto te.", "next": "E7", "delta": -5 }
+        {
+          "label": "Fammi vedere la verita'.",
+          "next": "E1",
+          "delta": 10
+        },
+        {
+          "label": "Non voglio vederla.",
+          "next": "E9",
+          "delta": 15
+        },
+        {
+          "label": "La nebbia mente quanto te.",
+          "next": "E7",
+          "delta": -5
+        }
       ]
     },
     "C3": {
@@ -157,29 +301,68 @@
         "DA QUANDO HAI ACCESO LA RADIO, SEI GIA' IL PROSSIMO CUSTODE, CHE TU LO VOGLIA O NO."
       ],
       "choices": [
-        { "label": "Accetto, allora.", "next": "E4", "delta": -10 },
-        { "label": "Non accetto niente.", "next": "E9", "delta": 15 },
-        { "label": "Cosa comporta esserlo?", "next": "E8", "delta": 5 }
+        {
+          "label": "Accetto, allora.",
+          "next": "E4",
+          "delta": -10
+        },
+        {
+          "label": "Non accetto niente.",
+          "next": "E9",
+          "delta": 15
+        },
+        {
+          "label": "Cosa comporta esserlo?",
+          "next": "E8",
+          "delta": 5
+        }
       ]
     },
-    "E1": { "isEnding": true, "title": "LA TORRE",
-      "text": "Sali la scala a chiocciola fino in cima, dove la lampada gira ancora, lenta, anche se tu non l'hai mai accesa stasera. Nella luce che spazza il mare vedi, per un istante, una sagoma ferma sugli scogli, che non proietta ombra nemmeno quando il fascio la illumina in pieno. Quando la luce torna indietro, la sagoma non c'e' piu', ma tu non riesci piu' a scendere quelle scale con lo stesso passo di prima." },
-    "E2": { "isEnding": true, "title": "LA NEBBIA CHE RESTA",
-      "text": "Chiudi ogni finestra, ogni porta, ma la nebbia è gia' dentro la torre da prima che tu nascessi, ospite piu' vecchio di qualsiasi custode. Ti accorgi che respiri al suo stesso ritmo, lento, umido, e che il vetro davanti a te si appanna anche se non hai mai smesso di guardarlo." },
-    "E3": { "isEnding": true, "title": "LO STESSO PASSO",
-      "text": "Provi a scendere piu' in fretta, ma il gradino sotto il tuo piede sembra sempre lo stesso, come se la scala non finisse mai davvero. Conti i gradini, perdi il conto, ricominci, e capisci che stai contando da molto piu' tempo di quanto pensassi." },
-    "E4": { "isEnding": true, "title": "LA PROSSIMA GUARDIA",
-      "text": "Accetti di tenere accesa la luce, per sempre se necessario, e nel momento in cui lo dici ad alta voce senti la radio spegnersi di colpo, come se avesse solo aspettato quella promessa. La lampada in cima alla torre gira piu' silenziosa di prima, e tu resti li', a guardarla, sapendo che ora tocca a te." },
-    "E5": { "isEnding": true, "title": "IL VOLTO NELLA NEBBIA",
-      "text": "Esci sugli scogli nonostante tutto, e la nebbia si apre appena quanto basta a mostrarti un volto che riconosci, piu' vecchio di quanto ricordassi, piu' stanco, ma indubbiamente il tuo. Non si muove. Aspetta solo che tu faccia il primo passo verso di lui." },
-    "E6": { "isEnding": true, "title": "LA LUCE CHE NON SI SPEGNE",
-      "text": "Guardi abbastanza a lungo dentro la nebbia da vedere finalmente la luce di cui parlava: non viene dalla lampada in cima alla torre, ma da dentro la nebbia stessa, pulsante, lenta, come un cuore visto da troppo vicino." },
-    "E7": { "isEnding": true, "title": "SOTTO LE PORTE",
-      "text": "Blocchi ogni fessura, ogni spiffero, ma la nebbia trova comunque la strada, filtrando sotto le porte come un liquido paziente. Al mattino la trovi ovunque, dentro ogni stanza, e capisci che non e' mai stata fuori a chiedere permesso: era gia' dentro, da sempre." },
-    "E8": { "isEnding": true, "title": "LE DOMANDE SBAGLIATE",
-      "text": "Continui a chiedere, insistendo, finche' la radio smette di rispondere del tutto. Il silenzio che segue e' peggiore di qualsiasi risposta: capisci di aver fatto l'ultima domanda sbagliata, quella che non ottiene mai risposta perche' chi l'ascolta ha gia' smesso di esistere per rispondere." },
-    "E9": { "isEnding": true, "title": "IL PROSSIMO CUSTODE",
-      "text": "Ripeti a te stesso che non puoi essere tu il prossimo custode, che sei solo di passaggio, che te ne andrai presto. Ma la porta della torre, quando provi ad aprirla, non si muove di un centimetro, e la radio, alle tue spalle, ricomincia a parlare, questa volta con la tua stessa voce." },
+    "E1": {
+      "isEnding": true,
+      "title": "LA TORRE",
+      "text": "Sali la scala a chiocciola fino in cima, dove la lampada gira ancora, lenta, anche se tu non l'hai mai accesa stasera. Nella luce che spazza il mare vedi, per un istante, una sagoma ferma sugli scogli, che non proietta ombra nemmeno quando il fascio la illumina in pieno. Quando la luce torna indietro, la sagoma non c'e' piu', ma tu non riesci piu' a scendere quelle scale con lo stesso passo di prima."
+    },
+    "E2": {
+      "isEnding": true,
+      "title": "LA NEBBIA CHE RESTA",
+      "text": "Chiudi ogni finestra, ogni porta, ma la nebbia e' gia' dentro la torre da prima che tu nascessi, ospite piu' vecchio di qualsiasi custode. Ti accorgi che respiri al suo stesso ritmo, lento, umido, e che il vetro davanti a te si appanna anche se non hai mai smesso di guardarlo."
+    },
+    "E3": {
+      "isEnding": true,
+      "title": "LO STESSO PASSO",
+      "text": "Provi a scendere piu' in fretta, ma il gradino sotto il tuo piede sembra sempre lo stesso, come se la scala non finisse mai davvero. Conti i gradini, perdi il conto, ricominci, e capisci che stai contando da molto piu' tempo di quanto pensassi."
+    },
+    "E4": {
+      "isEnding": true,
+      "title": "LA PROSSIMA GUARDIA",
+      "text": "Accetti di tenere accesa la luce, per sempre se necessario, e nel momento in cui lo dici ad alta voce senti la radio spegnersi di colpo, come se avesse solo aspettato quella promessa. La lampada in cima alla torre gira piu' silenziosa di prima, e tu resti li', a guardarla, sapendo che ora tocca a te."
+    },
+    "E5": {
+      "isEnding": true,
+      "title": "IL VOLTO NELLA NEBBIA",
+      "text": "Esci sugli scogli nonostante tutto, e la nebbia si apre appena quanto basta a mostrarti un volto che riconosci, piu' vecchio di quanto ricordassi, piu' stanco, ma indubbiamente il tuo. Non si muove. Aspetta solo che tu faccia il primo passo verso di lui."
+    },
+    "E6": {
+      "isEnding": true,
+      "title": "LA LUCE CHE NON SI SPEGNE",
+      "text": "Guardi abbastanza a lungo dentro la nebbia da vedere finalmente la luce di cui parlava: non viene dalla lampada in cima alla torre, ma da dentro la nebbia stessa, pulsante, lenta, come un cuore visto da troppo vicino."
+    },
+    "E7": {
+      "isEnding": true,
+      "title": "SOTTO LE PORTE",
+      "text": "Blocchi ogni fessura, ogni spiffero, ma la nebbia trova comunque la strada, filtrando sotto le porte come un liquido paziente. Al mattino la trovi ovunque, dentro ogni stanza, e capisci che non e' mai stata fuori a chiedere permesso: era gia' dentro, da sempre."
+    },
+    "E8": {
+      "isEnding": true,
+      "title": "LE DOMANDE SBAGLIATE",
+      "text": "Continui a chiedere, insistendo, finche' la radio smette di rispondere del tutto. Il silenzio che segue e' peggiore di qualsiasi risposta: capisci di aver fatto l'ultima domanda sbagliata, quella che non ottiene mai risposta perche' chi l'ascolta ha gia' smesso di esistere per rispondere."
+    },
+    "E9": {
+      "isEnding": true,
+      "title": "IL PROSSIMO CUSTODE",
+      "text": "Ripeti a te stesso che non puoi essere tu il prossimo custode, che sei solo di passaggio, che te ne andrai presto. Ma la porta della torre, quando provi ad aprirla, non si muove di un centimetro, e la radio, alle tue spalle, ricomincia a parlare, questa volta con la tua stessa voce."
+    },
     "CORRUPT1": {
       "aggressive": true,
       "progressLabel": "INTERFERENZA CRITICA — LA NEBBIA SI STA AVVICINANDO",
@@ -189,16 +372,37 @@
         "OGNI ERRORE ATTIRA LA NEBBIA UN PO' PIU' VICINO. QUESTO E' L'ULTIMO CHE POSSO IGNORARE."
       ],
       "choices": [
-        { "label": "Mi fermerò.", "next": "G1", "delta": -10 },
-        { "label": "Non mi fermerà nessuna nebbia.", "next": "G2", "delta": 20 },
-        { "label": "Fammi ricominciare.", "next": "G3", "delta": -5 }
+        {
+          "label": "Mi fermero'.",
+          "next": "G1",
+          "delta": -10
+        },
+        {
+          "label": "Non mi fermera' nessuna nebbia.",
+          "next": "G2",
+          "delta": 20
+        },
+        {
+          "label": "Fammi ricominciare.",
+          "next": "G3",
+          "delta": -5
+        }
       ]
     },
-    "G1": { "isEnding": true, "title": "IL FARO SPENTO",
-      "text": "Ti fermi, ma la lampada in cima alla torre si spegne comunque, di colpo, come se la tua resa fosse stata l'unico carburante rimasto. Nel buio senti la nebbia salire i gradini, uno per uno, con un passo che conosci fin troppo bene." },
-    "G2": { "isEnding": true, "title": "LA MAREA",
-      "text": "Gridi la tua sfida contro la nebbia, ma il mare sotto la torre risponde per lei, alzandosi contro gli scogli piu' in fretta di quanto la marea dovrebbe permettere. L'acqua sale, sale ancora, e tu capisci che qui, stanotte, a decidere non sei tu." },
-    "G3": { "isEnding": true, "title": "NESSUNA ALBA",
-      "text": "Chiedi di ricominciare, come se l'alba potesse davvero arrivare prima del previsto. La radio risponde con un lungo sibilo, poi silenzio. Fuori dalla finestra, il cielo resta esattamente com'era un'ora fa, e restera' cosi' ancora per molto." }
+    "G1": {
+      "isEnding": true,
+      "title": "IL FARO SPENTO",
+      "text": "Ti fermi, ma la lampada in cima alla torre si spegne comunque, di colpo, come se la tua resa fosse stata l'unico carburante rimasto. Nel buio senti la nebbia salire i gradini, uno per uno, con un passo che conosci fin troppo bene."
+    },
+    "G2": {
+      "isEnding": true,
+      "title": "LA MAREA",
+      "text": "Gridi la tua sfida contro la nebbia, ma il mare sotto la torre risponde per lei, alzandosi contro gli scogli piu' in fretta di quanto la marea dovrebbe permettere. L'acqua sale, sale ancora, e tu capisci che qui, stanotte, a decidere non sei tu."
+    },
+    "G3": {
+      "isEnding": true,
+      "title": "NESSUNA ALBA",
+      "text": "Chiedi di ricominciare, come se l'alba potesse davvero arrivare prima del previsto. La radio risponde con un lungo sibilo, poi silenzio. Fuori dalla finestra, il cielo resta esattamente com'era un'ora fa, e restera' cosi' ancora per molto."
+    }
   }
 }

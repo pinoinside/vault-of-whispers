@@ -1,0 +1,192 @@
+{
+  "title": "THE LAST THOUGHT",
+  "tagline": "a voice beneath the mind",
+  "totalStages": 2,
+  "startNode": "root",
+  "corruptNode": "CORRUPT1",
+  "symbols": ["☠","☣","☢","☯","⚛","⚗","⚜","🜊","⚔","⚖","⚙","⚠","☮","☤","⚕","⚰","⚱","⛧","⚹","⚥","☍","☄","☾","☉","⛓","⛏","⚒","⚑","⚘","☊","🜁","🜃","🜔","🜘","🜛"],
+  "nodes": {
+    "root": {
+      "variants": [
+        "THE SILENT ROOM IS FULL OF FEAR.",
+        "THE ROOM IS FULL OF SILENT FEAR.",
+        "THE SILENT HALL IS FULL OF DREAD."
+      ],
+      "choices": [
+        {
+          "label": "Listen to the room.",
+          "next": "A",
+          "delta": -5
+        },
+        {
+          "label": "Open the locked door.",
+          "next": "B",
+          "delta": 15
+        },
+        {
+          "label": "Ask the voice what it wants.",
+          "next": "C",
+          "delta": 5
+        }
+      ]
+    },
+    "A": {
+      "variants": [
+        "THE VOICE IN THE ROOM IS NOT MINE.",
+        "THE VOICE IS IN THE ROOM NOT MINE.",
+        "THE SILENT VOICE IS NOT MINE."
+      ],
+      "choices": [
+        {
+          "label": "Accept the voice.",
+          "next": "E1",
+          "delta": -10
+        },
+        {
+          "label": "Challenge the voice.",
+          "next": "E2",
+          "delta": 15
+        },
+        {
+          "label": "Search the room.",
+          "next": "E3",
+          "delta": 5
+        }
+      ]
+    },
+    "B": {
+      "variants": [
+        "THE FACE IN THE MIRROR IS COLD.",
+        "THE MIRROR HAS A COLD SILENT FACE.",
+        "THE SILENT MIRROR HAS A COLD FACE."
+      ],
+      "choices": [
+        {
+          "label": "Touch the mirror.",
+          "next": "E4",
+          "delta": 15
+        },
+        {
+          "label": "Cover the mirror.",
+          "next": "E5",
+          "delta": -10
+        },
+        {
+          "label": "Look behind the mirror.",
+          "next": "E6",
+          "delta": 5
+        }
+      ]
+    },
+    "C": {
+      "variants": [
+        "THE LOST IDEA OF THE ROOM IS IN THE HALL.",
+        "THE IDEA IS LOST IN THE SILENT ROOM.",
+        "THE HALL HAS THE LOST IDEA OF THE ROOM."
+      ],
+      "choices": [
+        {
+          "label": "Recall the past.",
+          "next": "E7",
+          "delta": -5
+        },
+        {
+          "label": "Erase the memory.",
+          "next": "E8",
+          "delta": 20
+        },
+        {
+          "label": "Follow the strange thought.",
+          "next": "E9",
+          "delta": 5
+        }
+      ]
+    },
+    "E1": {
+      "isEnding": true,
+      "title": "THE ACCEPTED VOICE",
+      "text": "The voice stops pretending to be outside your mind. It settles into your thoughts, speaking with your own memories and your own fears. You leave the room, but you can no longer tell which ideas were ever yours."
+    },
+    "E2": {
+      "isEnding": true,
+      "title": "THE ARGUMENT",
+      "text": "You demand answers from the darkness. The voice replies with every secret you tried to forget, until the room becomes silent and your own reflection begins to answer instead."
+    },
+    "E3": {
+      "isEnding": true,
+      "title": "THE EMPTY ROOM",
+      "text": "You search every corner and find nothing except a recording of your own voice asking the same questions. The room was never hiding something from you. It was waiting for you to notice yourself."
+    },
+    "E4": {
+      "isEnding": true,
+      "title": "THE OTHER SIDE",
+      "text": "Your fingers pass through the mirror like water. Something on the other side holds your hand, and the reflection smiles before you do."
+    },
+    "E5": {
+      "isEnding": true,
+      "title": "THE COVERED GLASS",
+      "text": "The mirror disappears beneath the cloth, but the shape beneath it still moves every night. The cover hides the glass, not the presence behind it."
+    },
+    "E6": {
+      "isEnding": true,
+      "title": "THE HIDDEN FRAME",
+      "text": "Behind the mirror you find a second room identical to yours. Inside that room, another version of you is searching for the mirror."
+    },
+    "E7": {
+      "isEnding": true,
+      "title": "THE RETURNED MEMORY",
+      "text": "You recover memories that feel ancient but belong to yesterday. The final memory is the moment you entered the room for the first time, and you are still standing at the door."
+    },
+    "E8": {
+      "isEnding": true,
+      "title": "THE BLANK MIND",
+      "text": "You erase the thought completely. For a moment there is peace, until you realize you have forgotten why you wanted to escape."
+    },
+    "E9": {
+      "isEnding": true,
+      "title": "THE FINAL THOUGHT",
+      "text": "You follow the impossible idea until it leads back to yourself. The room was a prison, but the prisoner was never the person you believed."
+    },
+    "CORRUPT1": {
+      "aggressive": true,
+      "progressLabel": "CRITICAL INTERFERENCE",
+      "variants": [
+        "STOP. THE ERROR IS INSIDE THE MIND.",
+        "STOP. THE SILENT ERROR IS INSIDE THE MIND.",
+        "THE ERROR IS DEEP IN THE MIND."
+      ],
+      "choices": [
+        {
+          "label": "Leave the room forever.",
+          "next": "G1",
+          "delta": -10
+        },
+        {
+          "label": "Refuse the entity.",
+          "next": "G2",
+          "delta": 20
+        },
+        {
+          "label": "Listen one final time.",
+          "next": "G3",
+          "delta": -5
+        }
+      ]
+    },
+    "G1": {
+      "isEnding": true,
+      "title": "THE EXIT",
+      "text": "You escape the room, but the silence follows you home. Every night you hear a door open somewhere inside your thoughts."
+    },
+    "G2": {
+      "isEnding": true,
+      "title": "THE LAST RESISTANCE",
+      "text": "You fight the presence until nothing remains but a quiet mind. In the morning, you discover the room has vanished, along with every record that you existed."
+    },
+    "G3": {
+      "isEnding": true,
+      "title": "THE FINAL MESSAGE",
+      "text": "The voice speaks one last sentence, using words you do not remember teaching it. Then it disappears, leaving only the fear that it was telling the truth."
+    }
+  }
+}

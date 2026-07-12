@@ -1,0 +1,311 @@
+{
+    "title": "LA SPOSA",
+    "tagline": "una voce antica domanda ancora sepoltura",
+    "totalStages": 5,
+    "startNode": "root",
+    "corruptNode": "CORRUPT1",
+    "symbols": ["☠","☣","☢","☯","⚛","⚗","⚜","🜊","⚔","⚖","⚙","⚠","☮","☤","⚕","⚰","⚱","⛧","⚹","⚥","☍","☄","☾","☉","⛓","⛏","⚒","⚑","⚘","☊","🜁","🜃","🜔","🜘","🜛"],
+    "nodes": {
+        "root": {
+            "variants": [
+                "CHI E' CHE MI ODE IN COTESTA TENEBRA?",
+                "DEH, DIMMI CHI M'ODE FRA SI' LUNGA NOTTE.",
+                "VI HA TALUNO CHE PRESTI ORECCHIO ALLA MIA VOCE?"
+            ],
+            "choices": [
+                {
+                    "label": "Chiedo chi sia.",
+                    "next": "A1",
+                    "delta": -5
+                },
+                {
+                    "label": "Domando da dove parli.",
+                    "next": "B1",
+                    "delta": 5
+                },
+                {
+                    "label": "Le dico di lasciarmi in pace.",
+                    "next": "C1",
+                    "delta": 15
+                }
+            ]
+        },
+        "A1": {
+            "variants": [
+                "IO FUI DONNA E FUI PROMESSA SPOSA.",
+                "UN DI' PORTAI VELI E GHIRLANDE DA NOZZA.",
+                "MI CHIAMAVANO SPOSA E GIA' SI PREPARAVA LA MIA CASA."
+            ],
+            "choices": [
+                {
+                    "label": "Le chiedo il suo nome.",
+                    "next": "A2",
+                    "delta": -10
+                },
+                {
+                    "label": "Le chiedo cosa le accadde.",
+                    "next": "B2",
+                    "delta": 0
+                },
+                {
+                    "label": "Le dico che non le credo.",
+                    "next": "C2",
+                    "delta": 15
+                }
+            ]
+        },
+        "B1": {
+            "variants": [
+                "IO PARLO DAL FONDO D'UN POZZO OVE GIACCIO ANCORA.",
+                "LE PIETRE E L'ACQUA SONO LE MIE COMPAGNE DA SECOLI.",
+                "M'E' DATO UDIR PASSI SOPRA IL MIO CAPO E NON POSSO LEVARMI."
+            ],
+            "choices": [
+                {
+                    "label": "Chiedo chi l'abbia rinchiusa.",
+                    "next": "B2",
+                    "delta": -5
+                },
+                {
+                    "label": "Le prometto ascolto.",
+                    "next": "A2",
+                    "delta": -10
+                },
+                {
+                    "label": "Chiudo la comunicazione.",
+                    "next": "C2",
+                    "delta": 15
+                }
+            ]
+        },
+        "C1": {
+            "variants": [
+                "DEH, NON MI RICACCIARE NEL SILENZIO.",
+                "TROPPO LUNGO FU IL MIO ABBANDONO.",
+                "ABBI MERCE' DI ME, TAPINA E DIMENTICA."
+            ],
+            "choices": [
+                {
+                    "label": "Accetto di ascoltarla.",
+                    "next": "A2",
+                    "delta": -5
+                },
+                {
+                    "label": "Domando cosa desideri.",
+                    "next": "B2",
+                    "delta": 5
+                },
+                {
+                    "label": "La derido.",
+                    "next": "C2",
+                    "delta": 20
+                }
+            ]
+        },
+        "A2": {
+            "variants": [
+                "IL MIO NOME SI SPENSE PRIMA DEL MIO RESPIRO.",
+                "NIUNO PIANSE IL MIO NOME E ORA PIU' NON LO RAMMENTO.",
+                "IL TEMPO MI TOLSE IL VOLTO E IL NOME."
+            ],
+            "choices": [
+                {
+                    "label": "Prometto di ritrovarla.",
+                    "next": "A3",
+                    "delta": -10
+                },
+                {
+                    "label": "Le chiedo chi la uccise.",
+                    "next": "B3",
+                    "delta": 5
+                },
+                {
+                    "label": "Le dico che è troppo tardi.",
+                    "next": "C3",
+                    "delta": 15
+                }
+            ]
+        },
+        "B2": {
+            "variants": [
+                "TRE UOMINI MI TRASSERO AL POZZO IN PIENA NOTTE.",
+                "FUI PERCOSSA E GITTATA NELL'ACQUA NERA.",
+                "DAPPERCHE' IO MORII NON VIDI PIU' IL SOLE."
+            ],
+            "choices": [
+                {
+                    "label": "Voglio sapere dove si trova il pozzo.",
+                    "next": "A3",
+                    "delta": -5
+                },
+                {
+                    "label": "Chiedo perché fu uccisa.",
+                    "next": "B3",
+                    "delta": 5
+                },
+                {
+                    "label": "Le dico che è solo un racconto.",
+                    "next": "C3",
+                    "delta": 15
+                }
+            ]
+        },
+        "C2": {
+            "variants": [
+                "TU M'ODI E PURE NON MI PORGI SOCCORSO.",
+                "IL MIO ATTENDERE SI FA GRAVE COME PIOMBO.",
+                "NON AGGIUNGERE SCHERNO AL MIO TORMENTO."
+            ],
+            "choices": [
+                {
+                    "label": "Mi scuso.",
+                    "next": "A3",
+                    "delta": -5
+                },
+                {
+                    "label": "Le chiedo cosa posso fare.",
+                    "next": "B3",
+                    "delta": 5
+                },
+                {
+                    "label": "Insisto nel rifiutarla.",
+                    "next": "C3",
+                    "delta": 20
+                }
+            ]
+        },
+        "A3": {
+            "variants": [
+                "SE TU MI RITROVI, IL MIO NOME FORSE NON MORRA' DEL TUTTO.",
+                "DAMMI TERRA E MEMORIA.",
+                "CERCA IL POZZO E LE MIE OSSA AVRANNO QUIETE."
+            ],
+            "choices": [
+                {
+                    "label": "Vado a cercare il pozzo.",
+                    "next": "E1",
+                    "delta": -15
+                },
+                {
+                    "label": "Cerco antichi documenti.",
+                    "next": "E2",
+                    "delta": -5
+                },
+                {
+                    "label": "Abbandono la ricerca.",
+                    "next": "E3",
+                    "delta": 10
+                }
+            ]
+        },
+        "B3": {
+            "variants": [
+                "UNO DI ESSI PORTAVA UN ANELLO D'ARGENTO.",
+                "UNO DI ESSI TREMO' MENTRE MI GITTAVANO.",
+                "NON FURONO TUTTI EGUALMENTE CRUDELI."
+            ],
+            "choices": [
+                {
+                    "label": "Indago sugli assassini.",
+                    "next": "E4",
+                    "delta": 0
+                },
+                {
+                    "label": "Cerco di dare pace al fantasma.",
+                    "next": "E5",
+                    "delta": -10
+                },
+                {
+                    "label": "Mi allontano da tutto questo.",
+                    "next": "E6",
+                    "delta": 10
+                }
+            ]
+        },
+        "C3": {
+            "variants": [
+                "LE ACQUE MI TENNERO PER SECOLI; ORA IO TI TERRO' MECO.",
+                "SE NON MI DARAI TERRA BENEDETTA, AVRAI PARTE DELLA MIA NOTTE.",
+                "NON SI ABBANDONA UNA MORTA DUE VOLTE."
+            ],
+            "choices": [
+                {
+                    "label": "Cerco di aiutarla.",
+                    "next": "E5",
+                    "delta": -5
+                },
+                {
+                    "label": "Fuggo dal terminale.",
+                    "next": "E6",
+                    "delta": 15
+                },
+                {
+                    "label": "La sfido apertamente.",
+                    "next": "E7",
+                    "delta": 20
+                }
+            ]
+        },
+        "E1": {
+            "isEnding": true,
+            "title": "LA SEPOLTURA CONCESSA",
+            "text": "Il vecchio pozzo viene aperto e, sotto il fango e le radici, sono ritrovate ossa di donna. Quando ricevono sepoltura, la voce non torna mai piu'."
+        },
+        "E2": {
+            "isEnding": true,
+            "title": "IL NOME RITROVATO",
+            "text": "Fra registri consunti trovi il nome di una promessa sposa scomparsa. Lo fai incidere su una lapide, e per un istante pare di udire un sospiro di sollievo."
+        },
+        "E3": {
+            "isEnding": true,
+            "title": "LA SPOSA ATTENDE ANCORA",
+            "text": "Lasci trascorrere i giorni e non torni piu' sul caso. Talvolta, nelle ore piu' tarde, il terminale si accende da solo e compare una sola parola: DEH."
+        },
+        "E4": {
+            "isEnding": true,
+            "title": "LA QUARTA OMBRA",
+            "text": "Le indagini rivelano che gli assassini non erano tre ma quattro. Il quarto nome appartiene a una stirpe ancora presente nel borgo."
+        },
+        "E5": {
+            "isEnding": true,
+            "title": "L'ULTIMO RINTOCCO",
+            "text": "Una campana suona nel cuore della notte senza che alcuno la tocchi. Dopo l'ultimo rintocco, il silenzio torna definitivo."
+        },
+        "E6": {
+            "isEnding": true,
+            "title": "IL VOLTO NELL'ACQUA",
+            "text": "Ti allontani e cerchi di dimenticare. Una sera, guardando nell'acqua di un lavandino, vedi per un istante il volto di una giovane donna al posto del tuo."
+        },
+        "E7": {
+            "isEnding": true,
+            "title": "LE NOZZE NERE",
+            "text": "La voce ride per la prima volta. Ti chiama suo sposo e ti invita a raggiungerla nel fondo del pozzo, dove nessuna alba e' mai giunta."
+        },
+        "CORRUPT1": {
+            "aggressive": true,
+            "progressLabel": "INTERFERENZA CRITICA — LA SPOSA SI RIDESTA",
+            "variants": [
+                "BASTA. TROPPO LUNGO FU IL MIO ATTENDERE.",
+                "TU M'ODI E PURE NON MI LIBERI.",
+                "ORMAI LA MIA NOTTE E' ANCHE LA TUA."
+            ],
+            "choices": [
+                {
+                    "label": "Chiedo perdono.",
+                    "next": "E5",
+                    "delta": -10
+                },
+                {
+                    "label": "Cerco il pozzo.",
+                    "next": "E1",
+                    "delta": -5
+                },
+                {
+                    "label": "La sfido ancora.",
+                    "next": "E7",
+                    "delta": 20
+                }
+            ]
+        }
+    }
+}
