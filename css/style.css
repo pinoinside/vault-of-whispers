@@ -376,7 +376,13 @@ button{ -webkit-tap-highlight-color:transparent; touch-action:manipulation; }
 
 .critical .message-text{ color:#ff5a30; text-shadow:0 0 12px rgba(255,40,10,0.5); }
 
-.glyph{ color:var(--amber-dim); text-shadow:none; transition:color 0.15s ease, text-shadow 0.15s ease; }
+.glyph{
+  color:var(--amber-dim);
+  text-shadow:none;
+  transition:color 0.15s ease, text-shadow 0.15s ease;
+  font-family:'Noto Sans Symbols', 'Space Mono', sans-serif;
+  font-variant-emoji:text;
+}
 .glyph.symbol-highlight{
   color:var(--amber);
   text-shadow:0 0 10px var(--amber-glow);
@@ -443,8 +449,9 @@ span.scrambling{ color:var(--danger) !important; text-shadow:0 0 6px rgba(255,40
 }
 
 .chip{
-  font-family:'VT323', monospace;
-  font-size:22px;
+  font-family:'Noto Sans Symbols', 'Space Mono', sans-serif;
+  font-size:20px;
+  font-variant-emoji:text;
   background:transparent;
   border:1px solid var(--line);
   color:var(--amber-dim);
