@@ -3,25 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>The Vault of Whispers</title>
+<title>Vault of Whispers</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=VT323&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=Space+Mono:wght@400;700&family=Noto+Sans+Symbols&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <div class="intro-modal" id="introModal">
   <div class="intro-box">
-    <div class="intro-title">The Vault of Whispers</div>
-    <div class="intro-story-name" id="introStoryName">Scegli quale storia ascoltare stanotte.</div>
-    <div class="intro-text">
-      <p>Un'entità ha iniziato a comunicare con te. I suoi messaggi arrivano <strong>cifrati</strong>: ogni simbolo corrisponde sempre alla stessa lettera, ma solo <strong>all'interno del messaggio che stai leggendo</strong>: il cifrario cambia a ogni nuovo messaggio.</p>
-      <p>Tocca un simbolo, poi una lettera, per tentare di decifrarlo. Il messaggio si riscrive man mano che indovini.</p>
-      <p>Ogni errore viene contato, sia nel messaggio corrente che nel totale della partita, sempre visibile in alto a destra. Dopo <strong>10 errori sullo stesso messaggio</strong> qualcosa di più ostile prende il controllo della conversazione. Dopo <span class="warn">50 errori totali</span>, la partita è persa.</p>
+    <div class="intro-fixed-top">
+      <div class="intro-title">Vault of Whispers</div>
+      <div class="intro-story-name" id="introStoryName">Scegli quale storia seguire stanotte.</div>
+      <div class="intro-text">
+        <p>Un'entità ha iniziato a comunicare con te. I suoi messaggi arrivano <strong>cifrati</strong>: ogni simbolo corrisponde sempre alla stessa lettera, ma solo <strong>all'interno del messaggio che stai leggendo</strong>: il cifrario cambia a ogni nuovo messaggio.</p>
+        <p>Tocca un simbolo, poi una lettera, per tentare di decifrarlo. Il messaggio si riscrive man mano che indovini.</p>
+        <p>Ogni errore viene contato, sia nel messaggio corrente che nel totale della partita, sempre visibile in alto a destra. Dopo <strong>10 errori sullo stesso messaggio</strong> qualcosa di più ostile prende il controllo della conversazione. Dopo <span class="warn">50 errori totali</span>, la partita è persa.</p>
+      </div>
     </div>
-    <div id="introMenu"></div>
-    <button class="intro-start-btn" id="introStart" disabled>Scegli una storia</button>
-    <div class="intro-error" id="introError"></div>
+
+    <div class="intro-scroll no-scrollbar" id="introMenu"></div>
+
+    <div class="intro-fixed-bottom">
+      <div class="intro-btn-row">
+        <button class="intro-start-btn" id="introStart" disabled>Scegli una storia</button>
+        <button class="intro-cancel-btn" id="introCancel" disabled>Annulla</button>
+      </div>
+      <div class="intro-error" id="introError"></div>
+    </div>
   </div>
 </div>
 
@@ -36,7 +45,7 @@
     </div>
 
     <div class="status-row">
-      <span class="status-label" id="statusLabel">THE VAULT OF WHISPERS</span>
+      <span class="status-label" id="statusLabel">VAULT OF WHISPERS</span>
       <div class="stability-track"><div class="stability-fill" id="stabilityFill"></div></div>
       <span class="session-id" id="sessionId">SIG. 000</span>
     </div>
@@ -50,7 +59,7 @@
     <div id="decodeArea"></div>
     <div id="choiceArea"></div>
 
-    <div class="hint" id="hint">Ogni simbolo nasconde una lettera. Il cifrario muta ogni volta: non fidarti di ciò che credi di aver imparato.</div>
+    <div class="hint" id="hint">Ogni simbolo nasconde una lettera.<br>Il cifrario muta a ogni sussurro: non fidarti di ciò che credi di aver già imparato.</div>
   </div>
 </div>
 

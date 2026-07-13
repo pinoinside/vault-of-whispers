@@ -29,6 +29,7 @@
   const statusLabelEl = document.getElementById('statusLabel');
   const introModal = document.getElementById('introModal');
   const introStart = document.getElementById('introStart');
+  const introCancel = document.getElementById('introCancel');
   const introStoryName = document.getElementById('introStoryName');
   const introError = document.getElementById('introError');
   const introMenu = document.getElementById('introMenu');
@@ -211,7 +212,7 @@
     decodeArea.innerHTML = '';
     const notice = document.createElement('div');
     notice.className = 'rewrite-notice';
-    notice.textContent = "IL MESSAGGIO SI DISSOLVE... QUALCOSA DI OSTILE STA SCRIVENDO...";
+    notice.textContent = "IL MESSAGGIO SI DISSOLVE... QUALCOSA DI PIU' OSTILE STA SCRIVENDO...";
     decodeArea.appendChild(notice);
     messageEl.classList.add('rewriting');
 
@@ -325,10 +326,9 @@
       wrap.querySelectorAll('.story-menu-btn').forEach(b=> b.disabled = true);
     }
 
-    function selectFile(file, btnEl, labelWhileLoading){
+    function selectFile(file, btnEl){
       disableAll();
       btnEl.classList.add('selected');
-      //btnEl.querySelector('.story-menu-title').textContent = labelWhileLoading;
       loadStoryFile(file).then(story=>{
         STORY = story;
         onStoryReady(story);
@@ -345,7 +345,7 @@
       btn.innerHTML =
         '<span class="story-menu-title">' + entry.title + '</span>' +
         (entry.tagline ? '<span class="story-menu-tagline">' + entry.tagline + '</span>' : '');
-      btn.addEventListener('click', ()=> selectFile(entry.file, btn, 'Caricamento...'));
+      btn.addEventListener('click', ()=> selectFile(entry.file, btn));
       wrap.appendChild(btn);
     });
 
@@ -356,7 +356,7 @@
       '<span class="story-menu-tagline">lascia che sia l\'archivio a scegliere per te</span>';
     randomBtn.addEventListener('click', ()=>{
       const pick = MANIFEST.stories[Math.floor(Math.random()*MANIFEST.stories.length)];
-      selectFile(pick.file, randomBtn, 'Caricamento...');
+      selectFile(pick.file, randomBtn);
     });
     wrap.appendChild(randomBtn);
 
@@ -373,24 +373,44 @@
 
   // --- Schermata introduttiva ---
 
+  let pendingStory = null;
+
+  function resetIntroSelection(){
+    pendingStory = null;
+    introStoryName.textContent = 'Scegli quale storia seguire stanotte.';
+    introStart.disabled = true;
+    introStart.textContent = 'Scegli una storia';
+    introCancel.disabled = true;
+    buildStoryMenu(introMenu, onIntroStorySelected);
+  }
+
+  function onIntroStorySelected(story){
+    pendingStory = story;
+    introStoryName.textContent = 'Stanotte: ' + story.title;
+    document.title = 'Vault of Whispers — ' + story.title;
+    introStart.disabled = false;
+    introStart.textContent = 'Start';
+    introCancel.disabled = false;
+  }
+
   function initIntroMenu(){
     loadManifest().then(manifest=>{
       MANIFEST = manifest;
-      buildStoryMenu(introMenu, (story)=>{
-        introStoryName.textContent = 'Stanotte: ' + story.title;
-        document.title = 'Vault of Whispers — ' + story.title;
-        introStart.disabled = false;
-        introStart.textContent = 'Comincia';
-        resetGame();
-      });
+      buildStoryMenu(introMenu, onIntroStorySelected);
     }).catch(err=>{
       showLoadError(err, 'manifest');
     });
   }
 
   introStart.addEventListener('click', ()=>{
-    if(!STORY) return;
+    if(!pendingStory) return;
+    STORY = pendingStory;
     introModal.style.display = 'none';
+    resetGame();
+  });
+
+  introCancel.addEventListener('click', ()=>{
+    resetIntroSelection();
   });
 
   // --- Fine partita: stesso menu per scegliere cosa fare dopo ---
@@ -418,6 +438,10 @@
     progressTrail.textContent = '';
 
     choiceArea.innerHTML = '';
+
+    const fixedTop = document.createElement('div');
+    fixedTop.className = 'ending-fixed-top';
+
     const title = document.createElement('div');
     title.className = 'ending-title';
     title.textContent = 'FINE // ' + node.title;
@@ -430,10 +454,15 @@
     stat.className = 'ending-stat';
     stat.textContent = mistakeFlavor();
 
-    choiceArea.appendChild(title);
-    choiceArea.appendChild(text);
-    choiceArea.appendChild(stat);
-    renderEndMenu(choiceArea);
+    fixedTop.appendChild(title);
+    fixedTop.appendChild(text);
+    fixedTop.appendChild(stat);
+    choiceArea.appendChild(fixedTop);
+
+    const scrollWrap = document.createElement('div');
+    scrollWrap.className = 'ending-scroll no-scrollbar';
+    choiceArea.appendChild(scrollWrap);
+    renderEndMenu(scrollWrap);
   }
 
   function renderGameOver(){
@@ -444,22 +473,31 @@
     terminalEl.classList.add('gameover');
 
     choiceArea.innerHTML = '';
+
+    const fixedTop = document.createElement('div');
+    fixedTop.className = 'ending-fixed-top';
+
     const title = document.createElement('div');
     title.className = 'ending-title gameover-title';
     title.textContent = 'SEGNALE PERSO // TI HA RISCRITTO';
 
     const text = document.createElement('div');
     text.className = 'ending-text';
-    text.textContent = "Hai sbagliato troppe volte e ogni errore era un'altra crepa che qualcosa ha usato per infilarsi più a fondo. Il terminale smette di fare domande, perché non ne ha più bisogno: la voce che risponde adesso, correggendo ogni tuo errore uno per uno, non è più la tua. Lo schermo resta acceso, in attesa del prossimo che si siederà qui a decifrarlo.";
+    text.textContent = "Hai sbagliato troppe volte e ogni errore era un'altra crepa che qualcosa ha usato per infilarsi più a fondo. Il terminale smette di fare domande perché non ne ha più bisogno: la voce che risponde adesso, correggendo ogni tuo errore uno per uno, non è più la tua. Lo schermo resta acceso, in attesa del prossimo che si siederà a decifrarlo.";
 
     const stat = document.createElement('div');
     stat.className = 'ending-stat';
     stat.textContent = "Frammenti persi: " + mistakes + " su 50. Il segnale non ti appartiene più.";
 
-    choiceArea.appendChild(title);
-    choiceArea.appendChild(text);
-    choiceArea.appendChild(stat);
-    renderEndMenu(choiceArea);
+    fixedTop.appendChild(title);
+    fixedTop.appendChild(text);
+    fixedTop.appendChild(stat);
+    choiceArea.appendChild(fixedTop);
+
+    const scrollWrap = document.createElement('div');
+    scrollWrap.className = 'ending-scroll no-scrollbar';
+    choiceArea.appendChild(scrollWrap);
+    renderEndMenu(scrollWrap);
   }
 
   function renderNode(){

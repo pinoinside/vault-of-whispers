@@ -55,13 +55,40 @@ button{ -webkit-tap-highlight-color:transparent; touch-action:manipulation; }
   max-width:540px;
   width:100%;
   max-height:90vh;
-  overflow-y:auto;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
   background:var(--panel);
   border:1px solid var(--line);
   border-radius:6px;
   padding:26px 24px;
   box-shadow:0 0 70px rgba(255,60,20,0.08);
 }
+.intro-fixed-top{ flex:0 0 auto; }
+.intro-fixed-bottom{ flex:0 0 auto; padding-top:14px; }
+
+.no-scrollbar{
+  scrollbar-width:none;
+  -ms-overflow-style:none;
+}
+.no-scrollbar::-webkit-scrollbar{ display:none; }
+
+.intro-scroll{
+  flex:1 1 auto;
+  min-height:70px;
+  overflow-y:auto;
+  margin:6px 0;
+  padding:10px 0;
+  -webkit-mask-image:linear-gradient(to bottom, transparent 0, black 18px, black calc(100% - 18px), transparent 100%);
+  mask-image:linear-gradient(to bottom, transparent 0, black 18px, black calc(100% - 18px), transparent 100%);
+}
+
+.intro-btn-row{
+  display:flex;
+  gap:10px;
+}
+.intro-btn-row .intro-start-btn{ flex:2; }
+.intro-btn-row .intro-cancel-btn{ flex:1; }
 .intro-title{
   font-family:'VT323', monospace;
   font-size:clamp(22px, 6vw, 27px);
@@ -141,6 +168,19 @@ button{ -webkit-tap-highlight-color:transparent; touch-action:manipulation; }
   color:var(--amber-dim);
   margin-bottom:10px;
 }
+
+.ending-fixed-top{ position:relative; z-index:10; }
+
+.ending-scroll{
+  position:relative;
+  z-index:10;
+  max-height:280px;
+  overflow-y:auto;
+  margin:4px 0;
+  padding:8px 0;
+  -webkit-mask-image:linear-gradient(to bottom, transparent 0, black 18px, black calc(100% - 18px), transparent 100%);
+  mask-image:linear-gradient(to bottom, transparent 0, black 18px, black calc(100% - 18px), transparent 100%);
+}
 .intro-start-btn{
   background:transparent;
   border:1px solid var(--amber-dim);
@@ -157,6 +197,23 @@ button{ -webkit-tap-highlight-color:transparent; touch-action:manipulation; }
 }
 .intro-start-btn:disabled{ opacity:0.4; cursor:default; }
 .intro-start-btn:not(:disabled):hover{ border-color:var(--danger); color:var(--danger); box-shadow:0 0 12px rgba(255,40,20,0.3); }
+
+.intro-cancel-btn{
+  background:transparent;
+  border:1px solid var(--line);
+  color:var(--amber-dim);
+  font-family:'Space Mono', monospace;
+  font-size:13px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  padding:14px 12px;
+  cursor:pointer;
+  border-radius:3px;
+  width:100%;
+  min-height:48px;
+}
+.intro-cancel-btn:disabled{ opacity:0.3; cursor:default; }
+.intro-cancel-btn:not(:disabled):hover{ border-color:var(--amber-dim); color:var(--bone); }
 
 .crt-wrap{
   position:relative;

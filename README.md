@@ -1,6 +1,6 @@
-# Archivio dei Sussurri
+# Vault of Whispers
 
-Un motore per storie interattive horror/psicologiche raccontate tramite un terminale che comunica per simboli cifrati.
+Un motore per storie interattive horror/psicologiche raccontate tramite un terminale che comunica per simboli cifrati. Ogni partita utilizza una storia dal manifest e ne rimescola i cifrari a ogni messaggio.
 
 ## Struttura del progetto
 
@@ -14,15 +14,15 @@ archivio-dei-sussurri/
 │   └── game.js         motore di gioco (cifrario, decodifica, finali)
 └── stories/
     ├── manifest.json   elenco delle storie disponibili
-    ├── inquilino.json  storia "L'Inquilino" (8 tappe)
-    └── il-faro.json    storia "Il Faro" (3 tappe)
+    ├── ...
+    └── ...
 ```
 
 ## Come avviarlo
 
 I browser bloccano il caricamento di file JSON locali quando una pagina HTML viene aperta con un doppio clic (protocollo `file://`). Per questo motivo, prima di aprire `index.html`, avvia un piccolo server locale nella cartella del progetto:
 
-**Con Python:**
+**Con Python (di solito già installato):**
 ```
 cd archivio-dei-sussurri
 python3 -m http.server 8000
@@ -45,4 +45,4 @@ Se il file viene invece caricato tramite un vero hosting web (anche gratuito, es
    ```json
    { "file": "nuova-storia.json" }
    ```
-3. La storia entrera' automaticamente nella rotazione casuale.
+3. La storia entrerà automaticamente nella lista.
