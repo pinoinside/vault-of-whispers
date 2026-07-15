@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Vault of Whispers - Editor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=Space+Mono:wght@400;700&family=Noto+Sans+Symbols&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/editor.css">
+</head>
+<body class="editor-body">
+
+<div class="editor-shell">
+
+  <header class="editor-header">
+    <div class="editor-title">Editor</div>
+    <div class="editor-subtitle">Vault of Whispers — leggi, modifica, crea file compatibili col motore di gioco</div>
+    <div class="editor-toolbar">
+      <button id="btnNewStory" class="ed-btn">Nuova storia vuota</button>
+      <button id="btnLoadStory" class="ed-btn">Carica JSON esistente</button>
+      <input type="file" id="fileInput" accept=".json,application/json" style="display:none">
+      <button id="btnValidate" class="ed-btn">Convalida</button>
+      <button id="btnExport" class="ed-btn ed-btn-accent">Scarica JSON</button>
+      <button id="btnPreview" class="ed-btn ed-btn-accent">▶ Prova la storia</button>
+    </div>
+  </header>
+
+  <nav class="editor-tabs">
+    <button class="ed-tab active" data-tab="settings">Impostazioni</button>
+    <button class="ed-tab" data-tab="nodes">Nodi</button>
+    <button class="ed-tab" data-tab="validation">Convalida</button>
+    <button class="ed-tab" data-tab="guide">Guida rapida</button>
+  </nav>
+
+  <section id="tab-settings" class="editor-panel">
+    <div class="ed-settings-grid">
+      <div>
+        <div class="ed-field">
+          <label class="ed-label">Titolo della storia</label>
+          <input type="text" id="fTitle" class="ed-input" placeholder="es. L'INQUILINO">
+        </div>
+        <div class="ed-field">
+          <label class="ed-label">Tagline</label>
+          <input type="text" id="fTagline" class="ed-input" placeholder="riga d'atmosfera sotto il titolo">
+        </div>
+        <div class="ed-row">
+          <div class="ed-field">
+            <label class="ed-label">Tappe totali (totalStages)</label>
+            <input type="number" id="fStages" class="ed-input" min="1" value="5">
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="ed-field">
+          <label class="ed-label">Nodo iniziale (startNode)</label>
+          <select id="fStartNode" class="ed-select"></select>
+        </div>
+        <div class="ed-field">
+          <label class="ed-label">Nodo del ramo aggressivo (corruptNode)</label>
+          <select id="fCorruptNode" class="ed-select"></select>
+          <div class="ed-hint">Attivato dopo 10 errori sullo stesso messaggio. Deve esistere ed essere un nodo di storia, non un finale.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ed-field">
+      <label class="ed-label">Simboli del cifrario</label>
+      <textarea id="fSymbols" class="ed-textarea" rows="2" placeholder="incolla o scrivi i simboli separati da spazio o virgola"></textarea>
+      <div class="ed-row" style="margin-top:8px;">
+        <button id="btnDefaultSymbols" class="ed-btn ed-btn-small">Usa set predefinito (30 simboli distinguibili)</button>
+      </div>
+      <div class="symbols-count" id="symbolsCount"></div>
+      <div class="symbols-preview" id="symbolsPreview"></div>
+    </div>
+  </section>
+
+  <section id="tab-nodes" class="editor-panel" style="display:none">
+    <div class="nodes-layout">
+      <div class="node-list" id="nodeList"></div>
+      <div class="node-editor" id="nodeEditor">
+        <div class="node-editor-empty">Seleziona un nodo dalla lista, oppure creane uno nuovo.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tab-validation" class="editor-panel" style="display:none">
+    <ul class="validation-list" id="validationOutput"></ul>
+  </section>
+
+  <section id="tab-guide" class="editor-panel guide-text" style="display:none">
+    <h3>Struttura di un nodo di storia</h3>
+    <p>Un nodo di storia ha <code>variants</code> (3 frasi equivalenti, in MAIUSCOLO, che il motore sceglie a caso) e <code>choices</code> (3 risposte, ognuna con un'etichetta, il nodo successivo e un valore <code>delta</code> che sposta la "stabilità" verso il calmo o l'ostile).</p>
+    <h3>Struttura di un nodo finale</h3>
+    <p>Un nodo finale ha <code>title</code> e <code>text</code>, mostrati in chiaro (mai cifrati) quando la partita finisce lì.</p>
+    <h3>Il cifrario</h3>
+    <p>Il motore cifra le 26 lettere A-Z (le lettere accentate passano in chiaro). Serve almeno un simbolo per lettera: usa il pulsante "set predefinito" se non hai preferenze particolari.</p>
+    <h3>Il ramo aggressivo</h3>
+    <p>Se il giocatore sbaglia 10 volte lo stesso messaggio, viene reindirizzato al nodo <code>corruptNode</code>, di solito con toni più ostili, che porta a 2-3 finali esclusivi di quel ramo.</p>
+    <h3>Convalida</h3>
+    <p>Usa il pulsante "Convalida" per controllare riferimenti rotti, nodi irraggiungibili e altri problemi comuni prima di esportare.</p>
+    <p>Per una guida completa con esempi, vedi il file <code>GUIDA-CREAZIONE-STORIE.md</code> incluso nel progetto.</p>
+  </section>
+
+</div>
+
+<div class="preview-modal" id="previewModal" style="display:none">
+  <div class="preview-box">
+    <div class="preview-topbar">
+      <div id="previewNodeLabel">nodo corrente: —</div>
+      <button id="btnClosePreview" class="ed-btn">Chiudi anteprima</button>
+    </div>
+
+    <div class="terminal" id="pvTerminal">
+      <div class="vignette"></div>
+      <div class="flash-overlay" id="pvFlashOverlay"></div>
+
+      <div class="stats-corner">
+        <div class="stat-line" id="pvMistakeCounter">TOTALI: 0/50</div>
+        <div class="stat-line" id="pvMessageMistakeCounter">MESSAGGIO: 0/10</div>
+      </div>
+
+      <div class="status-row">
+        <span class="status-label" id="pvStatusLabel">ANTEPRIMA</span>
+        <div class="stability-track"><div class="stability-fill" id="pvStabilityFill"></div></div>
+        <span class="session-id">ANTEPRIMA</span>
+      </div>
+
+      <div class="progress-trail" id="pvProgressTrail"></div>
+
+      <div class="message-box">
+        <div class="message-text" id="pvMessageText"></div>
+      </div>
+
+      <div id="pvDecodeArea"></div>
+      <div id="pvChoiceArea"></div>
+
+      <div class="hint" id="pvHint">Anteprima dal vivo: gioca la storia.</div>
+    </div>
+  </div>
+</div>
+
+<script src="js/editor.js"></script>
+</body>
+</html>

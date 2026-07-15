@@ -1,16 +1,47 @@
 {
   "title": "IL FARO",
-  "tagline": "la luce non si è mai spenta da sola",
+  "tagline": "la luce non si e' mai spenta da sola",
   "totalStages": 3,
   "startNode": "root",
   "corruptNode": "CORRUPT1",
-  "symbols": ["☠","☣","☢","☯","⚛","⚗","⚜","🜊","⚔","⚖","⚙","⚠","☮","☤","⚕","⚰","⚱","⛧","⚹","⚥","☍","☄","☾","☉","⛓","⛏","⚒","⚑","⚘","☊","🜁","🜃","🜔","🜘","🜛"],
+  "symbols": [
+    "☠",
+    "☣",
+    "☢",
+    "☯",
+    "⚛",
+    "⚗",
+    "⚜",
+    "⚓",
+    "⚔",
+    "⚖",
+    "⚙",
+    "⚠",
+    "☮",
+    "☤",
+    "⚕",
+    "⚰",
+    "⚱",
+    "⛧",
+    "⚹",
+    "⚥",
+    "☍",
+    "☄",
+    "☾",
+    "☉",
+    "⛓",
+    "⛏",
+    "⚒",
+    "⚑",
+    "⚘",
+    "☊"
+  ],
   "nodes": {
     "root": {
       "variants": [
-        "LA RADIO DEL FARO HA RIPRESO A PARLARE DA SOLA E NON E' STATICA QUELLA CHE SENTO.",
-        "QUALCUNO STA PARLANDO DALLA VECCHIA RADIO DEL FARO E NON DOVREBBE ESSERCI NESSUNO IN LINEA.",
-        "LA RADIO SI E' ACCESA DA SOLA STANOTTE E QUALCUNO, DALL'ALTRA PARTE, RESPIRA."
+        "LA RADIO DEL FARO HA RIPRESO A PARLARE DA SOLA, E NON E' STATICA QUELLA CHE SENTO.",
+        "QUALCUNO STA PARLANDO DALLA VECCHIA RADIO DEL FARO, E NON DOVREBBE ESSERCI NESSUNO IN LINEA.",
+        "LA RADIO SI E' ACCESA DA SOLA STANOTTE, E QUALCUNO, DALL'ALTRA PARTE, RESPIRA."
       ],
       "choices": [
         {
@@ -34,7 +65,7 @@
       "variants": [
         "SONO IL CUSTODE DI QUESTO FARO DA PIU' INVERNI DI QUANTI TU POSSA CONTARE.",
         "CUSTODISCO QUESTO FARO DA COSI' TANTI INVERNI CHE HO PERSO IL CONTO ANCH'IO.",
-        "QUESTO FARO HA AVUTO UN SOLO VERO CUSTODE E SONO IO, DA PIU' INVERNI DI QUANTI IMMAGINI."
+        "QUESTO FARO HA AVUTO UN SOLO VERO CUSTODE, E SONO IO, DA PIU' INVERNI DI QUANTI IMMAGINI."
       ],
       "choices": [
         {
@@ -58,7 +89,7 @@
       "variants": [
         "PUOI SPEGNERE LA RADIO, MA LA NEBBIA FUORI CONTINUERA' A PARLARE LO STESSO.",
         "SPEGNI PURE LA RADIO: LA NEBBIA FUORI NON HA BISOGNO DI UN APPARECCHIO PER FARSI SENTIRE.",
-        "LA RADIO E' SOLO UNA VOCE TRA TANTE. SPEGNILA E LA NEBBIA TROVERA' UN'ALTRA VOCE."
+        "LA RADIO E' SOLO UNA VOCE TRA TANTE. SPEGNILA, E LA NEBBIA TROVERA' UN'ALTRA VOCE."
       ],
       "choices": [
         {
@@ -80,13 +111,13 @@
     },
     "C": {
       "variants": [
-        "IL CUSTODE PRIMA DI TE NON SE N'E' MAI ANDATO DAVVERO E TU LO SAI GIA'.",
+        "IL CUSTODE PRIMA DI TE NON SE N'E' MAI ANDATO DAVVERO, E TU LO SAI GIA'.",
         "NESSUN CUSTODE HA MAI LASCIATO DAVVERO QUESTO FARO, NEANCHE QUELLO PRIMA DI TE.",
         "CHIEDITI DOVE SIA FINITO IL CUSTODE PRIMA DI TE. LA RISPOSTA E' PIU' VICINA DI QUANTO PENSI."
       ],
       "choices": [
         {
-          "label": "Dov'è finito?",
+          "label": "Dov'e' finito?",
           "next": "C1",
           "delta": -5
         },
@@ -134,17 +165,17 @@
       ],
       "choices": [
         {
-          "label": "Terrò accesa la luce.",
+          "label": "Terro' accesa la luce.",
           "next": "E4",
           "delta": -10
         },
         {
-          "label": "Non è compito mio.",
+          "label": "Non e' compito mio.",
           "next": "E2",
           "delta": 15
         },
         {
-          "label": "Perché tu non puoi più?",
+          "label": "Perche' tu non puoi piu'?",
           "next": "E5",
           "delta": 5
         }
@@ -158,7 +189,7 @@
       ],
       "choices": [
         {
-          "label": "Guarderò quanto serve.",
+          "label": "Guardero' quanto serve.",
           "next": "E6",
           "delta": -10
         },
@@ -168,7 +199,7 @@
           "delta": 15
         },
         {
-          "label": "Cosa si nasconde lì?",
+          "label": "Cosa si nasconde li'?",
           "next": "E4",
           "delta": 5
         }
@@ -177,12 +208,12 @@
     "B1": {
       "variants": [
         "LA NEBBIA NON CHIEDE A NESSUNO SE HA PAURA PRIMA DI ENTRARE DALLE FINESTRE.",
-        "NESSUNO CHIEDE ALLA NEBBIA IL PERMESSO DI ENTRARE E LEI NON CHIEDE IL TUO PER RESTARE.",
+        "NESSUNO CHIEDE ALLA NEBBIA IL PERMESSO DI ENTRARE, E LEI NON CHIEDE IL TUO PER RESTARE.",
         "LA PAURA DELLA NEBBIA NON CONTA NULLA PER LEI: ENTRA COMUNQUE, DA SOTTO LE PORTE."
       ],
       "choices": [
         {
-          "label": "Chiuderò ogni fessura.",
+          "label": "Chiudero' ogni fessura.",
           "next": "E7",
           "delta": 10
         },
@@ -200,18 +231,18 @@
     },
     "B2": {
       "variants": [
-        "FUORI, LA NEBBIA HA GIA' LA FORMA DI QUALCUNO CHE CONOSCI E TI ASPETTA SUGLI SCOGLI.",
+        "FUORI, LA NEBBIA HA GIA' LA FORMA DI QUALCUNO CHE CONOSCI, E TI ASPETTA SUGLI SCOGLI.",
         "SE ESCI, LA NEBBIA HA GIA' PRESO LA FORMA DI QUALCUNO CHE RICONOSCERAI SUBITO.",
         "LA NEBBIA FUORI SI E' GIA' MODELLATA SU UN VOLTO CHE TU CONOSCI FIN TROPPO BENE."
       ],
       "choices": [
         {
-          "label": "Andrò a vedere chi è.",
+          "label": "Andro' a vedere chi e'.",
           "next": "E5",
           "delta": 10
         },
         {
-          "label": "Non uscirò più.",
+          "label": "Non uscirò piu'.",
           "next": "E7",
           "delta": -10
         },
@@ -224,23 +255,23 @@
     },
     "B3": {
       "variants": [
-        "NON SERVE DISPIACERTI PER ME: FORSESERVIREBBE DISPIACERTI PER CHI VERRA' DOPO DI TE.",
+        "NON SERVE DISPIACERTI PER ME: SERVIREBBE DISPIACERTI PER CHI VERRA' DOPO DI TE.",
         "IL TUO DISPIACERE NON SERVE A ME, MA FORSE SERVIRA' A CHI ARRIVERA' QUI DOPO DI TE.",
         "RISERVA IL TUO DISPIACERE PER IL PROSSIMO CUSTODE, NON PER ME: IO NON NE HO PIU' BISOGNO."
       ],
       "choices": [
         {
-          "label": "Non ci sarà un prossimo.",
+          "label": "Non ci sara' un prossimo.",
           "next": "E9",
           "delta": 15
         },
         {
-          "label": "Avvertirò chi verrà.",
+          "label": "Avvertirò chi verra'.",
           "next": "E4",
           "delta": -10
         },
         {
-          "label": "Chi sarà il prossimo?",
+          "label": "Chi sara' il prossimo?",
           "next": "E8",
           "delta": 5
         }
@@ -254,17 +285,17 @@
       ],
       "choices": [
         {
-          "label": "Non farò più domande, allora.",
+          "label": "Non fare piu' domande, allora.",
           "next": "E2",
           "delta": -10
         },
         {
-          "label": "Continuerò comunque.",
+          "label": "Continuero' comunque.",
           "next": "E8",
           "delta": 15
         },
         {
-          "label": "Qual è la domanda giusta?",
+          "label": "Qual e' la domanda giusta?",
           "next": "E6",
           "delta": 5
         }
@@ -278,7 +309,7 @@
       ],
       "choices": [
         {
-          "label": "Fammi vedere la verità.",
+          "label": "Fammi vedere la verita'.",
           "next": "E1",
           "delta": 10
         },
@@ -297,8 +328,8 @@
     "C3": {
       "variants": [
         "SEI GIA' IL PROSSIMO DA QUANDO HAI ACCESO QUESTA RADIO PER LA PRIMA VOLTA.",
-        "LO SEI DIVENTATO NEL MOMENTO ESATTO IN CUI HAI ACCESO QUESTA RADIO LA PRIMA VOLTA.",
-        "DA QUANDO HAI ACCESO LA RADIO, SEI GIA' IL PROSSIMO CUSTODE CHE TU LO VOGLIA O NO."
+        "LO SEI DIVENTATO NEL MOMENTO ESATTO IN CUI HAI ACCESO QUESTA RADIO, LA PRIMA VOLTA.",
+        "DA QUANDO HAI ACCESO LA RADIO, SEI GIA' IL PROSSIMO CUSTODE, CHE TU LO VOGLIA O NO."
       ],
       "choices": [
         {

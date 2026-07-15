@@ -15,11 +15,18 @@
     <div class="intro-fixed-top">
       <div class="intro-title">Vault of Whispers</div>
       <div class="intro-story-name" id="introStoryName">Scegli quale storia seguire stanotte.</div>
-      <div class="intro-text">
-        <p>Un'entità ha iniziato a comunicare con te. I suoi messaggi arrivano <strong>cifrati</strong>: ogni simbolo corrisponde sempre alla stessa lettera, ma solo <strong>all'interno del messaggio che stai leggendo</strong>: il cifrario cambia a ogni nuovo messaggio.</p>
-        <p>Tocca un simbolo, poi una lettera, per tentare di decifrarlo. Il messaggio si riscrive man mano che indovini.</p>
-        <p>Ogni errore viene contato, sia nel messaggio corrente che nel totale della partita, sempre visibile in alto a destra. Dopo <strong>10 errori sullo stesso messaggio</strong> qualcosa di più ostile prende il controllo della conversazione. Dopo <span class="warn">50 errori totali</span>, la partita è persa.</p>
-      </div>
+      <details class="intro-details">
+        <summary>Come funziona</summary>
+        <div class="intro-text">
+          <p>Un'entità ha iniziato a comunicare con te. I suoi messaggi arrivano <strong>cifrati</strong>: ogni simbolo corrisponde
+             sempre alla stessa lettera, ma solo <strong>all'interno del messaggio che stai leggendo</strong>: il cifrario cambia a
+              ogni nuovo messaggio.</p>
+          <p>Tocca un simbolo, poi una lettera, per tentare di decifrarlo. Il messaggio si riscrive man mano che indovini.</p>
+          <p>Ogni errore viene contato, sia nel messaggio corrente che nel totale della partita, sempre visibile in alto a destra. 
+            Dopo <strong>10 errori sullo stesso messaggio</strong> qualcosa di più ostile prende il controllo della conversazione. 
+            Dopo <span class="warn">50 errori totali</span>, la partita è persa.</p>
+        </div>
+      </details>
     </div>
 
     <div class="intro-scroll no-scrollbar" id="introMenu"></div>
@@ -30,9 +37,16 @@
         <button class="intro-cancel-btn" id="introCancel" disabled>Annulla</button>
       </div>
       <div class="intro-error" id="introError"></div>
+      <div class="intro-credits">
+        <div><b>Credits</b></div>
+        <div>Storie: Andrea Pinucci</div>
+        <div>&copy; 2026 Pino Inside - Tutti i diritti riservati</div>
+      </div>
     </div>
   </div>
 </div>
+
+<input type="file" id="storyFileInput" accept="application/json,.json" style="display:none">
 
 <div class="crt-wrap">
   <div class="terminal" id="terminal">

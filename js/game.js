@@ -33,6 +33,7 @@
   const introStoryName = document.getElementById('introStoryName');
   const introError = document.getElementById('introError');
   const introMenu = document.getElementById('introMenu');
+  const storyFileInput = document.getElementById('storyFileInput');
 
   function shuffle(arr){
     const a = arr.slice();
@@ -360,6 +361,55 @@
     });
     wrap.appendChild(randomBtn);
 
+    const loadBtn = document.createElement('button');
+    loadBtn.className = 'story-menu-btn story-menu-random';
+    loadBtn.innerHTML =
+      '<span class="story-menu-title">📂 Carica un file...</span>' +
+      '<span class="story-menu-tagline">gioca una storia dal tuo dispositivo</span>';
+    loadBtn.addEventListener('click', ()=>{
+      storyFileInput.value = '';
+      storyFileInput.click();
+    });
+    wrap.appendChild(loadBtn);
+
+    storyFileInput.onchange = (e)=>{
+      const file = e.target.files && e.target.files[0];
+      if(!file) return;
+      disableAll();
+      loadBtn.classList.add('selected');
+      loadBtn.querySelector('.story-menu-title').textContent = 'Caricamento...';
+
+      const resetLoadBtn = ()=>{
+        wrap.querySelectorAll('.story-menu-btn').forEach(b=> b.disabled = false);
+        loadBtn.classList.remove('selected');
+        loadBtn.querySelector('.story-menu-title').textContent = '📂 Carica un file...';
+      };
+
+      const reader = new FileReader();
+      reader.onload = ()=>{
+        let story;
+        try{
+          story = JSON.parse(reader.result);
+        } catch(err){
+          showLoadError(new Error('il file non e\' un JSON valido'), 'story');
+          resetLoadBtn();
+          return;
+        }
+        if(!story || !story.nodes || !story.startNode || !story.symbols || !story.title){
+          showLoadError(new Error('il file non ha la struttura attesa di una storia'), 'story');
+          resetLoadBtn();
+          return;
+        }
+        STORY = story;
+        onStoryReady(story);
+      };
+      reader.onerror = ()=>{
+        showLoadError(new Error('lettura del file fallita'), 'story');
+        resetLoadBtn();
+      };
+      reader.readAsText(file);
+    };
+
     container.appendChild(wrap);
   }
 
@@ -389,7 +439,7 @@
     introStoryName.textContent = 'Stanotte: ' + story.title;
     document.title = 'Vault of Whispers — ' + story.title;
     introStart.disabled = false;
-    introStart.textContent = 'Start';
+    introStart.textContent = 'Comincia';
     introCancel.disabled = false;
   }
 
@@ -483,7 +533,7 @@
 
     const text = document.createElement('div');
     text.className = 'ending-text';
-    text.textContent = "Hai sbagliato troppe volte e ogni errore era un'altra crepa che qualcosa ha usato per infilarsi più a fondo. Il terminale smette di fare domande perché non ne ha più bisogno: la voce che risponde adesso, correggendo ogni tuo errore uno per uno, non è più la tua. Lo schermo resta acceso, in attesa del prossimo che si siederà a decifrarlo.";
+    text.textContent = "Hai sbagliato troppe volte e ogni errore era un'altra crepa che qualcosa ha usato per infilarsi più a fondo. Il terminale smette di fare domande, perché non ne ha più bisogno: la voce che risponde adesso, correggendo ogni tuo errore uno per uno, non è più la tua. Lo schermo resta acceso, in attesa del prossimo che si siederà qui a decifrarlo.";
 
     const stat = document.createElement('div');
     stat.className = 'ending-stat';
