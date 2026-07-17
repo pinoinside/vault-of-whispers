@@ -34,6 +34,26 @@
   const introError = document.getElementById('introError');
   const introMenu = document.getElementById('introMenu');
   const storyFileInput = document.getElementById('storyFileInput');
+  const introTitleEl = document.getElementById('introTitle');
+  const introSummaryEl = document.getElementById('introSummary');
+  const introExplanationEl = document.getElementById('introExplanation');
+  const introCreditsBoxEl = document.getElementById('introCreditsBox');
+
+  function t(key, vars){ return window.I18N ? window.I18N.get(key, vars) : key; }
+
+  function applyStaticText(){
+    document.title = t('common.pageTitleGame');
+    introTitleEl.textContent = t('common.appTitle');
+    introSummaryEl.textContent = t('intro.howItWorksSummary');
+    introExplanationEl.innerHTML = window.I18N.getArray('intro.explanationHtml').map(p => '<p>' + p + '</p>').join('');
+    const credits = window.I18N.getArray('intro.credits');
+    if(credits.length){
+      introCreditsBoxEl.innerHTML = credits.map(line => '<div>' + line + '</div>').join('');
+    }
+    hintEl.textContent = t('game.hint');
+    statusLabelEl.textContent = t('common.statusLabelFallback');
+    sessionIdEl.textContent = t('common.sessionIdFallback');
+  }
 
   function shuffle(arr){
     const a = arr.slice();
@@ -67,8 +87,8 @@
     currentNodeId = STORY.startNode || 'root';
     depth = 0;
     terminalEl.classList.remove('gameover','tier1','tier2','tier3','unstable','critical','aggressive');
-    sessionIdEl.textContent = 'SIG. ' + String(Math.floor(Math.random()*900)+100);
-    statusLabelEl.textContent = STORY.title + ' // ' + (STORY.tagline || 'segnale non autorizzato');
+    sessionIdEl.textContent = t('common.sessionIdFallback').replace(/\d+$/, '') + String(Math.floor(Math.random()*900)+100);
+    statusLabelEl.textContent = STORY.title + ' // ' + (STORY.tagline || t('common.statusLabelFallback'));
     updateStabilityUI();
     updateMistakeUI();
     updateMessageMistakeUI();
@@ -95,7 +115,7 @@
   }
 
   function updateMistakeUI(){
-    mistakeCounterEl.textContent = 'TOTALI: ' + mistakes + '/50';
+    mistakeCounterEl.textContent = t('game.totalMistakes', {count: mistakes});
     mistakeCounterEl.classList.remove('tier1','tier2','tier3');
     terminalEl.classList.remove('tier1','tier2','tier3');
     let tier = null;
@@ -109,7 +129,7 @@
   }
 
   function updateMessageMistakeUI(){
-    msgMistakeCounterEl.textContent = 'MESSAGGIO: ' + messageMistakes + '/10';
+    msgMistakeCounterEl.textContent = t('game.messageMistakes', {count: messageMistakes});
     msgMistakeCounterEl.classList.remove('tier1','tier2','tier3');
     let tier = null;
     if(messageMistakes >= 8) tier = 'tier3';
@@ -170,7 +190,7 @@
 
     const label = document.createElement('div');
     label.className = 'decode-label';
-    label.textContent = 'Simboli non decifrati — cifrario valido solo per questo sussurro';
+    label.textContent = t('game.decodeLabel');
     panel.appendChild(label);
 
     const chipRow = document.createElement('div');
@@ -213,7 +233,7 @@
     decodeArea.innerHTML = '';
     const notice = document.createElement('div');
     notice.className = 'rewrite-notice';
-    notice.textContent = "IL MESSAGGIO SI DISSOLVE... QUALCOSA DI PIU' OSTILE STA SCRIVENDO...";
+    notice.textContent = t('game.rewriteNotice');
     decodeArea.appendChild(notice);
     messageEl.classList.add('rewriting');
 
@@ -295,7 +315,7 @@
     node.choices.forEach((choice)=>{
       const btn = document.createElement('button');
       btn.className = 'choice-btn';
-      btn.innerHTML = '<span class="tag">></span>' + choice.label;
+      btn.innerHTML = '<span class="tag">' + t('game.choiceTag') + '</span>' + choice.label;
       btn.addEventListener('click', ()=>{
         stability += choice.delta;
         updateStabilityUI();
@@ -309,11 +329,11 @@
   }
 
   function mistakeFlavor(){
-    if(mistakes === 0) return "Non hai sbagliato nemmeno un simbolo. Forse ricordi tutto fin troppo bene.";
-    if(mistakes <= 5) return "Frammenti persi: " + mistakes + ". Piccole crepe, ma le crepe in questa storia crescono sempre.";
-    if(mistakes <= 19) return "Frammenti persi: " + mistakes + ". Qualcosa, dentro di te, si è arreso molto prima della fine.";
-    if(mistakes <= 39) return "Frammenti persi: " + mistakes + ". Non sei più del tutto sicuro di quale versione di te abbia risposto per ultima.";
-    return "Frammenti persi: " + mistakes + ". Sei arrivato alla fine per il rotto della cuffia e qualcosa dentro di te lo sa.";
+    if(mistakes === 0) return t('ending.flavorZero');
+    if(mistakes <= 5) return t('ending.flavorLow', {count: mistakes});
+    if(mistakes <= 19) return t('ending.flavorMid', {count: mistakes});
+    if(mistakes <= 39) return t('ending.flavorHigh', {count: mistakes});
+    return t('ending.flavorExtreme', {count: mistakes});
   }
 
   // --- Menu di scelta storia (usato sia nella schermata iniziale sia a fine partita) ---
@@ -353,8 +373,8 @@
     const randomBtn = document.createElement('button');
     randomBtn.className = 'story-menu-btn story-menu-random';
     randomBtn.innerHTML =
-      '<span class="story-menu-title">🎲 Casuale</span>' +
-      '<span class="story-menu-tagline">lascia che sia l\'archivio a scegliere per te</span>';
+      '<span class="story-menu-title">' + t('storyMenu.randomTitle') + '</span>' +
+      '<span class="story-menu-tagline">' + t('storyMenu.randomTagline') + '</span>';
     randomBtn.addEventListener('click', ()=>{
       const pick = MANIFEST.stories[Math.floor(Math.random()*MANIFEST.stories.length)];
       selectFile(pick.file, randomBtn);
@@ -362,10 +382,10 @@
     wrap.appendChild(randomBtn);
 
     const loadBtn = document.createElement('button');
-    loadBtn.className = 'story-menu-btn story-menu-random';
+    loadBtn.className = 'story-menu-btn story-menu-load';
     loadBtn.innerHTML =
-      '<span class="story-menu-title">📂 Carica un file...</span>' +
-      '<span class="story-menu-tagline">gioca una storia dal tuo dispositivo</span>';
+      '<span class="story-menu-title">' + t('storyMenu.loadTitle') + '</span>' +
+      '<span class="story-menu-tagline">' + t('storyMenu.loadTagline') + '</span>';
     loadBtn.addEventListener('click', ()=>{
       storyFileInput.value = '';
       storyFileInput.click();
@@ -377,12 +397,12 @@
       if(!file) return;
       disableAll();
       loadBtn.classList.add('selected');
-      loadBtn.querySelector('.story-menu-title').textContent = 'Caricamento...';
+      loadBtn.querySelector('.story-menu-title').textContent = t('storyMenu.loadingLabel');
 
       const resetLoadBtn = ()=>{
         wrap.querySelectorAll('.story-menu-btn').forEach(b=> b.disabled = false);
         loadBtn.classList.remove('selected');
-        loadBtn.querySelector('.story-menu-title').textContent = '📂 Carica un file...';
+        loadBtn.querySelector('.story-menu-title').textContent = t('storyMenu.loadTitle');
       };
 
       const reader = new FileReader();
@@ -391,12 +411,12 @@
         try{
           story = JSON.parse(reader.result);
         } catch(err){
-          showLoadError(new Error('il file non e\' un JSON valido'), 'story');
+          showLoadError(new Error(t('errors.invalidJson')), 'story');
           resetLoadBtn();
           return;
         }
         if(!story || !story.nodes || !story.startNode || !story.symbols || !story.title){
-          showLoadError(new Error('il file non ha la struttura attesa di una storia'), 'story');
+          showLoadError(new Error(t('errors.invalidStructure')), 'story');
           resetLoadBtn();
           return;
         }
@@ -404,7 +424,7 @@
         onStoryReady(story);
       };
       reader.onerror = ()=>{
-        showLoadError(new Error('lettura del file fallita'), 'story');
+        showLoadError(new Error(t('errors.readFailed')), 'story');
         resetLoadBtn();
       };
       reader.readAsText(file);
@@ -415,10 +435,9 @@
 
   function showLoadError(err, kind){
     const msg = kind === 'manifest'
-      ? "Impossibile caricare l'elenco delle storie (" + err.message + ")."
-      : "Impossibile caricare la storia scelta (" + err.message + ").";
-    const extra = " Se hai aperto questo file direttamente nel browser (doppio clic), le regole di sicurezza bloccano il caricamento locale dei file JSON. Avvia un piccolo server locale nella cartella del progetto (per esempio 'python3 -m http.server' oppure 'npx serve') e riapri la pagina da http://localhost.";
-    introError.textContent = msg + extra;
+      ? t('errors.manifestPrefix', {message: err.message})
+      : t('errors.storyPrefix', {message: err.message});
+    introError.textContent = msg + t('errors.serverHint');
   }
 
   // --- Schermata introduttiva ---
@@ -427,19 +446,19 @@
 
   function resetIntroSelection(){
     pendingStory = null;
-    introStoryName.textContent = 'Scegli quale storia seguire stanotte.';
+    introStoryName.textContent = t('intro.storyPrompt');
     introStart.disabled = true;
-    introStart.textContent = 'Scegli una storia';
+    introStart.textContent = t('intro.startBtnIdle');
     introCancel.disabled = true;
     buildStoryMenu(introMenu, onIntroStorySelected);
   }
 
   function onIntroStorySelected(story){
     pendingStory = story;
-    introStoryName.textContent = 'Stanotte: ' + story.title;
-    document.title = 'Vault of Whispers — ' + story.title;
+    introStoryName.textContent = t('intro.storyChosen', {title: story.title});
+    document.title = t('common.pageTitleWithStory', {title: story.title});
     introStart.disabled = false;
-    introStart.textContent = 'Comincia';
+    introStart.textContent = t('intro.startBtnReady');
     introCancel.disabled = false;
   }
 
@@ -468,7 +487,7 @@
   function renderEndMenu(container){
     const label = document.createElement('div');
     label.className = 'ending-menu-label';
-    label.textContent = 'Cosa vuoi fare adesso?';
+    label.textContent = t('storyMenu.endMenuLabel');
     container.appendChild(label);
 
     const menuHost = document.createElement('div');
@@ -494,7 +513,7 @@
 
     const title = document.createElement('div');
     title.className = 'ending-title';
-    title.textContent = 'FINE // ' + node.title;
+    title.textContent = t('ending.titlePrefix', {title: node.title});
 
     const text = document.createElement('div');
     text.className = 'ending-text';
@@ -529,15 +548,15 @@
 
     const title = document.createElement('div');
     title.className = 'ending-title gameover-title';
-    title.textContent = 'SEGNALE PERSO // TI HA RISCRITTO';
+    title.textContent = t('ending.gameOverTitle');
 
     const text = document.createElement('div');
     text.className = 'ending-text';
-    text.textContent = "Hai sbagliato troppe volte e ogni errore era un'altra crepa che qualcosa ha usato per infilarsi più a fondo. Il terminale smette di fare domande, perché non ne ha più bisogno: la voce che risponde adesso, correggendo ogni tuo errore uno per uno, non è più la tua. Lo schermo resta acceso, in attesa del prossimo che si siederà qui a decifrarlo.";
+    text.textContent = t('ending.gameOverText');
 
     const stat = document.createElement('div');
     stat.className = 'ending-stat';
-    stat.textContent = "Frammenti persi: " + mistakes + " su 50. Il segnale non ti appartiene più.";
+    stat.textContent = t('ending.gameOverStat', {count: mistakes});
 
     fixedTop.appendChild(title);
     fixedTop.appendChild(text);
@@ -564,7 +583,7 @@
 
     terminalEl.classList.toggle('aggressive', !!node.aggressive);
     const totalStages = STORY.totalStages || 8;
-    progressTrail.textContent = node.progressLabel ? node.progressLabel : ('Intrusione ' + (depth+1) + ' di ' + totalStages);
+    progressTrail.textContent = node.progressLabel ? node.progressLabel : t('game.progressLabel', {n: depth+1, total: totalStages});
     currentText = pickVariant(node);
     initCipherForMessage();
     renderMessage(currentText);
@@ -572,6 +591,14 @@
     renderDecodePanel(currentText);
   }
 
-  initIntroMenu();
+  // ---------- Avvio: carica prima le stringhe dell'interfaccia, poi il manifest ----------
+  window.I18N.load('lang/it.json', 'LANG_IT_FALLBACK').then(()=>{
+    applyStaticText();
+  }).catch(()=>{
+    // Se anche il fallback incorporato manca, si procede comunque:
+    // I18N.get restituisce la chiave stessa, quindi l'interfaccia resta usabile ma poco leggibile.
+  }).finally(()=>{
+    initIntroMenu();
+  });
 
 })();

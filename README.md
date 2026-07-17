@@ -5,13 +5,15 @@ Un motore per storie interattive horror/psicologiche raccontate tramite un termi
 ## Struttura del progetto
 
 ```
-archivio-dei-sussurri/
+vault-of-whispers/
 ├── index.html          struttura della pagina
 ├── css/
 │   └── style.css       aspetto grafico (terminale, effetti, layout mobile)
 ├── js/
 │   ├── loader.js       carica manifest.json e sceglie una storia a caso
 │   └── game.js         motore di gioco (cifrario, decodifica, finali)
+└── lang/
+│   └── it.json         file di lingua (italiano)
 └── stories/
     ├── manifest.json   elenco delle storie disponibili
     ├── ...

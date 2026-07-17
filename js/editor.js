@@ -3,6 +3,21 @@
   const DEFAULT_SYMBOLS = ["☠","☣","☢","☯","⚛","⚗","⚜","⚓","⚔","⚖","⚙","⚠","☮","☤","⚕","⚰","⚱","⛧","⚹","⚥","☍","☄","☾","☉","⛓","⛏","⚒","⚑","⚘","☊"];
   const LETTERS = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 
+  function t(key, vars){ return window.I18N ? window.I18N.get(key, vars) : key; }
+
+  function applyI18n(){
+    document.title = t('editor.pageTitle');
+    document.querySelectorAll('[data-i18n]').forEach(el=>{
+      el.textContent = t(el.getAttribute('data-i18n'));
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el=>{
+      el.innerHTML = t(el.getAttribute('data-i18n-html'));
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{
+      el.placeholder = t(el.getAttribute('data-i18n-placeholder'));
+    });
+  }
+
   function blankStory(){
     return {
       title: "NUOVA STORIA",
@@ -19,9 +34,9 @@
             "SCRIVI QUI LA TERZA VARIANTE."
           ],
           choices: [
-            { label: "Prima scelta", next: "E1", delta: 0 },
-            { label: "Seconda scelta", next: "E2", delta: 0 },
-            { label: "Terza scelta", next: "E3", delta: 0 }
+            { label: t('editor.nodes.defaultChoiceLabel', {n: 1}), next: "E1", delta: 0 },
+            { label: t('editor.nodes.defaultChoiceLabel', {n: 2}), next: "E2", delta: 0 },
+            { label: t('editor.nodes.defaultChoiceLabel', {n: 3}), next: "E3", delta: 0 }
           ]
         },
         E1: { isEnding: true, title: "PRIMO FINALE", text: "Scrivi qui il testo del primo finale, in chiaro, senza restrizioni di lettere." },
@@ -68,7 +83,7 @@
   // ---------- Tabs ----------
   document.querySelectorAll('.ed-tab').forEach(tab=>{
     tab.addEventListener('click', ()=>{
-      document.querySelectorAll('.ed-tab').forEach(t=>t.classList.remove('active'));
+      document.querySelectorAll('.ed-tab').forEach(tb=>tb.classList.remove('active'));
       document.querySelectorAll('.editor-panel').forEach(p=>p.style.display='none');
       tab.classList.add('active');
       document.getElementById('tab-' + tab.dataset.tab).style.display='block';
@@ -84,7 +99,7 @@
       sel.innerHTML = '';
       const emptyOpt = document.createElement('option');
       emptyOpt.value = '';
-      emptyOpt.textContent = '— nessuno —';
+      emptyOpt.textContent = t('editor.settings.noneOption');
       if(sel === fStartNode) emptyOpt.disabled = true;
       sel.appendChild(emptyOpt);
       ids.forEach(id=>{
@@ -116,7 +131,7 @@
       span.textContent = s;
       symbolsPreview.appendChild(span);
     });
-    symbolsCount.textContent = syms.length + ' simboli (' + LETTERS.length + ' lettere richieste come minimo)';
+    symbolsCount.textContent = t('editor.settings.symbolsCount', {count: syms.length, required: LETTERS.length});
     symbolsCount.classList.toggle('warn', syms.length < LETTERS.length);
   }
 
@@ -152,40 +167,40 @@
         const item = document.createElement('button');
         item.className = 'node-list-item' + (id === currentNodeId ? ' active' : '') + (!reach.has(id) ? ' unreachable' : '');
         let badges = '';
-        if(id === story.startNode) badges += '<span class="node-badge">start</span>';
-        if(id === story.corruptNode) badges += '<span class="node-badge badge-danger">corrupt</span>';
-        if(story.nodes[id].aggressive) badges += '<span class="node-badge badge-danger">aggr</span>';
+        if(id === story.startNode) badges += '<span class="node-badge">' + t('editor.nodes.badgeStart') + '</span>';
+        if(id === story.corruptNode) badges += '<span class="node-badge badge-danger">' + t('editor.nodes.badgeCorrupt') + '</span>';
+        if(story.nodes[id].aggressive) badges += '<span class="node-badge badge-danger">' + t('editor.nodes.badgeAggressive') + '</span>';
         item.innerHTML = '<span class="node-id">' + id + '</span><span>' + badges + '</span>';
-        item.title = reach.has(id) ? '' : 'Nodo irraggiungibile da startNode/corruptNode';
+        item.title = reach.has(id) ? '' : t('editor.nodes.unreachableTitle');
         item.addEventListener('click', ()=>{ currentNodeId = id; renderNodeList(); renderNodeEditor(); });
         nodeList.appendChild(item);
       });
     }
-    addGroup('Nodi di storia', storyIds);
-    addGroup('Finali', endingIds);
+    addGroup(t('editor.nodes.groupStory'), storyIds);
+    addGroup(t('editor.nodes.groupEndings'), endingIds);
 
     const addBtn = document.createElement('button');
     addBtn.className = 'ed-btn ed-btn-block';
-    addBtn.textContent = '+ Nuovo nodo';
+    addBtn.textContent = t('editor.nodes.addNode');
     addBtn.addEventListener('click', addNewNode);
     nodeList.appendChild(addBtn);
   }
 
   function addNewNode(){
-    let id = prompt('ID del nuovo nodo (senza spazi, es. P1):');
+    let id = prompt(t('editor.prompt.newNodeId'));
     if(!id) return;
     id = id.trim();
-    if(!id || story.nodes[id]){ alert('ID mancante o gia\' esistente.'); return; }
-    const isEnding = confirm('E\' un nodo finale?\nOK = finale · Annulla = nodo di storia');
+    if(!id || story.nodes[id]){ alert(t('editor.alert.badNodeId')); return; }
+    const isEnding = confirm(t('editor.confirm.isEnding'));
     if(isEnding){
-      story.nodes[id] = { isEnding: true, title: "NUOVO FINALE", text: "Testo del finale." };
+      story.nodes[id] = { isEnding: true, title: t('editor.nodes.defaultNewEndingTitle'), text: t('editor.nodes.defaultNewEndingText') };
     } else {
       story.nodes[id] = {
-        variants: ["PRIMA VARIANTE.", "SECONDA VARIANTE.", "TERZA VARIANTE."],
+        variants: [t('editor.nodes.defaultVariant1'), t('editor.nodes.defaultVariant2'), t('editor.nodes.defaultVariant3')],
         choices: [
-          { label: "Scelta 1", next: story.startNode || id, delta: 0 },
-          { label: "Scelta 2", next: story.startNode || id, delta: 0 },
-          { label: "Scelta 3", next: story.startNode || id, delta: 0 }
+          { label: t('editor.nodes.defaultChoiceLabel', {n: 1}), next: story.startNode || id, delta: 0 },
+          { label: t('editor.nodes.defaultChoiceLabel', {n: 2}), next: story.startNode || id, delta: 0 },
+          { label: t('editor.nodes.defaultChoiceLabel', {n: 3}), next: story.startNode || id, delta: 0 }
         ]
       };
     }
@@ -196,11 +211,11 @@
   }
 
   function renameNode(oldId){
-    let newId = prompt('Nuovo ID per il nodo:', oldId);
+    let newId = prompt(t('editor.prompt.renameNode'), oldId);
     if(!newId) return;
     newId = newId.trim();
     if(!newId || newId === oldId) return;
-    if(story.nodes[newId]){ alert('Esiste gia\' un nodo con questo ID.'); return; }
+    if(story.nodes[newId]){ alert(t('editor.alert.duplicateId')); return; }
     story.nodes[newId] = story.nodes[oldId];
     delete story.nodes[oldId];
     Object.values(story.nodes).forEach(n=>{
@@ -215,7 +230,7 @@
   }
 
   function deleteNode(id){
-    if(!confirm('Eliminare il nodo "' + id + '"? Le scelte che puntano qui resteranno rotte finche\' non le correggi.')) return;
+    if(!confirm(t('editor.confirm.deleteNode', {id}))) return;
     delete story.nodes[id];
     if(currentNodeId === id) currentNodeId = null;
     refreshNodeSelects();
@@ -232,7 +247,7 @@
 
   function renderNodeEditor(){
     if(!currentNodeId || !story.nodes[currentNodeId]){
-      nodeEditor.innerHTML = '<div class="node-editor-empty">Seleziona un nodo dalla lista, oppure creane uno nuovo.</div>';
+      nodeEditor.innerHTML = '<div class="node-editor-empty">' + t('editor.nodes.emptyState') + '</div>';
       return;
     }
     const id = currentNodeId;
@@ -244,8 +259,8 @@
     head.innerHTML =
       '<span class="node-editor-id">' + id + '</span>' +
       '<span>' +
-        '<button class="ed-btn ed-btn-small" id="btnRename">Rinomina</button> ' +
-        '<button class="ed-btn ed-btn-small ed-btn-danger" id="btnDelete">Elimina nodo</button>' +
+        '<button class="ed-btn ed-btn-small" id="btnRename">' + t('editor.nodes.rename') + '</button> ' +
+        '<button class="ed-btn ed-btn-small ed-btn-danger" id="btnDelete">' + t('editor.nodes.delete') + '</button>' +
       '</span>';
     nodeEditor.appendChild(head);
     head.querySelector('#btnRename').addEventListener('click', ()=> renameNode(id));
@@ -255,17 +270,17 @@
     typeRow.className = 'ed-checkbox-row';
     typeRow.innerHTML =
       '<input type="checkbox" id="cbIsEnding" ' + (node.isEnding ? 'checked' : '') + '> ' +
-      '<label for="cbIsEnding">Questo e\' un nodo finale (mostra testo in chiaro e termina la partita)</label>';
+      '<label for="cbIsEnding">' + t('editor.nodes.isEndingLabel') + '</label>';
     nodeEditor.appendChild(typeRow);
     typeRow.querySelector('#cbIsEnding').addEventListener('change', (e)=>{
       if(e.target.checked){
         node.isEnding = true;
-        if(!node.title) node.title = 'NUOVO FINALE';
+        if(!node.title) node.title = t('editor.nodes.defaultNewEndingTitle');
         if(!node.text) node.text = '';
       } else {
         delete node.isEnding;
-        if(!node.variants) node.variants = ["PRIMA VARIANTE.", "SECONDA VARIANTE.", "TERZA VARIANTE."];
-        if(!node.choices) node.choices = [{label:"Scelta 1", next:id, delta:0}];
+        if(!node.variants) node.variants = [t('editor.nodes.defaultVariant1'), t('editor.nodes.defaultVariant2'), t('editor.nodes.defaultVariant3')];
+        if(!node.choices) node.choices = [{label: t('editor.nodes.defaultChoiceLabel', {n: 1}), next:id, delta:0}];
       }
       renderNodeList();
       renderNodeEditor();
@@ -281,9 +296,9 @@
   function renderEndingForm(node){
     const wrap = document.createElement('div');
     wrap.innerHTML =
-      '<div class="ed-field"><label class="ed-label">Titolo del finale</label>' +
+      '<div class="ed-field"><label class="ed-label">' + t('editor.nodes.endingTitleLabel') + '</label>' +
       '<input type="text" class="ed-input" id="edTitle" value="' + escapeHtmlAttr(node.title || '') + '"></div>' +
-      '<div class="ed-field"><label class="ed-label">Testo del finale (in chiaro, nessuna restrizione di lettere)</label>' +
+      '<div class="ed-field"><label class="ed-label">' + t('editor.nodes.endingTextLabel') + '</label>' +
       '<textarea class="ed-textarea" id="edText" rows="6">' + escapeHtml(node.text || '') + '</textarea></div>';
     nodeEditor.appendChild(wrap);
     wrap.querySelector('#edTitle').addEventListener('input', (e)=>{ node.title = e.target.value; renderNodeList(); });
@@ -297,7 +312,7 @@
     aggRow.className = 'ed-checkbox-row';
     aggRow.innerHTML =
       '<input type="checkbox" id="cbAggressive" ' + (node.aggressive ? 'checked' : '') + '> ' +
-      '<label for="cbAggressive">Nodo aggressivo (usato tipicamente per corruptNode: tono visivo piu\' ostile)</label>';
+      '<label for="cbAggressive">' + t('editor.nodes.aggressiveLabel') + '</label>';
     wrap.appendChild(aggRow);
     aggRow.querySelector('#cbAggressive').addEventListener('change', (e)=>{
       if(e.target.checked) node.aggressive = true; else delete node.aggressive;
@@ -306,8 +321,8 @@
     const plField = document.createElement('div');
     plField.className = 'ed-field';
     plField.innerHTML =
-      '<label class="ed-label">Etichetta di avanzamento personalizzata (progressLabel, opzionale)</label>' +
-      '<input type="text" class="ed-input" id="edProgressLabel" value="' + escapeHtmlAttr(node.progressLabel || '') + '" placeholder="es. INTERFERENZA CRITICA — ...">';
+      '<label class="ed-label">' + t('editor.nodes.progressLabelLabel') + '</label>' +
+      '<input type="text" class="ed-input" id="edProgressLabel" value="' + escapeHtmlAttr(node.progressLabel || '') + '" placeholder="' + escapeHtmlAttr(t('editor.nodes.progressLabelPlaceholder')) + '">';
     wrap.appendChild(plField);
     plField.querySelector('#edProgressLabel').addEventListener('input', (e)=>{
       node.progressLabel = e.target.value || undefined;
@@ -317,12 +332,12 @@
     // Varianti
     const variantsField = document.createElement('div');
     variantsField.className = 'ed-field';
-    variantsField.innerHTML = '<label class="ed-label">Varianti del messaggio (in MAIUSCOLO)</label>';
+    variantsField.innerHTML = '<label class="ed-label">' + t('editor.nodes.variantsLabel') + '</label>';
     const variantsHost = document.createElement('div');
     variantsField.appendChild(variantsHost);
     const addVariantBtn = document.createElement('button');
     addVariantBtn.className = 'ed-btn ed-btn-small';
-    addVariantBtn.textContent = '+ variante';
+    addVariantBtn.textContent = t('editor.nodes.addVariant');
     addVariantBtn.addEventListener('click', ()=>{
       node.variants.push('');
       renderVariants();
@@ -337,7 +352,7 @@
         row.className = 'variant-row';
         row.innerHTML =
           '<textarea class="ed-textarea" rows="2">' + escapeHtml(v) + '</textarea>' +
-          (node.variants.length > 1 ? '<button class="row-remove-btn" style="margin-top:6px;">Rimuovi variante</button>' : '');
+          (node.variants.length > 1 ? '<button class="row-remove-btn" style="margin-top:6px;">' + t('editor.nodes.removeVariant') + '</button>' : '');
         row.querySelector('textarea').addEventListener('input', (e)=>{ node.variants[i] = e.target.value; });
         const rm = row.querySelector('.row-remove-btn');
         if(rm) rm.addEventListener('click', ()=>{ node.variants.splice(i,1); renderVariants(); });
@@ -349,12 +364,12 @@
     // Scelte
     const choicesField = document.createElement('div');
     choicesField.className = 'ed-field';
-    choicesField.innerHTML = '<label class="ed-label">Scelte del giocatore</label>';
+    choicesField.innerHTML = '<label class="ed-label">' + t('editor.nodes.choicesLabel') + '</label>';
     const choicesHost = document.createElement('div');
     choicesField.appendChild(choicesHost);
     const addChoiceBtn = document.createElement('button');
     addChoiceBtn.className = 'ed-btn ed-btn-small';
-    addChoiceBtn.textContent = '+ scelta';
+    addChoiceBtn.textContent = t('editor.nodes.addChoice');
     addChoiceBtn.addEventListener('click', ()=>{
       node.choices.push({ label: '', next: story.startNode || id, delta: 0 });
       renderChoices();
@@ -368,10 +383,10 @@
         const row = document.createElement('div');
         row.className = 'choice-row';
         row.innerHTML =
-          '<input type="text" class="ed-input choice-label" placeholder="testo del pulsante" value="' + escapeHtmlAttr(c.label || '') + '">' +
+          '<input type="text" class="ed-input choice-label" placeholder="' + escapeHtmlAttr(t('editor.nodes.choiceLabelPlaceholder')) + '" value="' + escapeHtmlAttr(c.label || '') + '">' +
           '<select class="ed-select choice-next">' + nodeOptionsHtml(c.next) + '</select>' +
-          '<input type="number" class="ed-input choice-delta" value="' + (c.delta || 0) + '" title="delta stabilita\'">' +
-          (node.choices.length > 1 ? '<button class="row-remove-btn">Rimuovi</button>' : '');
+          '<input type="number" class="ed-input choice-delta" value="' + (c.delta || 0) + '" title="' + escapeHtmlAttr(t('editor.nodes.choiceDeltaTitle')) + '">' +
+          (node.choices.length > 1 ? '<button class="row-remove-btn">' + t('editor.nodes.removeChoice') + '</button>' : '');
         row.querySelector('.choice-label').addEventListener('input', (e)=>{ c.label = e.target.value; });
         row.querySelector('.choice-next').addEventListener('change', (e)=>{ c.next = e.target.value; renderNodeList(); });
         row.querySelector('.choice-delta').addEventListener('input', (e)=>{ c.delta = parseInt(e.target.value, 10) || 0; });
@@ -412,7 +427,6 @@
   }
 
   function computeCanReachEnding(){
-    // reverse graph BFS a partire da tutti i finali
     const canReach = new Set();
     const reverse = {};
     Object.keys(story.nodes).forEach(id=>{ reverse[id] = []; });
@@ -436,20 +450,20 @@
     const items = [];
     const add = (type, msg) => items.push({type, msg});
 
-    if(!story.title || !story.title.trim()) add('err', 'Manca il titolo della storia.');
+    if(!story.title || !story.title.trim()) add('err', t('editor.validation.missingTitle'));
     if(!story.symbols || story.symbols.length < LETTERS.length){
-      add('err', 'Servono almeno ' + LETTERS.length + ' simboli diversi (attuali: ' + (story.symbols ? story.symbols.length : 0) + ').');
+      add('err', t('editor.validation.notEnoughSymbols', {required: LETTERS.length, count: story.symbols ? story.symbols.length : 0}));
     } else if(new Set(story.symbols).size !== story.symbols.length){
-      add('warn', 'Ci sono simboli duplicati nella lista.');
+      add('warn', t('editor.validation.duplicateSymbols'));
     }
     if(!story.startNode || !story.nodes[story.startNode]){
-      add('err', 'startNode non e\' impostato o non esiste tra i nodi.');
+      add('err', t('editor.validation.badStartNode'));
     }
     if(story.corruptNode){
-      if(!story.nodes[story.corruptNode]) add('err', 'corruptNode punta a un nodo inesistente ("' + story.corruptNode + '").');
-      else if(story.nodes[story.corruptNode].isEnding) add('err', 'corruptNode punta a un finale: deve essere un nodo di storia giocabile.');
+      if(!story.nodes[story.corruptNode]) add('err', t('editor.validation.corruptNodeMissing', {id: story.corruptNode}));
+      else if(story.nodes[story.corruptNode].isEnding) add('err', t('editor.validation.corruptNodeIsEnding'));
     } else {
-      add('warn', 'Nessun corruptNode impostato: il ramo per troppi errori sullo stesso messaggio non e\' configurato.');
+      add('warn', t('editor.validation.noCorruptNode'));
     }
 
     const reach = computeReachability();
@@ -457,28 +471,28 @@
 
     Object.entries(story.nodes).forEach(([id, n])=>{
       if(n.isEnding){
-        if(!n.title || !n.title.trim()) add('warn', 'Il finale "' + id + '" non ha un titolo.');
-        if(!n.text || !n.text.trim()) add('warn', 'Il finale "' + id + '" non ha testo.');
+        if(!n.title || !n.title.trim()) add('warn', t('editor.validation.endingNoTitle', {id}));
+        if(!n.text || !n.text.trim()) add('warn', t('editor.validation.endingNoText', {id}));
       } else {
-        if(!n.variants || !n.variants.length) add('err', 'Il nodo "' + id + '" non ha varianti di testo.');
-        else if(n.variants.length !== 3) add('warn', 'Il nodo "' + id + '" ha ' + n.variants.length + ' variante/i invece di 3 (funziona comunque).');
-        if(n.variants) n.variants.forEach((v,i)=>{ if(!v || !v.trim()) add('warn', 'Il nodo "' + id + '" ha la variante #' + (i+1) + ' vuota.'); });
+        if(!n.variants || !n.variants.length) add('err', t('editor.validation.nodeNoVariants', {id}));
+        else if(n.variants.length !== 3) add('warn', t('editor.validation.variantCountWarn', {id, count: n.variants.length}));
+        if(n.variants) n.variants.forEach((v,i)=>{ if(!v || !v.trim()) add('warn', t('editor.validation.emptyVariant', {id, index: i+1})); });
 
-        if(!n.choices || !n.choices.length) add('err', 'Il nodo "' + id + '" non ha scelte: e\' un vicolo cieco.');
+        if(!n.choices || !n.choices.length) add('err', t('editor.validation.noChoices', {id}));
         else {
-          if(n.choices.length !== 3) add('warn', 'Il nodo "' + id + '" ha ' + n.choices.length + ' scelta/e invece di 3 (funziona comunque).');
+          if(n.choices.length !== 3) add('warn', t('editor.validation.choiceCountWarn', {id, count: n.choices.length}));
           n.choices.forEach((c, i)=>{
-            if(!c.label || !c.label.trim()) add('warn', 'Il nodo "' + id + '", scelta #' + (i+1) + ', non ha testo sul pulsante.');
-            if(!c.next) add('err', 'Il nodo "' + id + '", scelta #' + (i+1) + ', non punta a nessun nodo.');
-            else if(!story.nodes[c.next]) add('err', 'Il nodo "' + id + '", scelta #' + (i+1) + ', punta a un nodo inesistente ("' + c.next + '").');
+            if(!c.label || !c.label.trim()) add('warn', t('editor.validation.emptyChoiceLabel', {id, index: i+1}));
+            if(!c.next) add('err', t('editor.validation.choiceNoTarget', {id, index: i+1}));
+            else if(!story.nodes[c.next]) add('err', t('editor.validation.choiceBadTarget', {id, index: i+1, target: c.next}));
           });
         }
       }
-      if(!reach.has(id)) add('warn', 'Il nodo "' + id + '" non e\' raggiungibile ne\' da startNode ne\' da corruptNode.');
-      else if(!n.isEnding && !canReachEnding.has(id)) add('err', 'Il nodo "' + id + '" e\' raggiungibile ma nessuna delle sue scelte porta mai a un finale (vicolo cieco o ciclo chiuso).');
+      if(!reach.has(id)) add('warn', t('editor.validation.unreachable', {id}));
+      else if(!n.isEnding && !canReachEnding.has(id)) add('err', t('editor.validation.deadEnd', {id}));
     });
 
-    if(items.length === 0) add('ok', 'Nessun problema rilevato. La storia sembra pronta.');
+    if(items.length === 0) add('ok', t('editor.validation.allOk'));
 
     validationOutput.innerHTML = '';
     items.forEach(it=>{
@@ -500,7 +514,7 @@
 
   // ---------- Nuova storia / carica / esporta ----------
   document.getElementById('btnNewStory').addEventListener('click', ()=>{
-    if(!confirm('Creare una nuova storia vuota? Il lavoro non salvato andra\' perso.')) return;
+    if(!confirm(t('editor.confirm.newStory'))) return;
     story = blankStory();
     currentNodeId = null;
     renderSettingsForm();
@@ -527,7 +541,7 @@
         renderNodeList();
         renderNodeEditor();
       } catch(err){
-        alert('Impossibile leggere il file: ' + err.message);
+        alert(t('editor.alert.readError', {message: err.message}));
       }
     };
     reader.readAsText(file);
@@ -535,11 +549,11 @@
 
   document.getElementById('btnExport').addEventListener('click', ()=>{
     const ok = runValidation();
-    document.querySelectorAll('.ed-tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.ed-tab').forEach(tb=>tb.classList.remove('active'));
     document.querySelectorAll('.editor-panel').forEach(p=>p.style.display='none');
     document.querySelector('.ed-tab[data-tab="validation"]').classList.add('active');
     document.getElementById('tab-validation').style.display='block';
-    if(!ok && !confirm('La convalida ha trovato errori bloccanti. Esportare comunque il JSON?')) return;
+    if(!ok && !confirm(t('editor.confirm.exportWithErrors'))) return;
 
     const blob = new Blob([JSON.stringify(story, null, 2)], {type:'application/json'});
     const url = URL.createObjectURL(blob);
@@ -599,7 +613,7 @@
     else if(pvStability <= 60){ pvStabilityFill.classList.add('mid'); pvTerminal.classList.add('unstable'); }
   }
   function pvUpdateMistakeUI(){
-    pvMistakeCounter.textContent = 'TOTALI: ' + pvMistakes + '/50';
+    pvMistakeCounter.textContent = t('game.totalMistakes', {count: pvMistakes});
     pvMistakeCounter.classList.remove('tier1','tier2','tier3');
     pvTerminal.classList.remove('tier1','tier2','tier3');
     let tier = null;
@@ -607,7 +621,7 @@
     if(tier){ pvMistakeCounter.classList.add(tier); pvTerminal.classList.add(tier); }
   }
   function pvUpdateMsgMistakeUI(){
-    pvMessageMistakeCounter.textContent = 'MESSAGGIO: ' + pvMessageMistakes + '/10';
+    pvMessageMistakeCounter.textContent = t('game.messageMistakes', {count: pvMessageMistakes});
     pvMessageMistakeCounter.classList.remove('tier1','tier2','tier3');
     let tier = null;
     if(pvMessageMistakes >= 8) tier = 'tier3'; else if(pvMessageMistakes >= 6) tier = 'tier2'; else if(pvMessageMistakes >= 4) tier = 'tier1';
@@ -645,7 +659,7 @@
     panel.className = 'decode-panel';
     const label = document.createElement('div');
     label.className = 'decode-label';
-    label.textContent = 'Simboli non decifrati';
+    label.textContent = t('game.decodeLabel');
     panel.appendChild(label);
     const chipRow = document.createElement('div');
     chipRow.className = 'chip-row';
@@ -678,7 +692,7 @@
     pvDecodeArea.innerHTML = '';
     const notice = document.createElement('div');
     notice.className = 'rewrite-notice';
-    notice.textContent = "IL MESSAGGIO SI DISSOLVE...";
+    notice.textContent = t('game.rewriteNotice');
     pvDecodeArea.appendChild(notice);
     pvMessageText.classList.add('rewriting');
     let ticks = 0;
@@ -735,7 +749,7 @@
     (node.choices || []).forEach(choice=>{
       const btn = document.createElement('button');
       btn.className = 'choice-btn';
-      btn.innerHTML = '<span class="tag">></span>' + escapeHtml(choice.label || '(scelta senza testo)');
+      btn.innerHTML = '<span class="tag">' + t('game.choiceTag') + '</span>' + escapeHtml(choice.label || t('editor.preview.emptyChoiceLabel'));
       btn.addEventListener('click', ()=>{
         pvStability += (choice.delta || 0);
         pvUpdateStability();
@@ -754,13 +768,13 @@
     pvChoiceArea.innerHTML = '';
     const title = document.createElement('div');
     title.className = 'ending-title';
-    title.textContent = 'FINE // ' + (node.title || pvCurrentNodeId);
+    title.textContent = t('ending.titlePrefix', {title: node.title || pvCurrentNodeId});
     const text = document.createElement('div');
     text.className = 'ending-text';
-    text.textContent = node.text || '(testo del finale mancante)';
+    text.textContent = node.text || t('editor.preview.missingEndingText');
     const restart = document.createElement('button');
     restart.className = 'restart-btn';
-    restart.textContent = 'Riavvia anteprima';
+    restart.textContent = t('editor.preview.restart');
     restart.addEventListener('click', pvReset);
     pvChoiceArea.appendChild(title);
     pvChoiceArea.appendChild(text);
@@ -773,19 +787,19 @@
     pvChoiceArea.innerHTML = '';
     const title = document.createElement('div');
     title.className = 'ending-title gameover-title';
-    title.textContent = 'SEGNALE PERSO (anteprima: 50 errori totali)';
+    title.textContent = t('editor.preview.gameOverTitle');
     const restart = document.createElement('button');
     restart.className = 'restart-btn';
-    restart.textContent = 'Riavvia anteprima';
+    restart.textContent = t('editor.preview.restart');
     restart.addEventListener('click', pvReset);
     pvChoiceArea.appendChild(title);
     pvChoiceArea.appendChild(restart);
   }
   function pvRenderNode(){
-    previewNodeLabel.textContent = 'nodo corrente: ' + pvCurrentNodeId;
+    previewNodeLabel.textContent = t('editor.preview.nodeLabel', {id: pvCurrentNodeId});
     const node = story.nodes[pvCurrentNodeId];
     if(!node){
-      pvChoiceArea.innerHTML = '<div class="ending-text">Riferimento rotto: il nodo "' + pvCurrentNodeId + '" non esiste.</div>';
+      pvChoiceArea.innerHTML = '<div class="ending-text">' + t('editor.preview.brokenRef', {id: pvCurrentNodeId}) + '</div>';
       pvMessageText.parentElement.style.display = 'none';
       pvDecodeArea.innerHTML = '';
       return;
@@ -799,7 +813,7 @@
       return;
     }
     pvTerminal.classList.toggle('aggressive', !!node.aggressive);
-    pvProgressTrail.textContent = node.progressLabel ? node.progressLabel : ('Intrusione ' + (pvDepth+1) + ' di ' + (story.totalStages || 5));
+    pvProgressTrail.textContent = node.progressLabel ? node.progressLabel : t('game.progressLabel', {n: pvDepth+1, total: (story.totalStages || 5)});
     pvCurrentText = pvPickVariant(node);
     pvInitCipher();
     pvMessageText.parentElement.style.display = 'flex';
@@ -811,14 +825,14 @@
     pvStability = 70; pvMistakes = 0; pvMessageMistakes = 0; pvDepth = 0;
     pvCurrentNodeId = story.startNode;
     pvTerminal.classList.remove('gameover','tier1','tier2','tier3','unstable','critical','aggressive');
-    pvStatusLabel.textContent = (story.title || 'ANTEPRIMA') + ' // ' + (story.tagline || '');
+    pvStatusLabel.textContent = (story.title || t('editor.preview.statusLabel')) + ' // ' + (story.tagline || '');
     pvUpdateStability(); pvUpdateMistakeUI(); pvUpdateMsgMistakeUI();
     pvRenderNode();
   }
 
   document.getElementById('btnPreview').addEventListener('click', ()=>{
     if(!story.startNode || !story.nodes[story.startNode]){
-      alert('Imposta un startNode valido prima di avviare l\'anteprima.');
+      alert(t('editor.alert.needStartNode'));
       return;
     }
     previewModal.style.display = 'flex';
@@ -828,9 +842,16 @@
     previewModal.style.display = 'none';
   });
 
-  // ---------- Avvio ----------
-  renderSettingsForm();
-  renderNodeList();
-  renderNodeEditor();
+  // ---------- Avvio: carica prima le stringhe dell'interfaccia ----------
+  window.I18N.load('lang/it.json', 'LANG_IT_FALLBACK').then(()=>{
+    applyI18n();
+    story = blankStory();
+  }).catch(()=>{
+    // procede comunque: I18N.get restituisce la chiave se non trova traduzioni
+  }).finally(()=>{
+    renderSettingsForm();
+    renderNodeList();
+    renderNodeEditor();
+  });
 
 })();

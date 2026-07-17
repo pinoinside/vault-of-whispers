@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Vault of Whispers</title>
-<link rel="shortcut icon" href="./vault-of-whispers.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=VT323&family=Space+Mono:wght@400;700&family=Noto+Sans+Symbols&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
@@ -14,18 +13,14 @@
 <div class="intro-modal" id="introModal">
   <div class="intro-box">
     <div class="intro-fixed-top">
-      <div class="intro-title">Vault of Whispers</div>
+      <div class="intro-title" id="introTitle">Vault of Whispers</div>
       <div class="intro-story-name" id="introStoryName">Scegli quale storia seguire stanotte.</div>
       <details class="intro-details">
-        <summary>Come funziona</summary>
-        <div class="intro-text">
-          <p>Un'entità ha iniziato a comunicare con te. I suoi messaggi arrivano <strong>cifrati</strong>: ogni simbolo corrisponde
-             sempre alla stessa lettera, ma solo <strong>all'interno del messaggio che stai leggendo</strong>: il cifrario cambia a
-              ogni nuovo messaggio.</p>
+        <summary id="introSummary">Come funziona</summary>
+        <div class="intro-text" id="introExplanation">
+          <p>Un'entità ha iniziato a comunicare con te. I suoi messaggi arrivano <strong>cifrati</strong>: ogni simbolo corrisponde sempre alla stessa lettera, ma solo <strong>all'interno del messaggio che stai leggendo</strong>: il cifrario cambia a ogni nuovo messaggio.</p>
           <p>Tocca un simbolo, poi una lettera, per tentare di decifrarlo. Il messaggio si riscrive man mano che indovini.</p>
-          <p>Ogni errore viene contato, sia nel messaggio corrente che nel totale della partita, sempre visibile in alto a destra. 
-            Dopo <strong>10 errori sullo stesso messaggio</strong> qualcosa di più ostile prende il controllo della conversazione. 
-            Dopo <span class="warn">50 errori totali</span>, la partita è persa.</p>
+          <p>Ogni errore viene contato, sia nel messaggio corrente che nel totale della partita, sempre visibile in alto a destra. Dopo <strong>10 errori sullo stesso messaggio</strong> qualcosa di più ostile prende il controllo della conversazione. Dopo <span class="warn">50 errori totali</span>, la partita è persa.</p>
         </div>
       </details>
     </div>
@@ -38,10 +33,9 @@
         <button class="intro-cancel-btn" id="introCancel" disabled>Annulla</button>
       </div>
       <div class="intro-error" id="introError"></div>
-      <div class="intro-credits">
-        <div><b>Credits</b></div>
+      <div class="intro-credits" id="introCreditsBox">
+        <div>&copy; 2026 - Pino Inside</div>
         <div>Storie: Andrea Pinucci</div>
-        <div>&copy; 2026 Pino Inside - Tutti i diritti riservati</div>
       </div>
     </div>
   </div>
@@ -78,6 +72,8 @@
   </div>
 </div>
 
+<script src="js/i18n.js"></script>
+<script src="js/lang-it-fallback.js"></script>
 <script src="js/loader.js"></script>
 <script src="js/game.js"></script>
 </body>
