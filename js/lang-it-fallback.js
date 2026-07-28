@@ -1,7 +1,7 @@
 // Copia di riserva del file lang/it.json, usata quando fetch() non e' disponibile
 // (es. pagina aperta con doppio clic, senza un server locale).
 window.LANG_IT_FALLBACK = {
-    "common": {
+  "common": {
     "pageTitleGame": "Vault of Whispers",
     "pageTitleWithStory": "Vault of Whispers — {title}",
     "statusLabelFallback": "VAULT OF WHISPERS",
@@ -9,31 +9,31 @@ window.LANG_IT_FALLBACK = {
     "appTitle": "Vault of Whispers"
   },
   "intro": {
-    "storyPrompt": "Scegli quale storia seguire stanotte.",
+    "storyPrompt": "Scegli quale storia ascoltare stanotte.",
     "storyChosen": "Stanotte: {title}",
     "howItWorksSummary": "Come funziona",
     "explanationHtml": [
-      "Un'entità ha iniziato a comunicare con te. I suoi messaggi arrivano <strong>cifrati</strong>: ogni simbolo corrisponde sempre alla stessa lettera, ma solo <strong>all'interno del messaggio che stai leggendo</strong>: il cifrario cambia a ogni nuovo messaggio.",
+      "Un'entita' ha iniziato a comunicare con te. I suoi messaggi arrivano <strong>cifrati</strong>: ogni simbolo corrisponde sempre alla stessa lettera, ma solo <strong>all'interno del messaggio che stai leggendo</strong> — il cifrario cambia a ogni nuovo messaggio.",
       "Tocca un simbolo, poi una lettera, per tentare di decifrarlo. Il messaggio si riscrive man mano che indovini.",
-      "Ogni errore viene contato, sia nel messaggio corrente che nel totale della partita, sempre visibile in alto a destra. Dopo <strong>10 errori sullo stesso messaggio</strong> qualcosa di più ostile prende il controllo della conversazione. Dopo <span class=\"warn\">50 errori totali</span>, la partita è persa."
+      "Ogni errore viene contato, sia nel messaggio corrente che nel totale della partita, sempre visibile in alto a destra. Dopo <strong>10 errori sullo stesso messaggio</strong> qualcosa di piu' ostile prende il controllo della conversazione. Dopo <span class=\"warn\">50 errori totali</span>, la partita e' persa."
     ],
     "startBtnIdle": "Scegli una storia",
     "startBtnLoading": "Caricamento...",
     "startBtnReady": "Comincia",
     "cancelBtn": "Annulla",
     "credits": [
-      "&copy 2026 - Pino Inside",
-      "Storie: Andrea Pinucci",
-      ""
+      "[NOME AUTORE / STUDIO]",
+      "Storie: [TITOLO — AUTORE], [TITOLO — AUTORE]",
+      "[EVENTUALI RINGRAZIAMENTI O LINK]"
     ]
   },
   "storyMenu": {
     "randomTitle": "🎲 Casuale",
     "randomTagline": "lascia che sia l'archivio a scegliere per te",
     "loadTitle": "📂 Carica un file...",
-    "loadTagline": "gioca una storia dal tuo dispositivo",
+    "loadTagline": "gioca una storia .json dal tuo dispositivo",
     "loadingLabel": "Caricamento...",
-    "endMenuLabel": "Cosa vuoi fare adesso?"
+    "endMenuLabel": "Cosa vuoi ascoltare adesso?"
   },
   "errors": {
     "manifestPrefix": "Impossibile caricare l'elenco delle storie ({message}).",
@@ -48,21 +48,21 @@ window.LANG_IT_FALLBACK = {
     "rewriteNotice": "IL MESSAGGIO SI DISSOLVE... QUALCOSA DI PIU' OSTILE STA SCRIVENDO...",
     "progressLabel": "Intrusione {n} di {total}",
     "choiceTag": "›",
-    "hint": "Ogni simbolo nasconde una lettera. Il cifrario muta a ogni sussurro: non fidarti di ciò che credi di aver già imparato.",
-    "totalMistakes": "TOTALI: {count}/50",
-    "messageMistakes": "MESSAGGIO: {count}/10"
+    "hint": "Ogni simbolo nasconde una lettera. Il cifrario muta a ogni sussurro: non fidarti di ciò che credevi di aver già imparato.",
+    "totalMistakes": "TOTALI: {count}/{max}",
+    "messageMistakes": "MESSAGGIO: {count}/{max}"
   },
   "ending": {
     "titlePrefix": "FINE // {title}",
     "restartBtn": "Riavvia il segnale",
     "flavorZero": "Non hai sbagliato nemmeno un simbolo. Forse ricordi tutto fin troppo bene.",
-    "flavorLow": "Frammenti persi: {count}. Piccole crepe, ma le crepe in questa storia crescono sempre.",
-    "flavorMid": "Frammenti persi: {count}. Qualcosa, dentro di te, si è arreso molto prima della fine.",
-    "flavorHigh": "Frammenti persi: {count}. Non sei più del tutto sicuro di quale versione di te abbia risposto per ultima.",
-    "flavorExtreme": "Frammenti persi: {count}. Sei arrivato alla fine per il rotto della cuffia e qualcosa dentro di te lo sa.",
+    "flavorLow": "Frammenti persi: {count}. Piccole crepe: ma le crepe, in questa storia, crescono sempre.",
+    "flavorMid": "Frammenti persi: {count}. Qualcosa, dentro di te, si e' arreso molto prima della fine.",
+    "flavorHigh": "Frammenti persi: {count}. Non sei piu' del tutto sicuro di quale versione di te abbia risposto per ultima.",
+    "flavorExtreme": "Frammenti persi: {count}. Sei arrivato alla fine per il rotto della cuffia, e qualcosa dentro di te lo sa.",
     "gameOverTitle": "SEGNALE PERSO // TI HA RISCRITTO",
-    "gameOverText": "Hai sbagliato troppe volte e ogni errore era un'altra crepa che qualcosa ha usato per infilarsi più a fondo. Il terminale smette di fare domande, perché non ne ha più bisogno: la voce che risponde adesso, correggendo ogni tuo errore uno per uno, non è più la tua. Lo schermo resta acceso, in attesa del prossimo che si siederà qui a decifrarlo.",
-    "gameOverStat": "Frammenti persi: {count} su 50. Il segnale non ti appartiene più."
+    "gameOverText": "Hai sbagliato troppe volte, e ogni errore era un'altra crepa che qualcosa ha usato per infilarsi piu' a fondo. Il terminale smette di fare domande, perche' non ne ha piu' bisogno: la voce che risponde adesso, correggendo ogni tuo errore uno per uno, non e' piu' la tua. Lo schermo resta acceso, in attesa del prossimo che si siedera' qui a decifrarlo.",
+    "gameOverStat": "Frammenti persi: {count} su {max}. Il segnale non ti appartiene piu'."
   },
   "editor": {
     "pageTitle": "Editor Storie — Vault of Whispers",
@@ -94,7 +94,14 @@ window.LANG_IT_FALLBACK = {
       "symbolsPlaceholder": "incolla o scrivi i simboli separati da spazio o virgola",
       "defaultSymbolsBtn": "Usa set predefinito (30 simboli distinguibili)",
       "symbolsCount": "{count} simboli ({required} lettere richieste come minimo)",
-      "noneOption": "— nessuno —"
+      "noneOption": "— nessuno —",
+      "languageLabel": "Lingua della storia (codice, es. it, en)",
+      "languagePlaceholder": "it",
+      "authorLabel": "Autore",
+      "authorPlaceholder": "il tuo nome o pseudonimo",
+      "symbolSourceLabel": "Origine dei simboli",
+      "symbolSourceCustomOption": "Personalizzati (elenco qui sotto)",
+      "symbolSourceHint": "Scegliendo un set con nome, il file esportato userà \"symbolSet\" invece di un elenco di simboli scritto a mano: se in futuro il set verrà ampliato o corretto a livello di motore, questa storia userà automaticamente la versione aggiornata."
     },
     "nodes": {
       "emptyState": "Seleziona un nodo dalla lista, oppure creane uno nuovo.",
@@ -191,5 +198,28 @@ window.LANG_IT_FALLBACK = {
       "deadEnd": "Il nodo \"{id}\" e' raggiungibile ma nessuna delle sue scelte porta mai a un finale (vicolo cieco o ciclo chiuso).",
       "allOk": "Nessun problema rilevato. La storia sembra pronta."
     }
+  },
+  "difficulty": {
+    "label": "Difficolta'",
+    "baby": "Baby",
+    "babyHint": "Le vocali sono gia' decodificate. Fino a 15 errori per messaggio.",
+    "normale": "Normale",
+    "normaleHint": "Nessun aiuto. Fino a 10 errori per messaggio.",
+    "serio": "Serio",
+    "serioHint": "Nessun aiuto. Fino a 5 errori per messaggio.",
+    "demoniaco": "Demoniaco",
+    "demoniacoHint": "Nessun aiuto. Fino a 3 errori per messaggio."
+  },
+  "codex": {
+    "buttonLabel": "📖 Codex dei finali",
+    "titleFor": "Codex — {title}",
+    "progress": "{found}/{total} finali scoperti ({percent}%)",
+    "locked": "???",
+    "close": "Chiudi"
+  },
+  "resume": {
+    "banner": "Hai una partita in sospeso: {title} — tappa {n} di {total}.",
+    "resumeBtn": "▶ Riprendi",
+    "deleteBtn": "🗑 Elimina"
   }
 };

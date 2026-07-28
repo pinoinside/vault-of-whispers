@@ -37,7 +37,7 @@
     "manifestPrefix": "Impossibile caricare l'elenco delle storie ({message}).",
     "storyPrefix": "Impossibile caricare la storia scelta ({message}).",
     "serverHint": " Se hai aperto questo file direttamente nel browser (doppio clic), le regole di sicurezza bloccano il caricamento locale dei file JSON. Avvia un piccolo server locale nella cartella del progetto (per esempio 'python3 -m http.server' oppure 'npx serve') e riapri la pagina da http://localhost.",
-    "invalidJson": "il file non e' un JSON valido",
+    "invalidJson": "il file non è un JSON valido",
     "invalidStructure": "il file non ha la struttura attesa di una storia",
     "readFailed": "lettura del file fallita"
   },
@@ -47,8 +47,8 @@
     "progressLabel": "Intrusione {n} di {total}",
     "choiceTag": "›",
     "hint": "Ogni simbolo nasconde una lettera. Il cifrario muta a ogni sussurro: non fidarti di ciò che credi di aver già imparato.",
-    "totalMistakes": "TOTALI: {count}/50",
-    "messageMistakes": "MESSAGGIO: {count}/10"
+    "totalMistakes": "TOTALI: {count}/{max}",
+    "messageMistakes": "MESSAGGIO: {count}/{max}"
   },
   "ending": {
     "titlePrefix": "FINE // {title}",
@@ -60,7 +60,7 @@
     "flavorExtreme": "Frammenti persi: {count}. Sei arrivato alla fine per il rotto della cuffia e qualcosa dentro di te lo sa.",
     "gameOverTitle": "SEGNALE PERSO // TI HA RISCRITTO",
     "gameOverText": "Hai sbagliato troppe volte e ogni errore era un'altra crepa che qualcosa ha usato per infilarsi più a fondo. Il terminale smette di fare domande, perché non ne ha più bisogno: la voce che risponde adesso, correggendo ogni tuo errore uno per uno, non è più la tua. Lo schermo resta acceso, in attesa del prossimo che si siederà qui a decifrarlo.",
-    "gameOverStat": "Frammenti persi: {count} su 50. Il segnale non ti appartiene più."
+    "gameOverStat": "Frammenti persi: {count} su {max}. Il segnale non ti appartiene più."
   },
   "editor": {
     "pageTitle": "Editor Storie — Vault of Whispers",
@@ -92,7 +92,14 @@
       "symbolsPlaceholder": "incolla o scrivi i simboli separati da spazio o virgola",
       "defaultSymbolsBtn": "Usa set predefinito (30 simboli distinguibili)",
       "symbolsCount": "{count} simboli ({required} lettere richieste come minimo)",
-      "noneOption": "— nessuno —"
+      "noneOption": "— nessuno —",
+      "languageLabel": "Lingua della storia (codice, es. it, en)",
+      "languagePlaceholder": "it",
+      "authorLabel": "Autore",
+      "authorPlaceholder": "il tuo nome o pseudonimo",
+      "symbolSourceLabel": "Origine dei simboli",
+      "symbolSourceCustomOption": "Personalizzati (elenco qui sotto)",
+      "symbolSourceHint": "Scegliendo un set con nome, il file esportato userà \"symbolSet\" invece di un elenco di simboli scritto a mano: se in futuro il set verrà ampliato o corretto a livello di motore, questa storia userà automaticamente la versione aggiornata."
     },
     "nodes": {
       "emptyState": "Seleziona un nodo dalla lista, oppure creane uno nuovo.",
@@ -189,5 +196,28 @@
       "deadEnd": "Il nodo \"{id}\" e' raggiungibile ma nessuna delle sue scelte porta mai a un finale (vicolo cieco o ciclo chiuso).",
       "allOk": "Nessun problema rilevato. La storia sembra pronta."
     }
+  },
+  "difficulty": {
+    "label": "Difficoltà",
+    "baby": "Baby",
+    "babyHint": "Le vocali sono già decodificate. Fino a 15 errori per messaggio.",
+    "normale": "Normale",
+    "normaleHint": "Nessun aiuto. Fino a 10 errori per messaggio.",
+    "serio": "Serio",
+    "serioHint": "Nessun aiuto. Fino a 5 errori per messaggio.",
+    "demoniaco": "Demoniaco",
+    "demoniacoHint": "Nessun aiuto. Fino a 3 errori per messaggio."
+  },
+  "codex": {
+    "buttonLabel": "📖 Codex dei finali",
+    "titleFor": "Codex — {title}",
+    "progress": "{found}/{total} finali scoperti ({percent}%)",
+    "locked": "???",
+    "close": "Chiudi"
+  },
+  "resume": {
+    "banner": "Hai una partita in sospeso: {title} — tappa {n} di {total}.",
+    "resumeBtn": "▶ Riprendi",
+    "deleteBtn": "🗑 Elimina"
   }
 }

@@ -22,10 +22,12 @@
     return {
       title: "NUOVA STORIA",
       tagline: "una breve riga d'atmosfera",
+      language: "it",
+      author: "",
       totalStages: 5,
       startNode: "root",
       corruptNode: "CORRUPT1",
-      symbols: DEFAULT_SYMBOLS.slice(),
+      symbolSet: (window.SYMBOL_SETS && Object.keys(window.SYMBOL_SETS)[0]) || "occulto",
       nodes: {
         root: {
           variants: [
@@ -69,9 +71,13 @@
   // ---------- Elementi DOM ----------
   const fTitle = document.getElementById('fTitle');
   const fTagline = document.getElementById('fTagline');
+  const fLanguage = document.getElementById('fLanguage');
+  const fAuthor = document.getElementById('fAuthor');
   const fStages = document.getElementById('fStages');
   const fStartNode = document.getElementById('fStartNode');
   const fCorruptNode = document.getElementById('fCorruptNode');
+  const fSymbolSource = document.getElementById('fSymbolSource');
+  const fSymbolsField = document.getElementById('fSymbolsField');
   const fSymbols = document.getElementById('fSymbols');
   const symbolsCount = document.getElementById('symbolsCount');
   const symbolsPreview = document.getElementById('symbolsPreview');
@@ -79,6 +85,18 @@
   const nodeEditor = document.getElementById('nodeEditor');
   const validationOutput = document.getElementById('validationOutput');
   const fileInput = document.getElementById('fileInput');
+
+  // Restituisce i simboli effettivamente usati dalla storia in questo momento,
+  // applicando la stessa logica di risoluzione del motore di gioco
+  // (symbols espliciti > symbolSet nominato > set predefinito del registro > riserva).
+  function getEffectiveSymbols(){
+    if(story.symbols && story.symbols.length) return story.symbols;
+    const sets = window.SYMBOL_SETS || {};
+    const names = Object.keys(sets);
+    let chosen = (story.symbolSet && sets[story.symbolSet]) || null;
+    if(!chosen) chosen = names.map(k=>sets[k]).find(s=>s.default) || sets[names[0]];
+    return chosen ? chosen.symbols : DEFAULT_SYMBOLS.slice();
+  }
 
   // ---------- Tabs ----------
   document.querySelectorAll('.ed-tab').forEach(tab=>{
@@ -114,17 +132,43 @@
     fCorruptNode.value = story.corruptNode || '';
   }
 
+  function populateSymbolSourceOptions(){
+    fSymbolSource.innerHTML = '';
+    const sets = window.SYMBOL_SETS || {};
+    Object.keys(sets).forEach(key=>{
+      const opt = document.createElement('option');
+      opt.value = key;
+      opt.textContent = sets[key].label + (sets[key].default ? ' ★' : '');
+      fSymbolSource.appendChild(opt);
+    });
+    const customOpt = document.createElement('option');
+    customOpt.value = '';
+    customOpt.textContent = t('editor.settings.symbolSourceCustomOption');
+    fSymbolSource.appendChild(customOpt);
+  }
+
+  function updateSymbolFieldMode(){
+    const isCustom = !story.symbolSet;
+    fSymbols.disabled = !isCustom;
+    fSymbolsField.style.opacity = isCustom ? '1' : '0.6';
+    fSymbols.value = getEffectiveSymbols().join(' ');
+  }
+
   function renderSettingsForm(){
     fTitle.value = story.title || '';
     fTagline.value = story.tagline || '';
+    fLanguage.value = story.language || '';
+    fAuthor.value = story.author || '';
     fStages.value = story.totalStages || 1;
-    fSymbols.value = story.symbols.join(' ');
+    populateSymbolSourceOptions();
+    fSymbolSource.value = story.symbolSet || '';
+    updateSymbolFieldMode();
     refreshNodeSelects();
     renderSymbolsPreview();
   }
 
   function renderSymbolsPreview(){
-    const syms = story.symbols;
+    const syms = getEffectiveSymbols();
     symbolsPreview.innerHTML = '';
     syms.forEach(s=>{
       const span = document.createElement('span');
@@ -137,16 +181,32 @@
 
   fTitle.addEventListener('input', ()=>{ story.title = fTitle.value; });
   fTagline.addEventListener('input', ()=>{ story.tagline = fTagline.value; });
+  fLanguage.addEventListener('input', ()=>{ story.language = fLanguage.value; });
+  fAuthor.addEventListener('input', ()=>{ story.author = fAuthor.value; });
   fStages.addEventListener('input', ()=>{ story.totalStages = parseInt(fStages.value, 10) || 1; });
   fStartNode.addEventListener('change', ()=>{ story.startNode = fStartNode.value; renderNodeList(); });
   fCorruptNode.addEventListener('change', ()=>{ story.corruptNode = fCorruptNode.value; renderNodeList(); });
+
+  fSymbolSource.addEventListener('change', ()=>{
+    if(fSymbolSource.value){
+      story.symbolSet = fSymbolSource.value;
+      delete story.symbols;
+    } else {
+      delete story.symbolSet;
+      if(!story.symbols || !story.symbols.length) story.symbols = DEFAULT_SYMBOLS.slice();
+    }
+    updateSymbolFieldMode();
+    renderSymbolsPreview();
+  });
   fSymbols.addEventListener('input', ()=>{
     story.symbols = fSymbols.value.split(/[,\s]+/).map(s=>s.trim()).filter(Boolean);
     renderSymbolsPreview();
   });
   document.getElementById('btnDefaultSymbols').addEventListener('click', ()=>{
+    fSymbolSource.value = '';
+    delete story.symbolSet;
     story.symbols = DEFAULT_SYMBOLS.slice();
-    fSymbols.value = story.symbols.join(' ');
+    updateSymbolFieldMode();
     renderSymbolsPreview();
   });
 
@@ -451,9 +511,10 @@
     const add = (type, msg) => items.push({type, msg});
 
     if(!story.title || !story.title.trim()) add('err', t('editor.validation.missingTitle'));
-    if(!story.symbols || story.symbols.length < LETTERS.length){
-      add('err', t('editor.validation.notEnoughSymbols', {required: LETTERS.length, count: story.symbols ? story.symbols.length : 0}));
-    } else if(new Set(story.symbols).size !== story.symbols.length){
+    const effectiveSymbols = getEffectiveSymbols();
+    if(!effectiveSymbols || effectiveSymbols.length < LETTERS.length){
+      add('err', t('editor.validation.notEnoughSymbols', {required: LETTERS.length, count: effectiveSymbols ? effectiveSymbols.length : 0}));
+    } else if(new Set(effectiveSymbols).size !== effectiveSymbols.length){
       add('warn', t('editor.validation.duplicateSymbols'));
     }
     if(!story.startNode || !story.nodes[story.startNode]){
@@ -535,7 +596,6 @@
         const loaded = JSON.parse(reader.result);
         if(!loaded.nodes) throw new Error('manca il campo "nodes"');
         story = loaded;
-        if(!story.symbols) story.symbols = DEFAULT_SYMBOLS.slice();
         currentNodeId = story.startNode && story.nodes[story.startNode] ? story.startNode : Object.keys(story.nodes)[0] || null;
         renderSettingsForm();
         renderNodeList();
@@ -585,6 +645,47 @@
 
   let pvLetterToSymbol = {}, pvSymbolToLetter = {}, pvRevealed = new Set();
   let pvCurrentText = '', pvStability = 70, pvMistakes = 0, pvMessageMistakes = 0, pvCurrentNodeId = '', pvDepth = 0;
+  let pvDifficulty = 'normale';
+  let pvMaxTotalMistakes = 50, pvMaxMessageMistakes = 10, pvVowelHelp = false;
+  const VOWELS = ['A','E','I','O','U'];
+
+  function pvApplyDifficulty(){
+    const n = story.totalStages || 5;
+    const registry = window.DIFFICULTIES || {};
+    const diff = registry[pvDifficulty] || registry.normale || { maxPerMessage: 10, vowelHelp: false, totalFormula: n2 => n2 * 5 };
+    pvMaxMessageMistakes = diff.maxPerMessage;
+    pvMaxTotalMistakes = Math.max(1, diff.totalFormula(n));
+    pvVowelHelp = diff.vowelHelp;
+  }
+
+  function renderPvDifficultyPicker(container){
+    if(!container) return;
+    container.innerHTML = '';
+    const order = window.DIFFICULTY_ORDER || Object.keys(window.DIFFICULTIES || {normale:true});
+    const wrap = document.createElement('div');
+    wrap.className = 'difficulty-picker';
+    const label = document.createElement('div');
+    label.className = 'difficulty-label';
+    label.textContent = t('difficulty.label');
+    wrap.appendChild(label);
+    const optionsRow = document.createElement('div');
+    optionsRow.className = 'difficulty-options';
+    order.forEach(key=>{
+      const btn = document.createElement('button');
+      btn.className = 'difficulty-btn' + (key === pvDifficulty ? ' active' : '');
+      btn.textContent = t('difficulty.' + key);
+      btn.title = t('difficulty.' + key + 'Hint');
+      btn.addEventListener('click', ()=>{
+        pvDifficulty = key;
+        optionsRow.querySelectorAll('.difficulty-btn').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        pvReset();
+      });
+      optionsRow.appendChild(btn);
+    });
+    wrap.appendChild(optionsRow);
+    container.appendChild(wrap);
+  }
 
   function pvShuffle(arr){
     const a = arr.slice();
@@ -596,13 +697,20 @@
     return node.text || '';
   }
   function pvInitCipher(){
-    const shuffled = pvShuffle(story.symbols.length ? story.symbols : DEFAULT_SYMBOLS);
+    const effective = getEffectiveSymbols();
+    const shuffled = pvShuffle(effective.length ? effective : DEFAULT_SYMBOLS);
     pvLetterToSymbol = {}; pvSymbolToLetter = {};
     LETTERS.forEach((l,i)=>{
       pvLetterToSymbol[l] = shuffled[i % shuffled.length];
       pvSymbolToLetter[shuffled[i % shuffled.length]] = l;
     });
     pvRevealed = new Set();
+    if(pvVowelHelp){
+      VOWELS.forEach(v => pvRevealed.add(v));
+    }
+    const sets = window.SYMBOL_SETS || {};
+    const activeSet = story.symbolSet && sets[story.symbolSet];
+    document.documentElement.style.setProperty('--glyph-font', (activeSet && activeSet.fontFamily) || "'Noto Sans Symbols', sans-serif");
   }
   function pvUpdateStability(){
     pvStability = Math.max(0, Math.min(100, pvStability));
@@ -613,18 +721,18 @@
     else if(pvStability <= 60){ pvStabilityFill.classList.add('mid'); pvTerminal.classList.add('unstable'); }
   }
   function pvUpdateMistakeUI(){
-    pvMistakeCounter.textContent = t('game.totalMistakes', {count: pvMistakes});
+    pvMistakeCounter.textContent = t('game.totalMistakes', {count: pvMistakes, max: pvMaxTotalMistakes});
     pvMistakeCounter.classList.remove('tier1','tier2','tier3');
     pvTerminal.classList.remove('tier1','tier2','tier3');
     let tier = null;
-    if(pvMistakes >= 40) tier = 'tier3'; else if(pvMistakes >= 30) tier = 'tier2'; else if(pvMistakes >= 20) tier = 'tier1';
+    if(pvMistakes >= pvMaxTotalMistakes * 0.8) tier = 'tier3'; else if(pvMistakes >= pvMaxTotalMistakes * 0.6) tier = 'tier2'; else if(pvMistakes >= pvMaxTotalMistakes * 0.4) tier = 'tier1';
     if(tier){ pvMistakeCounter.classList.add(tier); pvTerminal.classList.add(tier); }
   }
   function pvUpdateMsgMistakeUI(){
-    pvMessageMistakeCounter.textContent = t('game.messageMistakes', {count: pvMessageMistakes});
+    pvMessageMistakeCounter.textContent = t('game.messageMistakes', {count: pvMessageMistakes, max: pvMaxMessageMistakes});
     pvMessageMistakeCounter.classList.remove('tier1','tier2','tier3');
     let tier = null;
-    if(pvMessageMistakes >= 8) tier = 'tier3'; else if(pvMessageMistakes >= 6) tier = 'tier2'; else if(pvMessageMistakes >= 4) tier = 'tier1';
+    if(pvMessageMistakes >= pvMaxMessageMistakes * 0.8) tier = 'tier3'; else if(pvMessageMistakes >= pvMaxMessageMistakes * 0.6) tier = 'tier2'; else if(pvMessageMistakes >= pvMaxMessageMistakes * 0.4) tier = 'tier1';
     if(tier) pvMessageMistakeCounter.classList.add(tier);
   }
   function pvLettersOf(text){ return text.split('').filter(ch => LETTERS.includes(ch)); }
@@ -699,7 +807,8 @@
     const iv = setInterval(()=>{
       pvMessageText.querySelectorAll('span').forEach(span=>{
         if(span.classList.contains('glyph') || span.classList.contains('letter-solved') || span.classList.contains('scrambling')){
-          span.textContent = story.symbols[Math.floor(Math.random()*story.symbols.length)];
+          const effSyms = getEffectiveSymbols();
+          span.textContent = effSyms[Math.floor(Math.random()*effSyms.length)];
           span.className = 'glyph scrambling';
         }
       });
@@ -733,8 +842,8 @@
         } else {
           pvMistakes++; pvMessageMistakes++; pvStability--;
           pvUpdateMistakeUI(); pvUpdateMsgMistakeUI(); pvUpdateStability(); pvTriggerFlash();
-          if(pvMistakes >= 50){ setTimeout(pvRenderGameOver, 250); return; }
-          if(pvMessageMistakes >= 10){ setTimeout(pvTriggerRewrite, 250); return; }
+          if(pvMistakes >= pvMaxTotalMistakes){ setTimeout(pvRenderGameOver, 250); return; }
+          if(pvMessageMistakes >= pvMaxMessageMistakes){ setTimeout(pvTriggerRewrite, 250); return; }
         }
       });
       row.appendChild(btn);
@@ -822,6 +931,7 @@
     pvRenderDecodePanel(pvCurrentText);
   }
   function pvReset(){
+    pvApplyDifficulty();
     pvStability = 70; pvMistakes = 0; pvMessageMistakes = 0; pvDepth = 0;
     pvCurrentNodeId = story.startNode;
     pvTerminal.classList.remove('gameover','tier1','tier2','tier3','unstable','critical','aggressive');
@@ -836,6 +946,7 @@
       return;
     }
     previewModal.style.display = 'flex';
+    renderPvDifficultyPicker(document.getElementById('pvDifficultyPicker'));
     pvReset();
   });
   document.getElementById('btnClosePreview').addEventListener('click', ()=>{

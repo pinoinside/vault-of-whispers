@@ -1,10 +1,12 @@
 {
   "title": "THE LAST THOUGHT",
   "tagline": "a voice beneath the mind",
+  "language": "en",
+  "author": "A. Pinucci",
   "totalStages": 2,
   "startNode": "root",
-  "corruptNode": "CORRUPT1",
-  "symbols": ["☠","☣","☢","☯","⚛","⚗","⚜","🜊","⚔","⚖","⚙","⚠","☮","☤","⚕","⚰","⚱","⛧","⚹","⚥","☍","☄","☾","☉","⛓","⛏","⚒","⚑","⚘","☊","🜁","🜃","🜔","🜘","🜛"],
+  "corruptNode": "CORRUPT1",  
+  "symbolSet": "occulto",
   "nodes": {
     "root": {
       "variants": [

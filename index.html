@@ -14,13 +14,20 @@
   <div class="intro-box">
     <div class="intro-fixed-top">
       <div class="intro-title" id="introTitle">Vault of Whispers</div>
-      <div class="intro-story-name" id="introStoryName">Scegli quale storia seguire stanotte.</div>
+      <div class="intro-story-name" id="introStoryName">Scegli quale storia ascoltare stanotte.</div>
+      <div class="resume-banner" id="resumeBanner" style="display:none">
+        <div class="resume-banner-text" id="resumeBannerText"></div>
+        <div class="resume-banner-actions">
+          <button class="resume-btn" id="btnResumeGame">▶ Riprendi</button>
+          <button class="resume-delete-btn" id="btnDeleteSave">🗑 Elimina</button>
+        </div>
+      </div>
       <details class="intro-details">
         <summary id="introSummary">Come funziona</summary>
         <div class="intro-text" id="introExplanation">
-          <p>Un'entità ha iniziato a comunicare con te. I suoi messaggi arrivano <strong>cifrati</strong>: ogni simbolo corrisponde sempre alla stessa lettera, ma solo <strong>all'interno del messaggio che stai leggendo</strong>: il cifrario cambia a ogni nuovo messaggio.</p>
+          <p>Un'entità ha iniziato a comunicare con te. I suoi messaggi arrivano <strong>cifrati</strong>: ogni simbolo corrisponde sempre alla stessa lettera, ma solo <strong>all'interno del messaggio che stai leggendo</strong> — il cifrario cambia a ogni nuovo messaggio.</p>
           <p>Tocca un simbolo, poi una lettera, per tentare di decifrarlo. Il messaggio si riscrive man mano che indovini.</p>
-          <p>Ogni errore viene contato, sia nel messaggio corrente che nel totale della partita, sempre visibile in alto a destra. Dopo <strong>10 errori sullo stesso messaggio</strong> qualcosa di più ostile prende il controllo della conversazione. Dopo <span class="warn">50 errori totali</span>, la partita è persa.</p>
+          <p>Ogni errore viene contato, sia nel messaggio corrente che nel totale della partita, sempre visibile in alto a destra. Dopo <strong>10 errori sullo stesso messaggio</strong> qualcosa di piu' ostile prende il controllo della conversazione. Dopo <span class="warn">50 errori totali</span>, la partita e' persa.</p>
         </div>
       </details>
     </div>
@@ -28,6 +35,8 @@
     <div class="intro-scroll no-scrollbar" id="introMenu"></div>
 
     <div class="intro-fixed-bottom">
+      <div id="difficultyPickerIntro"></div>
+      <button class="codex-open-btn" id="btnOpenCodexIntro" disabled>📖 Codex dei finali</button>
       <div class="intro-btn-row">
         <button class="intro-start-btn" id="introStart" disabled>Scegli una storia</button>
         <button class="intro-cancel-btn" id="introCancel" disabled>Annulla</button>
@@ -68,13 +77,27 @@
     <div id="decodeArea"></div>
     <div id="choiceArea"></div>
 
-    <div class="hint" id="hint">Ogni simbolo nasconde una lettera.<br>Il cifrario muta a ogni sussurro: non fidarti di ciò che credi di aver già imparato.</div>
+    <div class="hint" id="hint">Ogni simbolo nasconde una lettera. Il cifrario muta a ogni sussurro: non fidarti di ciò che credi di aver già imparato.</div>
+  </div>
+</div>
+
+<div class="codex-modal" id="codexModal" style="display:none">
+  <div class="codex-box">
+    <div class="codex-topbar">
+      <div class="codex-title" id="codexTitle">Codex</div>
+      <button class="codex-close-btn" id="btnCloseCodex">Chiudi</button>
+    </div>
+    <div class="codex-progress" id="codexProgress"></div>
+    <div class="codex-list no-scrollbar" id="codexList"></div>
   </div>
 </div>
 
 <script src="js/i18n.js"></script>
 <script src="js/lang-it-fallback.js"></script>
+<script src="js/symbol-sets.js"></script>
+<script src="js/difficulties.js"></script>
 <script src="js/loader.js"></script>
 <script src="js/game.js"></script>
 </body>
 </html>
+

@@ -50,6 +50,16 @@
             <input type="number" id="fStages" class="ed-input" min="1" value="5">
           </div>
         </div>
+        <div class="ed-row">
+          <div class="ed-field">
+            <label class="ed-label" data-i18n="editor.settings.languageLabel">Lingua della storia (codice, es. it, en)</label>
+            <input type="text" id="fLanguage" class="ed-input" maxlength="10" data-i18n-placeholder="editor.settings.languagePlaceholder" placeholder="it">
+          </div>
+          <div class="ed-field">
+            <label class="ed-label" data-i18n="editor.settings.authorLabel">Autore</label>
+            <input type="text" id="fAuthor" class="ed-input" data-i18n-placeholder="editor.settings.authorPlaceholder" placeholder="il tuo nome o pseudonimo">
+          </div>
+        </div>
       </div>
       <div>
         <div class="ed-field">
@@ -65,6 +75,12 @@
     </div>
 
     <div class="ed-field">
+      <label class="ed-label" data-i18n="editor.settings.symbolSourceLabel">Origine dei simboli</label>
+      <select id="fSymbolSource" class="ed-select"></select>
+      <div class="ed-hint" data-i18n="editor.settings.symbolSourceHint">Scegliendo un set con nome, il file esportato usera' "symbolSet" invece di un elenco di simboli scritto a mano.</div>
+    </div>
+
+    <div class="ed-field" id="fSymbolsField">
       <label class="ed-label" data-i18n="editor.settings.symbolsLabel">Simboli del cifrario</label>
       <textarea id="fSymbols" class="ed-textarea" rows="2" data-i18n-placeholder="editor.settings.symbolsPlaceholder" placeholder="incolla o scrivi i simboli separati da spazio o virgola"></textarea>
       <div class="ed-row" style="margin-top:8px;">
@@ -111,6 +127,8 @@
       <button id="btnClosePreview" class="ed-btn" data-i18n="editor.preview.close">Chiudi anteprima</button>
     </div>
 
+    <div id="pvDifficultyPicker" style="margin-bottom:10px;"></div>
+
     <div class="terminal" id="pvTerminal">
       <div class="vignette"></div>
       <div class="flash-overlay" id="pvFlashOverlay"></div>
@@ -142,6 +160,8 @@
 
 <script src="js/i18n.js"></script>
 <script src="js/lang-it-fallback.js"></script>
+<script src="js/symbol-sets.js"></script>
+<script src="js/difficulties.js"></script>
 <script src="js/editor.js"></script>
 </body>
 </html>

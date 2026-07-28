@@ -1,11 +1,53 @@
 {
   "stories": [
-    { "file": "inquilino.json", "title": "L'Inquilino", "tagline": "un terminale, una casa, una porta che non apri mai" },
-    { "file": "il-faro.json", "title": "Il Faro", "tagline": "una radio, una nebbia, un custode che non se n'e' mai andato" },
-    { "file": "la-segreteria.json", "title": "La Segreteria", "tagline": "hai riascoltato quel messaggio troppe volte" },
-    { "file": "il-sognatore.json", "title": "Il Sognatore", "tagline": "qualcosa, nel profondo, ha sognato il tuo nome" },
-    { "file": "la-sposa.json", "title": "La Sposa", "tagline": "una voce antica domanda ancora sepoltura" },
-    { "file": "il-fascicolo.json", "title": "Il Fascicolo", "tagline": "trent'anni di appunti e ancora nessun nome sicuro" },
-    { "file": "the-last-thought.json", "title": "The Last Thought", "tagline": "a voice beneath the mind" }
+    {
+      "file": "inquilino.json",
+      "title": "L'Inquilino",
+      "tagline": "un terminale, una casa, una porta che non apri mai",
+      "language": "it",
+      "author": "A. Pinucci"
+    },
+    {
+      "file": "il-faro.json",
+      "title": "Il Faro",
+      "tagline": "una radio, una nebbia, un custode che non se n'e' mai andato",
+      "language": "it",
+      "author": "A. Pinucci"
+    },
+    {
+      "file": "la-segreteria.json",
+      "title": "La Segreteria",
+      "tagline": "hai riascoltato quel messaggio troppe volte",
+      "language": "it",
+      "author": "A. Pinucci"
+    },
+    {
+      "file": "il-sognatore.json",
+      "title": "Il Sognatore",
+      "tagline": "qualcosa, nel profondo, ha sognato il tuo nome",
+      "language": "it",
+      "author": "A. Pinucci"
+    },
+    {
+      "file": "il-fascicolo.json",
+      "title": "Il Fascicolo",
+      "tagline": "trent'anni di appunti e ancora nessun nome sicuro",
+      "language": "it",
+      "author": "A. Pinucci"
+    },
+    {
+      "file": "la-sposa.json",
+      "title": "La Sposa",
+      "tagline": "una donna, un matrimonio, un segreto che non si è mai rivelato",
+      "language": "old it",
+      "author": "A. Pinucci"
+    },
+    {
+      "file": "the-last-thought.json",
+      "title": "THE LAST THOUGHT",
+      "tagline": "a voice beneath the mind",
+      "language": "en",
+      "author": "A. Pinucci"
+    }
   ]
 }

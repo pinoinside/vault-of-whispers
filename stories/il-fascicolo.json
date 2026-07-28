@@ -1,47 +1,18 @@
 {
   "title": "IL FASCICOLO",
-  "tagline": "trent'anni di appunti, e ancora nessun nome sicuro",
+  "tagline": "trent'anni di appunti e ancora nessun nome sicuro",
+  "language": "it",
+  "author": "A. Pinucci",
   "totalStages": 7,
   "startNode": "root",
   "corruptNode": "CORRUPT1",
-  "symbols": [
-    "☠",
-    "☣",
-    "☢",
-    "☯",
-    "⚛",
-    "⚗",
-    "⚜",
-    "⚓",
-    "⚔",
-    "⚖",
-    "⚙",
-    "⚠",
-    "☮",
-    "☤",
-    "⚕",
-    "⚰",
-    "⚱",
-    "⛧",
-    "⚹",
-    "⚥",
-    "☍",
-    "☄",
-    "☾",
-    "☉",
-    "⛓",
-    "⛏",
-    "⚒",
-    "⚑",
-    "⚘",
-    "☊"
-  ],
+  "symbolSet": "occulto",
   "nodes": {
     "root": {
       "variants": [
-        "IL REGISTRATORE DI TUO ZIO SI E' ACCESO DA SOLO E STA GIA' RIPRODUCENDO QUALCOSA.",
-        "IL VECCHIO REGISTRATORE A BOBINE SI E' ACCESO DA SOLO E STA GIA' PARLANDO.",
-        "QUALCOSA STA USCENDO DAL REGISTRATORE DI TUO ZIO E NON L'HAI ACCESO TU."
+        "IL REGISTRATORE DI TUO ZIO SI E' ACCESO DA SOLO, E STA GIA' RIPRODUCENDO QUALCOSA.",
+        "IL VECCHIO REGISTRATORE A BOBINE SI E' ACCESO DA SOLO, E STA GIA' PARLANDO.",
+        "QUALCOSA STA USCENDO DAL REGISTRATORE DI TUO ZIO, E NON L'HAI ACCESO TU."
       ],
       "choices": [
         {
@@ -65,7 +36,7 @@
       "variants": [
         "SONO QUELLO CHE TUO ZIO HA CERCATO PER TRENT'ANNI TRA QUESTE COLLINE, SENZA MAI TROVARE UN NOME.",
         "SONO CIO' CHE TUO ZIO HA INSEGUITO PER TRENT'ANNI TRA LE COLLINE, SENZA MAI DARGLI UN NOME.",
-        "PER TRENT'ANNI TUO ZIO MI HA CERCATO TRA QUESTE COLLINE E NON HA MAI TROVATO UN NOME DA DARMI."
+        "PER TRENT'ANNI TUO ZIO MI HA CERCATO TRA QUESTE COLLINE, E NON HA MAI TROVATO UN NOME DA DARMI."
       ],
       "choices": [
         {
@@ -74,7 +45,7 @@
           "delta": -5
         },
         {
-          "label": "Perché parli con me?",
+          "label": "Perche' parli con me?",
           "next": "A2",
           "delta": 0
         },
@@ -103,7 +74,7 @@
           "delta": 10
         },
         {
-          "label": "Cosa c'è tra le colline?",
+          "label": "Cosa c'e' tra le colline?",
           "next": "B3",
           "delta": -15
         }
@@ -127,7 +98,7 @@
           "delta": -5
         },
         {
-          "label": "Cosa gli è successo dopo?",
+          "label": "Cosa gli e' successo dopo?",
           "next": "C3",
           "delta": 5
         }
@@ -159,9 +130,9 @@
     },
     "A2": {
       "variants": [
-        "PERCHE' IL SANGUE DI TUO ZIO SCORRE ANCHE NELLE TUE MANI E LE MANI RICORDANO.",
-        "PERCHE' NELLE TUE MANI SCORRE LO STESSO SANGUE DI TUO ZIO E LE MANI NON DIMENTICANO.",
-        "PERCHE' SEI IL SANGUE DI TUO ZIO E IL SANGUE, IN QUESTA STORIA, RICORDA SEMPRE."
+        "PERCHE' IL SANGUE DI TUO ZIO SCORRE ANCHE NELLE TUE MANI, E LE MANI RICORDANO.",
+        "PERCHE' NELLE TUE MANI SCORRE LO STESSO SANGUE DI TUO ZIO, E LE MANI NON DIMENTICANO.",
+        "PERCHE' SEI IL SANGUE DI TUO ZIO, E IL SANGUE, IN QUESTA STORIA, RICORDA SEMPRE."
       ],
       "choices": [
         {
@@ -185,7 +156,8 @@
       "variants": [
         "NESSUN TRIBUNALE HA MAI MESSO UN NOME VERO SU DI ME, E NON LO METTERAI NEMMENO TU STASERA.",
         "NESSUN PROCESSO HA MAI SAPUTO DARMI UN NOME VERO, E STASERA NON SARAI TU A RIUSCIRCI.",
-        "C'E' UNA REGISTRAZIONE DI UN'UDIENZA, DOVE UN IMPUTATO RECITA: SE NI' MONDO ESISTESSE UN PO' DI BENE... MA NESSUNA POESIA HA MAI MESSO UN NOME SU DI ME."
+        "NEMMENO I TRIBUNALI SONO RIUSCITI A DARMI UN NOME VERO. NON CI RIUSCIRAI NEANCHE TU, STASERA.",
+        "C'E' UNA REGISTRAZIONE DI UN'UDIENZA, DOVE UN IMPUTATO RECITA: SE NI' MONDO ESISTESSE UN PO' DI BENE... MA NESSUN VERSO HA MAI MESSO UN NOME VERO SU DI ME."
       ],
       "choices": [
         {
@@ -207,8 +179,8 @@
     },
     "B1": {
       "variants": [
-        "LE COLLINE SE NE INFISCHIANO DI QUANTO TI IMPORTINO: RESTANO LI' E ASPETTANO.",
-        "NON IMPORTA A LORO QUANTO TU TE NE INFISCHI: LE COLLINE RESTANO LI' E ASPETTANO.",
+        "LE COLLINE SE NE INFISCHIANO DI QUANTO TI IMPORTINO: RESTANO LI', E ASPETTANO.",
+        "NON IMPORTA A LORO QUANTO TU TE NE INFISCHI: LE COLLINE RESTANO LI', E ASPETTANO.",
         "POCO IMPORTA A LORO SE NON TI INTERESSANO: LE COLLINE RESTANO FERME LI', IN ATTESA."
       ],
       "choices": [
@@ -218,7 +190,7 @@
           "delta": 15
         },
         {
-          "label": "Non ci andrò mai.",
+          "label": "Non ci andro' mai.",
           "next": "P8",
           "delta": 15
         },
@@ -231,8 +203,8 @@
     },
     "B2": {
       "variants": [
-        "TUO ZIO HA PROVATO A CHIUDERLO TRE VOLTE E TRE VOLTE L'HA RIAPERTO DA SOLO, DI NOTTE.",
-        "TRE VOLTE TUO ZIO HA PROVATO A CHIUDERLO E TRE VOLTE SI E' RITROVATO A RIAPRIRLO DI NOTTE.",
+        "TUO ZIO HA PROVATO A CHIUDERLO TRE VOLTE, E TRE VOLTE L'HA RIAPERTO DA SOLO, DI NOTTE.",
+        "TRE VOLTE TUO ZIO HA PROVATO A CHIUDERLO, E TRE VOLTE SI E' RITROVATO A RIAPRIRLO DI NOTTE.",
         "PER TRE VOLTE TUO ZIO L'HA CHIUSO. PER TRE VOLTE SI E' RISVEGLIATO CON IL FASCICOLO GIA' RIAPERTO."
       ],
       "choices": [
@@ -242,7 +214,7 @@
           "delta": 0
         },
         {
-          "label": "Perché lo riapriva?",
+          "label": "Perche' lo riapriva?",
           "next": "P4",
           "delta": -10
         },
@@ -255,13 +227,14 @@
     },
     "B3": {
       "variants": [
-        "CI SONO LE STRADE STERRATE DOVE LE COPPIE SI FERMAVANO E DOVE IO MI FERMAVO CON LORO.",
-        "CI SONO LE STRADE DI CAMPAGNA DOVE LE COPPIE SI APPARTAVANO E DOVE IO ERO GIA' PRESENTE.",
+        "CI SONO LE STRADE STERRATE DOVE LE COPPIE SI FERMAVANO, E DOVE IO MI FERMAVO CON LORO.",
+        "CI SONO LE STRADE DI CAMPAGNA DOVE LE COPPIE SI APPARTAVANO, E DOVE IO ERO GIA' PRESENTE.",
+        "CI SONO LE STRADE STERRATE DOVE SI APPARTAVANO LE COPPIE, E DOVE ANCH'IO ERO SEMPRE LI'.",
         "RABATTA. SCANDICCI. CALENZANO. BACCAIANO. GIOGOLI. VICCHIO. SCOPETI. LI CONOSCO TUTTI, UNO PER UNO, COME I GRANI DI UN ROSARIO CHE NESSUNO RECITA PIU'."
       ],
       "choices": [
         {
-          "label": "Quante volte sei stato lì?",
+          "label": "Quante volte sei stato li'?",
           "next": "P9",
           "delta": 10
         },
@@ -285,7 +258,7 @@
       ],
       "choices": [
         {
-          "label": "Reggo più carta di quanto pensi.",
+          "label": "Reggo piu' carta di quanto pensi.",
           "next": "P9",
           "delta": 15
         },
@@ -303,9 +276,9 @@
     },
     "C2": {
       "variants": [
-        "SAGGIO. TUO ZIO HA LETTO TUTTO IN UNA NOTTE SOLA E NON HA PIU' DORMITO BENE DA ALLORA.",
-        "FAI BENE: TUO ZIO LESSE TUTTO IN UNA SOLA NOTTE E DA ALLORA NON DORMI' PIU' BENE.",
-        "E' SAGGIO DA PARTE TUA. TUO ZIO LESSE TUTTO INSIEME IN UNA NOTTE E NON DORMI' PIU' COSI' BENE."
+        "SAGGIO. TUO ZIO HA LETTO TUTTO IN UNA NOTTE SOLA, E NON HA PIU' DORMITO BENE DA ALLORA.",
+        "FAI BENE: TUO ZIO LESSE TUTTO IN UNA SOLA NOTTE, E DA ALLORA NON DORMI' PIU' BENE.",
+        "E' SAGGIO DA PARTE TUA. TUO ZIO LESSE TUTTO INSIEME, IN UNA NOTTE, E NON DORMI' PIU' COSI' BENE."
       ],
       "choices": [
         {
@@ -314,7 +287,7 @@
           "delta": -10
         },
         {
-          "label": "Forse è già troppo tardi.",
+          "label": "Forse e' gia' troppo tardi.",
           "next": "P1",
           "delta": 10
         },
@@ -333,7 +306,7 @@
       ],
       "choices": [
         {
-          "label": "Non fidarsi di nessuno è pericoloso.",
+          "label": "Non fidarsi di nessuno e' pericoloso.",
           "next": "P9",
           "delta": 5
         },
@@ -357,7 +330,7 @@
       ],
       "choices": [
         {
-          "label": "Quale teoria è quella giusta?",
+          "label": "Quale teoria e' quella giusta?",
           "next": "Q1",
           "delta": 10
         },
@@ -400,7 +373,7 @@
     "P3": {
       "variants": [
         "CENTINAIA DI PAGINE, TESTIMONI CONTRADDITTORI, ARMI MAI RITROVATE E UN CALIBRO CHE TORNA SEMPRE UGUALE.",
-        "CENTINAIA DI PAGINE, TESTIMONI CHE SI CONTRADDICONO E UN CALIBRO CHE TORNA IDENTICO OGNI VOLTA.",
+        "CENTINAIA DI PAGINE, TESTIMONI CHE SI CONTRADDICONO, E UN CALIBRO CHE TORNA IDENTICO OGNI VOLTA.",
         "PAGINE E PAGINE, TESTIMONI CHE NON CONCORDANO MAI, MA UN CALIBRO CHE NON CAMBIA MAI."
       ],
       "choices": [
@@ -458,7 +431,7 @@
           "delta": 5
         },
         {
-          "label": "Non finirò niente.",
+          "label": "Non finiro' niente.",
           "next": "Q7",
           "delta": 15
         },
@@ -471,7 +444,7 @@
     },
     "P6": {
       "variants": [
-        "NESSUNO LO SA DAVVERO E FORSE E' PROPRIO QUESTO A TENERMI VIVO COSI' A LUNGO.",
+        "NESSUNO LO SA DAVVERO, E FORSE E' PROPRIO QUESTO A TENERMI VIVO COSI' A LUNGO.",
         "FORSE E' PROPRIO IL NON SAPERE A TENERMI VIVO COSI' A LUNGO, PIU' DI QUALSIASI ALTRA COSA.",
         "E' IL NON SAPERE, PIU' DI TUTTO IL RESTO, A TENERMI VIVO DA COSI' TANTO TEMPO."
       ],
@@ -482,7 +455,7 @@
           "delta": 10
         },
         {
-          "label": "Prima o poi qualcuno saprà.",
+          "label": "Prima o poi qualcuno sapra'.",
           "next": "Q1",
           "delta": -10
         },
@@ -496,22 +469,23 @@
     "P7": {
       "variants": [
         "ASPETTANO CHE QUALCUNO SI FERMI ABBASTANZA A LUNGO DA ASCOLTARE IL SILENZIO TRA GLI ALBERI.",
+        "LE COLLINE ASPETTANO SOLO CHE QUALCUNO SI FERMI E ASCOLTI IL SILENZIO TRA GLI ALBERI.",
         "ASPETTANO SEMPLICEMENTE CHE QUALCUNO RESTI FERMO ABBASTANZA DA SENTIRE IL SILENZIO TRA GLI ALBERI.",
         "ALLA BOSCHETTA, VICINO VICCHIO, IL SILENZIO TRA GLI ALBERI HA UN SUONO PRECISO. AGLI SCOPETI, VICINO SAN CASCIANO, NE HA UN ALTRO, MA NON MENO PAZIENTE."
       ],
       "choices": [
         {
-          "label": "Mi fermerò ad ascoltare.",
+          "label": "Mi fermero' ad ascoltare.",
           "next": "Q3",
           "delta": -10
         },
         {
-          "label": "Non mi fermerò.",
+          "label": "Non mi fermero'.",
           "next": "Q6",
           "delta": 15
         },
         {
-          "label": "Cosa c'è nel silenzio?",
+          "label": "Cosa c'e' nel silenzio?",
           "next": "Q4",
           "delta": 5
         }
@@ -525,12 +499,12 @@
       ],
       "choices": [
         {
-          "label": "Perché hanno smesso?",
+          "label": "Perche' hanno smesso?",
           "next": "Q7",
           "delta": -10
         },
         {
-          "label": "Non chiamerò nessuno.",
+          "label": "Non chiamero' nessuno.",
           "next": "Q8",
           "delta": 15
         },
@@ -543,23 +517,24 @@
     },
     "P9": {
       "variants": [
-        "ASPETTANO TE, COME HANNO ASPETTATO LUI E COME ASPETTERANNO IL PROSSIMO DOPO DI TE.",
-        "TI STANNO ASPETTANDO COSI' COME HANNO ASPETTATO LUI E COSI' COME ASPETTERANNO CHI VERRA' DOPO.",
-        "SETTANTAQUATTRO A RABATTA. OTTANTUNO A SCANDICCI E CALENZANO. OTTANTADUE A BACCAIANO. OTTANTATRE A GIOGOLI. OTTANTAQUATTRO A VICCHIO. OTTANTACINQUE AGLI SCOPETI. OGNI ANNO HA GIA' IL SUO POSTO SULLA MAPPA E ASPETTA SOLO IL PROSSIMO."
+        "ASPETTANO TE, COME HANNO ASPETTATO LUI, E COME ASPETTERANNO IL PROSSIMO DOPO DI TE.",
+        "STANNO ASPETTANDO TE, ESATTAMENTE COME HANNO ASPETTATO LUI PRIMA DI TE.",
+        "TI STANNO ASPETTANDO, COSI' COME HANNO ASPETTATO LUI, E COSI' COME ASPETTERANNO CHI VERRA' DOPO.",
+        "SETTANTAQUATTRO A RABATTA. OTTANTUNO A SCANDICCI E CALENZANO. OTTANTADUE A BACCAIANO. OTTANTATRE A GIOGOLI. OTTANTAQUATTRO A VICCHIO. OTTANTACINQUE AGLI SCOPETI. OGNI ANNO HA GIA' IL SUO POSTO SULLA MAPPA, E ASPETTA SOLO IL PROSSIMO."
       ],
       "choices": [
         {
-          "label": "Non li farò aspettare.",
+          "label": "Non li faro' aspettare.",
           "next": "Q6",
           "delta": 15
         },
         {
-          "label": "Non ci andrò.",
+          "label": "Non ci andro'.",
           "next": "Q8",
           "delta": -10
         },
         {
-          "label": "Chi verrà dopo di me?",
+          "label": "Chi verra' dopo di me?",
           "next": "Q3",
           "delta": 5
         }
@@ -573,7 +548,7 @@
       ],
       "choices": [
         {
-          "label": "Quale è crollata per ultima?",
+          "label": "Quale e' crollata per ultima?",
           "next": "R1",
           "delta": 10
         },
@@ -597,7 +572,7 @@
       ],
       "choices": [
         {
-          "label": "Smetterò di cercare.",
+          "label": "Smettero' di cercare.",
           "next": "R2",
           "delta": -10
         },
@@ -626,7 +601,7 @@
           "delta": 10
         },
         {
-          "label": "Non voglio saperne di più.",
+          "label": "Non voglio saperne di piu'.",
           "next": "R5",
           "delta": -10
         },
@@ -655,7 +630,7 @@
           "delta": 10
         },
         {
-          "label": "Perché è così incerta?",
+          "label": "Perche' e' cosi' incerta?",
           "next": "R7",
           "delta": 5
         }
@@ -669,7 +644,7 @@
       ],
       "choices": [
         {
-          "label": "Non troverò nessun nome.",
+          "label": "Non trovero' nessun nome.",
           "next": "R1",
           "delta": -10
         },
@@ -679,7 +654,7 @@
           "delta": 10
         },
         {
-          "label": "Fammi provare.",
+          "label": "Fammi provare l'ultimo.",
           "next": "R8",
           "delta": 5
         }
@@ -693,7 +668,7 @@
       ],
       "choices": [
         {
-          "label": "Una firma di chi, però?",
+          "label": "Una firma di chi, pero'?",
           "next": "R5",
           "delta": 10
         },
@@ -703,7 +678,7 @@
           "delta": -10
         },
         {
-          "label": "Perché non è mai cambiata?",
+          "label": "Perche' non e' mai cambiata?",
           "next": "R2",
           "delta": 5
         }
@@ -717,7 +692,7 @@
       ],
       "choices": [
         {
-          "label": "Allora continuerò da qui.",
+          "label": "Allora continuero' da qui.",
           "next": "R6",
           "delta": 10
         },
@@ -727,7 +702,7 @@
           "delta": -10
         },
         {
-          "label": "Perché si è fermato proprio qui?",
+          "label": "Perche' si e' fermato proprio qui?",
           "next": "R8",
           "delta": 5
         }
@@ -741,7 +716,7 @@
       ],
       "choices": [
         {
-          "label": "Allora smetterò di chiedere.",
+          "label": "Allora smettero' di chiedere.",
           "next": "R7",
           "delta": -10
         },
@@ -765,7 +740,7 @@
       ],
       "choices": [
         {
-          "label": "Perché proprio resti umani?",
+          "label": "Perche' proprio resti umani?",
           "next": "S1",
           "delta": 10
         },
@@ -775,7 +750,7 @@
           "delta": -10
         },
         {
-          "label": "È crollata per sempre?",
+          "label": "E' crollata per sempre?",
           "next": "S3",
           "delta": 5
         }
@@ -789,7 +764,7 @@
       ],
       "choices": [
         {
-          "label": "Qual è l'ultima teoria?",
+          "label": "Qual e' l'ultima teoria?",
           "next": "S2",
           "delta": 5
         },
@@ -799,7 +774,7 @@
           "delta": -10
         },
         {
-          "label": "Perché nessuno l'ha scritta?",
+          "label": "Perche' nessuno l'ha scritta?",
           "next": "S5",
           "delta": 10
         }
@@ -823,7 +798,7 @@
           "delta": -10
         },
         {
-          "label": "Di chi è la firma, davvero?",
+          "label": "Di chi e' la firma, davvero?",
           "next": "S6",
           "delta": 10
         }
@@ -837,17 +812,17 @@
       ],
       "choices": [
         {
-          "label": "Le farò io, allora.",
+          "label": "Le faro' io, allora.",
           "next": "S4",
           "delta": 10
         },
         {
-          "label": "Non le farò nemmeno io.",
+          "label": "Non le faro' nemmeno io.",
           "next": "S6",
           "delta": -10
         },
         {
-          "label": "Perché hanno smesso di cercare?",
+          "label": "Perche' hanno smesso di cercare?",
           "next": "S7",
           "delta": 5
         }
@@ -866,7 +841,7 @@
           "delta": 10
         },
         {
-          "label": "Io smetterò di pensarci.",
+          "label": "Io smettero' di pensarci.",
           "next": "S7",
           "delta": -10
         },
@@ -890,7 +865,7 @@
           "delta": 10
         },
         {
-          "label": "Non è la mia.",
+          "label": "Non e' la mia.",
           "next": "S8",
           "delta": -10
         },
@@ -933,12 +908,12 @@
       ],
       "choices": [
         {
-          "label": "Perché avrebbe scritto il suo nome?",
+          "label": "Perche' avrebbe scritto il suo nome?",
           "next": "S7",
           "delta": 10
         },
         {
-          "label": "Non scriverò il mio.",
+          "label": "Non scrivero' il mio.",
           "next": "S3",
           "delta": -10
         },
@@ -962,7 +937,7 @@
           "delta": 10
         },
         {
-          "label": "Non voglio saperne di più.",
+          "label": "Non voglio saperne di piu'.",
           "next": "E2",
           "delta": -10
         },
@@ -975,18 +950,18 @@
     },
     "S2": {
       "variants": [
-        "NON DEVI CREDERCI. DEVI SOLO CONTINUARE A SCRIVERE E LA RISPOSTA ARRIVA DA SOLA, PIANO.",
-        "NON SERVE CHE TU CI CREDA SUBITO: CONTINUA A SCRIVERE, E LA RISPOSTA ARRIVERA' DA SOLA.",
-        "NON DEVI CREDERCI ORA. BASTA CHE CONTINUI A SCRIVERE: LA RISPOSTA ARRIVA SEMPRE, PIANO PIANO."
+        "NON DEVI CREDERCI. DEVI SOLO CONTINUARE A SCRIVERE, E LA CREDENZA ARRIVA DA SOLA, PIANO.",
+        "NON SERVE CHE TU CI CREDA SUBITO: CONTINUA A SCRIVERE, E LA CREDENZA ARRIVERA' DA SOLA.",
+        "NON DEVI CREDERCI ORA. BASTA CHE CONTINUI A SCRIVERE: LA CREDENZA ARRIVA SEMPRE, PIANO PIANO."
       ],
       "choices": [
         {
-          "label": "Continuerò a scrivere, allora.",
+          "label": "Continuero' a scrivere, allora.",
           "next": "E4",
           "delta": 10
         },
         {
-          "label": "Non scriverò piu' niente.",
+          "label": "Non scrivero' piu' niente.",
           "next": "E5",
           "delta": -10
         },
@@ -1010,7 +985,7 @@
           "delta": 10
         },
         {
-          "label": "Non la riscriverò io.",
+          "label": "Non la riscrivero' io.",
           "next": "E2",
           "delta": -10
         },
@@ -1034,12 +1009,12 @@
           "delta": 10
         },
         {
-          "label": "Lo passerò a qualcun altro.",
+          "label": "Lo passero' a qualcun altro.",
           "next": "E9",
           "delta": -10
         },
         {
-          "label": "Quante mani l'hanno già tenuto?",
+          "label": "Quante mani l'hanno gia' tenuto?",
           "next": "E4",
           "delta": 5
         }
@@ -1047,13 +1022,13 @@
     },
     "S5": {
       "variants": [
-        "NESSUNO L'HA SCRITTA PERCHE' SCRIVERLA SIGNIFICA FIRMARLA E FIRMARLA SIGNIFICA DIVENTARNE PARTE.",
-        "SCRIVERLA VUOL DIRE FIRMARLA E FIRMARLA VUOL DIRE DIVENTARNE PARTE: PER QUESTO NESSUNO L'HA MAI FATTO.",
-        "NESSUNO OSA SCRIVERLA PERCHE' SCRIVERLA E' FIRMARLA E FIRMARLA SIGNIFICA FARNE GIA' PARTE."
+        "NESSUNO L'HA SCRITTA PERCHE' SCRIVERLA SIGNIFICA FIRMARLA, E FIRMARLA SIGNIFICA DIVENTARNE PARTE.",
+        "SCRIVERLA VUOL DIRE FIRMARLA, E FIRMARLA VUOL DIRE DIVENTARNE PARTE: PER QUESTO NESSUNO L'HA MAI FATTO.",
+        "NESSUNO OSA SCRIVERLA PERCHE' SCRIVERLA E' FIRMARLA, E FIRMARLA SIGNIFICA FARNE GIA' PARTE."
       ],
       "choices": [
         {
-          "label": "Allora la firmerò io.",
+          "label": "Allora la firmero' io.",
           "next": "E10",
           "delta": 10
         },
@@ -1077,12 +1052,12 @@
       ],
       "choices": [
         {
-          "label": "Ho smesso di chiedermelo.",
+          "label": "Ho smesso di chiedermelo anch'io.",
           "next": "E12",
           "delta": -10
         },
         {
-          "label": "Me lo chiederò sempre.",
+          "label": "Me lo chiedero' sempre.",
           "next": "E9",
           "delta": 10
         },
@@ -1120,8 +1095,8 @@
     "S8": {
       "variants": [
         "GLI ALTRI SONO SOLO NOMI IN UN ELENCO CHE SI ALLUNGA OGNI ANNO DI UN NOME IN PIU', MAI DI MENO.",
-        "SONO SOLO NOMI SU UN ELENCO CHE CRESCE DI UN NOME OGNI ANNO E NON SI ACCORCIA MAI.",
-        "GLI ALTRI SONO NOMI SU UNA LISTA CHE OGNI ANNO SI ALLUNGA DI UNO E NON SI RIDUCE MAI."
+        "SONO SOLO NOMI SU UN ELENCO CHE CRESCE DI UN NOME OGNI ANNO, E NON SI ACCORCIA MAI.",
+        "GLI ALTRI SONO NOMI SU UNA LISTA CHE OGNI ANNO SI ALLUNGA DI UNO, E NON SI RIDUCE MAI."
       ],
       "choices": [
         {
@@ -1144,42 +1119,42 @@
     "E1": {
       "isEnding": true,
       "title": "IL CORPO CHE PARLA",
-      "text": "Chiedi chi credesse davvero che un corpo potesse ancora parlare e il registratore risponde con un lungo fruscio, poi un nome che non è un nome ma un numero di protocollo, letto con la stessa voce con cui tuo zio leggeva ad alta voce i verbali, la sera, prima di cena. Capisci che quel fruscio non si fermerà finché qualcuno non risponderà al protocollo al posto tuo."
+      "text": "Chiedi chi credesse davvero che un corpo potesse ancora parlare, e il registratore risponde con un lungo fruscio, poi un nome che non è un nome ma un numero di protocollo, letto con la stessa voce con cui tuo zio leggeva ad alta voce i verbali, la sera, prima di cena. Capisci che quel fruscio non si fermerà finché qualcuno non risponderà al protocollo al posto tuo."
     },
     "E2": {
       "isEnding": true,
       "title": "NIENTE ALTRO DA SAPERE",
-      "text": "Dici di non voler sapere altro e per una volta il registratore ti asseconda, tacendo. Ma il fascicolo, sul tavolo, resta aperto esattamente alla pagina che stavi per chiedere, ogni mattina, indipendentemente da quante volte tu lo richiuda la sera prima."
+      "text": "Dici di non voler sapere altro, e per una volta il registratore ti asseconda, tacendo. Ma il fascicolo, sul tavolo, resta aperto esattamente alla pagina che stavi per chiedere, ogni mattina, indipendentemente da quante volte tu lo richiuda la sera prima."
     },
     "E3": {
       "isEnding": true,
       "title": "IL CORPO NON PARLA",
-      "text": "Chiedi se un corpo abbia mai davvero parlato e la risposta arriva sotto forma di silenzio totale, lungo minuti interi, prima che il nastro riparta da solo, sempre dallo stesso punto, come se la domanda in sé fosse già stata la risposta che cercavi."
+      "text": "Chiedi se un corpo abbia mai davvero parlato, e la risposta arriva sotto forma di silenzio totale, lungo minuti interi, prima che il nastro riparta da solo, sempre dallo stesso punto, come se la domanda in sé fosse già stata la risposta che cercavi."
     },
     "E4": {
       "isEnding": true,
       "title": "SI SCRIVE DA SOLO",
-      "text": "Decidi di continuare a scrivere, senza crederci ancora del tutto e la credenza arriva esattamente come promesso: piano, notte dopo notte, finché un mattino ti accorgi che la penna si muove un istante prima che tu decida cosa scrivere, non dopo."
+      "text": "Decidi di continuare a scrivere, senza crederci ancora del tutto, e la credenza arriva esattamente come promesso: piano, notte dopo notte, finché un mattino ti accorgi che la penna si muove un istante prima che tu decida cosa scrivere, non dopo."
     },
     "E5": {
       "isEnding": true,
       "title": "NESSUNA RIGA IN PIU'",
-      "text": "Smetti di scrivere, fermamente e per settimane non succede nulla. Poi, una notte, trovi il fascicolo con una pagina nuova, nella tua stessa grafia, che racconta esattamente cosa hai fatto ogni giorno di quelle settimane, minuto per minuto, con un dettaglio che tu stesso non ricordavi di aver notato."
+      "text": "Smetti di scrivere, fermamente, e per settimane non succede nulla. Poi, una notte, trovi il fascicolo con una pagina nuova, nella tua stessa grafia, che racconta esattamente cosa hai fatto ogni giorno di quelle settimane, minuto per minuto, con un dettaglio che tu stesso non ricordavi di aver notato."
     },
     "E6": {
       "isEnding": true,
       "title": "LA RISCRIVI TU",
-      "text": "Ammetti che forse sei tu, adesso, a riscrivere la teoria ogni notte e nel momento in cui lo dici ad alta voce senti una specie di sollievo, come una tensione che si scioglie in una stanza che credevi vuota da anni."
+      "text": "Ammetti che forse sei tu, adesso, a riscrivere la teoria ogni notte, e nel momento in cui lo dici ad alta voce senti una specie di sollievo, come una tensione che si scioglie in una stanza che credevi vuota da anni."
     },
     "E7": {
       "isEnding": true,
       "title": "GLI ALTRI CHE RISCRIVONO",
-      "text": "Chiedi chi altro riscriva la teoria oltre a te e il registratore ti restituisce, una dopo l'altra, decine di voci diverse che dicono le tue stesse identiche parole, in accenti diversi, in decenni diversi, come un coro che non ha mai smesso di provare la stessa canzone."
+      "text": "Chiedi chi altro riscriva la teoria oltre a te, e il registratore ti restituisce, una dopo l'altra, decine di voci diverse che dicono le tue stesse identiche parole, in accenti diversi, in decenni diversi, come un coro che non ha mai smesso di provare la stessa canzone."
     },
     "E8": {
       "isEnding": true,
       "title": "IL FASCICOLO E' TUO ORA",
-      "text": "Decidi di tenere il fascicolo, per sempre se necessario e nel momento in cui lo dici il registratore emette un piccolo scatto, quasi un sospiro di sollievo meccanico. Da quella notte, quando qualcuno ti chiede a cosa stai lavorando, la tua voce risponde da sola, con parole che riconosci solo a metà."
+      "text": "Decidi di tenere il fascicolo, per sempre se necessario, e nel momento in cui lo dici il registratore emette un piccolo scatto, quasi un sospiro di sollievo meccanico. Da quella notte, quando qualcuno ti chiede a cosa stai lavorando, la tua voce risponde da sola, con parole che riconosci solo a metà."
     },
     "E9": {
       "isEnding": true,
@@ -1189,49 +1164,49 @@
     "E10": {
       "isEnding": true,
       "title": "LA FIRMA E' MIA, ORA",
-      "text": "Firmi la teoria con il tuo nome, per la prima volta e il gesto ti sembra quasi liberatorio. Solo dopo ti accorgi che la firma, sulla pagina, non è del tutto la tua: le lettere sono giuste, ma il tratto, quello, non lo riconosci come tuo da almeno un paio di settimane."
+      "text": "Firmi la teoria con il tuo nome, per la prima volta, e il gesto ti sembra quasi liberatorio. Solo dopo ti accorgi che la firma, sulla pagina, non è del tutto la tua: le lettere sono giuste, ma il tratto, quello, non lo riconosci come tuo da almeno un paio di settimane."
     },
     "E11": {
       "isEnding": true,
       "title": "COSA SUCCEDE A CHI FIRMA",
-      "text": "Chiedi cosa succeda a chi firma e la risposta arriva sotto forma di uno specchio improvvisamente più freddo al tatto, per un istante, mentre il tuo riflesso finisce di annuire un momento dopo che tu hai smesso di farlo."
+      "text": "Chiedi cosa succeda a chi firma, e la risposta arriva sotto forma di uno specchio improvvisamente più freddo al tatto, per un istante, mentre il tuo riflesso finisce di annuire un momento dopo che tu hai smesso di farlo."
     },
     "E12": {
       "isEnding": true,
       "title": "NON ME LO CHIEDO PIU'",
-      "text": "Ammetti di aver smesso di chiederti se la mano che scrive sia ancora la tua e nel dirlo senti, per la prima volta da mesi, una specie di calma innaturale. Chi ti conosce nota solo che sei più tranquillo, ultimamente e nessuno si chiede mai perché."
+      "text": "Ammetti di aver smesso di chiederti se la mano che scrive sia ancora la tua, e nel dirlo senti, per la prima volta da mesi, una specie di calma innaturale. Chi ti conosce nota solo che sei più tranquillo, ultimamente, e nessuno si chiede mai perché."
     },
     "E13": {
       "isEnding": true,
       "title": "QUELLO CHE SI PERDEREBBE",
-      "text": "Chiedi cosa si perderebbe trovando una risposta vera e il registratore ti mostra, invece di dirtelo, tutte le notti che hai passato a cercare: tolta la ricerca, capisci con un vuoto improvviso, non resterebbe molto altro della tua vita di adesso."
+      "text": "Chiedi cosa si perderebbe trovando una risposta vera, e il registratore ti mostra, invece di dirtelo, tutte le notti che hai passato a cercare: tolta la ricerca, capisci con un vuoto improvviso, non resterebbe molto altro della tua vita di adesso."
     },
     "E14": {
       "isEnding": true,
       "title": "VOGLIO UNA RISPOSTA",
-      "text": "Insisti per avere una risposta vera, qualunque essa sia e il nastro finalmente rallenta fino quasi a fermarsi. Quando ripete la domanda con cui tutto è iniziato stasera, la tua stessa voce, registrata da qualche parte che non ricordi, risponde al posto tuo, con una certezza che tu non hai mai avuto."
+      "text": "Insisti per avere una risposta vera, qualunque essa sia, e il nastro finalmente rallenta fino quasi a fermarsi. Quando ripete la domanda con cui tutto è iniziato stasera, la tua stessa voce, registrata da qualche parte che non ricordi, risponde al posto tuo, con una certezza che tu non hai mai avuto."
     },
     "E15": {
       "isEnding": true,
       "title": "AGGIUNGIMI ALLA LISTA",
-      "text": "Chiedi di essere aggiunto alla lista e il registratore lo fa immediatamente, con un piccolo suono simile a una penna che gratta la carta. Da quella notte, ogni volta che qualcuno pronuncia il tuo nome ad alta voce, in una stanza diversa dalla tua, tu lo senti, distintamente, come un'eco in ritardo."
+      "text": "Chiedi di essere aggiunto alla lista, e il registratore lo fa immediatamente, con un piccolo suono simile a una penna che gratta la carta. Da quella notte, ogni volta che qualcuno pronuncia il tuo nome ad alta voce, in una stanza diversa dalla tua, tu lo senti, distintamente, come un'eco in ritardo."
     },
     "E16": {
       "isEnding": true,
       "title": "NON VOGLIO ESSERE NELLA LISTA",
-      "text": "Rifiuti con fermezza di essere aggiunto alla lista e per una notte intera sembra funzionare. Poi, al mattino, trovi il tuo nome già scritto in cima a una nuova pagina, con la data di oggi, come se il fascicolo avesse semplicemente aspettato che tu finissi di rifiutarti prima di procedere comunque."
+      "text": "Rifiuti con fermezza di essere aggiunto alla lista, e per una notte intera sembra funzionare. Poi, al mattino, trovi il tuo nome già scritto in cima a una nuova pagina, con la data di oggi, come se il fascicolo avesse semplicemente aspettato che tu finissi di rifiutarti prima di procedere comunque."
     },
     "CORRUPT1": {
       "aggressive": true,
       "progressLabel": "INTERFERENZA CRITICA — IL FASCICOLO NON PERDONA CHI LEGGE MALE",
       "variants": [
-        "BASTA COSI'. HAI SBAGLIATO A LEGGERE TROPPE VOLTE E IL FASCICOLO NON PERDONA CHI NON SA LEGGERE.",
+        "BASTA COSI'. HAI SBAGLIATO A LEGGERE TROPPE VOLTE, E IL FASCICOLO NON PERDONA CHI LEGGE MALE.",
         "NON C'E' PIU' PAZIENZA PER I TUOI ERRORI DI LETTURA. IL FASCICOLO NON PERDONA CHI SBAGLIA COSI' SPESSO.",
         "BASTA ERRORI DI LETTURA. IL FASCICOLO NON HA MAI PERDONATO CHI LEGGE MALE PER TROPPO TEMPO."
       ],
       "choices": [
         {
-          "label": "Leggerò con piu' attenzione.",
+          "label": "Leggero' con piu' attenzione.",
           "next": "G1",
           "delta": -10
         },
@@ -1255,7 +1230,7 @@
     "G2": {
       "isEnding": true,
       "title": "IL FASCICOLO DECIDE",
-      "text": "Neghi che il fascicolo possa decidere alcunché e mentre lo dici tutte le luci di casa si abbassano insieme, di un livello soltanto, come se qualcosa, da qualche parte, avesse appena preso nota della tua obiezione."
+      "text": "Neghi che il fascicolo possa decidere alcunché, e mentre lo dici tutte le luci di casa si abbassano insieme, di un livello soltanto, come se qualcosa, da qualche parte, avesse appena preso nota della tua obiezione."
     },
     "G3": {
       "isEnding": true,

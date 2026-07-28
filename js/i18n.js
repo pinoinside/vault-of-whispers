@@ -13,7 +13,7 @@ window.I18N = (function(){
   function get(key, vars){
     const value = resolve(key);
     if(typeof value !== 'string'){
-      // Nessuna traduzione trovata: mostra la chiave stessa, così l'errore è visibile e non silenzioso.
+      // Nessuna traduzione trovata: mostra la chiave stessa, cosi' l'errore e' visibile e non silenzioso.
       return value === undefined ? key : value;
     }
     if(!vars) return value;

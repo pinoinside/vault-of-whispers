@@ -1,10 +1,12 @@
 {
     "title": "LA SPOSA",
     "tagline": "una voce antica domanda ancora sepoltura",
+    "language": "old it",
+    "author": "A. Pinucci",
     "totalStages": 5,
     "startNode": "root",
     "corruptNode": "CORRUPT1",
-    "symbols": ["☠","☣","☢","☯","⚛","⚗","⚜","🜊","⚔","⚖","⚙","⚠","☮","☤","⚕","⚰","⚱","⛧","⚹","⚥","☍","☄","☾","☉","⛓","⛏","⚒","⚑","⚘","☊","🜁","🜃","🜔","🜘","🜛"],
+    "symbolSet": "occulto",
     "nodes": {
         "root": {
             "variants": [
